@@ -1,0 +1,23 @@
+{
+  "Id": "NuclearBatteries",
+  "DisplayName": "Nuclear Batteries",
+  "Author": "Metious & Foreverwing",
+  "Version": "1.1.1.1",
+  "Dependencies": [
+    "SMLHelper",
+    "CustomBatteries"
+  ],
+  "VersionDependencies": {
+    "SMLHelper": "2.9",
+    "CustomBatteries": "1.1"
+  },
+  "Game": "Subnautica",
+  "NexusId": {
+    "Subnautica": "573"
+  },
+  "AssemblyName": "NuclearBatteries.dll",
+  "VersionChecker": {
+    "LatestVersionURL": "https://github.com/Metious/SubnauticaMods/raw/main/NuclearBatteries/mod.json"
+  },
+  "Enable": true
+}
