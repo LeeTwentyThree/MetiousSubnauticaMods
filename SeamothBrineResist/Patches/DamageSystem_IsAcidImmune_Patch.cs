@@ -11,8 +11,11 @@ namespace SeamothBrineResist.Patches
         public static bool Prefix(ref GameObject go, ref bool __result)
         {
             TechType techType = CraftData.GetTechType(go);
+            // make a variable and store the Damage.acidImmune content into a List
             var acidImmune = DamageSystem.acidImmune == null ? new List<TechType>() : DamageSystem.acidImmune.ToList();
+            // if the list doesn't have TechType.Seamoth
             if (!acidImmune.Contains(TechType.Seamoth))
+                // Add TechType.Seamoth to the list
                 acidImmune.Add(TechType.Seamoth);
             if (techType != TechType.None)
             {
@@ -23,7 +26,7 @@ namespace SeamothBrineResist.Patches
                         __result = true;
                         return false;
                     }
-                    DamageSystem.acidImmune = acidImmune.ToArray();
+                    DamageSystem.acidImmune = acidImmune.ToArray(); // Adding our list content into the original Array
                 }
             }
             __result = false;
