@@ -1,0 +1,9 @@
+{
+    "Id": "SeamothBrineResist",
+    "DisplayName": "Seamoth Brine Resist",
+    "Author": "Metious",
+    "Version": "1.0.0",
+    "Game": "Subnautica",
+    "AssemblyName": "SeamothBrineResist.dll",
+    "Enable": true
+}
