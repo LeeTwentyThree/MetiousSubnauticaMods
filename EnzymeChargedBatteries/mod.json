@@ -1,0 +1,23 @@
+{
+  "Id": "EnzymeChargedBatteries",
+  "DisplayName": "Enzyme-Charged Batteries",
+  "Author": "Originally Created By Seraphim - rewritten by Metious",
+  "Version": "1.0.2.1",
+  "Dependencies": [
+    "SMLHelper",
+    "CustomBatteries"
+  ],
+  "VersionDependencies": {
+    "SMLHelper": "2.9",
+    "CustomBatteries": "1.1"
+  },
+  "Game": "Subnautica",
+  "NexusId": {
+    "Subnautica": "584"
+  },
+  "VersionChecker": {
+    "LatestVersionURL": "https://github.com/Metious/EnzymeChargedBatteries/raw/master/EnzymeChargedBatteries/mod.json"
+  },
+  "AssemblyName": "EnzymeChargedBatteries.dll",
+  "Enable": true
+}
