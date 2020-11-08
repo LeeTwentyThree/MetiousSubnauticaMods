@@ -17,7 +17,7 @@
   },
   "AssemblyName": "NuclearBatteries.dll",
   "VersionChecker": {
-    "LatestVersionURL": "https://github.com/Metious/SubnauticaMods/raw/main/NuclearBatteries/mod.json"
+    "LatestVersionURL": "https://github.com/Metious/MetiousSubnauticaMods/raw/master/NuclearBatteries/mod.json"
   },
   "Enable": true
 }
