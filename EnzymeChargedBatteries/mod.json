@@ -16,7 +16,7 @@
     "Subnautica": "584"
   },
   "VersionChecker": {
-    "LatestVersionURL": "https://github.com/Metious/EnzymeChargedBatteries/raw/master/EnzymeChargedBatteries/mod.json"
+    "LatestVersionURL": "https://github.com/Metious/MetiousSubnauticaMods/raw/master/EnzymeChargedBatteries/mod.json"
   },
   "AssemblyName": "EnzymeChargedBatteries.dll",
   "Enable": true
