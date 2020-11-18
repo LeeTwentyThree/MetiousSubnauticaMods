@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnzymeChargedBatteries", "E
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{D96A3281-1EC6-4D39-B766-7C1A6C6885D7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RockGrubPickupable", "RockGrubPickupable\RockGrubPickupable.csproj", "{1552F375-6D61-4C0D-AB29-64781192D583}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{D96A3281-1EC6-4D39-B766-7C1A6C6885D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D96A3281-1EC6-4D39-B766-7C1A6C6885D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D96A3281-1EC6-4D39-B766-7C1A6C6885D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1552F375-6D61-4C0D-AB29-64781192D583}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1552F375-6D61-4C0D-AB29-64781192D583}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1552F375-6D61-4C0D-AB29-64781192D583}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1552F375-6D61-4C0D-AB29-64781192D583}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
