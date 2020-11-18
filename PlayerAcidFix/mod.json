@@ -1,0 +1,12 @@
+{
+    "Id": "PlayerAcidFix",
+    "DisplayName": "Player Acid Fix",
+    "Author": "Metious",
+    "Version": "1.0.0",
+    "Game": "Subnautica",
+    "NexusId": {
+    "Subnautica": "596"
+  },
+    "AssemblyName": "PlayerAcidFix.dll",
+    "Enable": true
+}
