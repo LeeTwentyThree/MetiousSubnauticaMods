@@ -10,6 +10,9 @@
     "NexusId": {
       "Subnautica": "598"
     },
+    "VersionChecker": {
+    "LatestVersionURL": "https://github.com/Metious/MetiousSubnauticaMods/raw/master/NuclearBatteries/mod.json"
+    },
     "AssemblyName": "ImprovedRockGrub.dll",
     "Enable": true
 }
