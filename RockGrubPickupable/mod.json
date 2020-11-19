@@ -1,0 +1,15 @@
+{
+    "Id": "RockGrubPickupable",
+    "DisplayName": "RockGrub Pickupable",
+    "Author": "Metious",
+    "Version": "1.0.0",
+    "Dependencies": [
+        "SMLHelper"
+      ],
+    "Game": "Subnautica",
+    "NexusId": {
+      "Subnautica": "598"
+    },
+    "AssemblyName": "ImprovedRockGrub.dll",
+    "Enable": true
+}
