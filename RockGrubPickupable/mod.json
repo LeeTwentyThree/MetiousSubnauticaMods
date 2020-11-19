@@ -11,7 +11,7 @@
       "Subnautica": "598"
     },
     "VersionChecker": {
-    "LatestVersionURL": "https://github.com/Metious/MetiousSubnauticaMods/raw/master/NuclearBatteries/mod.json"
+    "LatestVersionURL": "https://github.com/Metious/MetiousSubnauticaMods/raw/master/RockGrubPickupable/mod.json"
     },
     "AssemblyName": "ImprovedRockGrub.dll",
     "Enable": true
