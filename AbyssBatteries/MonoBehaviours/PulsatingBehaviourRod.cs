@@ -4,6 +4,7 @@ namespace AbyssBatteries.MonoBehaviours
 {
     internal class PulsatingBehaviourRod : MonoBehaviour
     {
+        // this MonoBehaviour is also yoinked from MrPurple6411 but with some tweaking to make it work for the reactor rod
         Renderer[] renderers;
 
         private float currentStrength = 0;
