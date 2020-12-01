@@ -6,6 +6,7 @@ using static EnergyMixin;
 
 namespace AbyssBatteries.Patches
 {
+    // yoinked from MrPurple6411
     [HarmonyPatch(typeof(EnergyMixin), nameof(EnergyMixin.NotifyHasBattery))]
     public static class EnergyMixin_NotifyHasBattery_Patch
     {
