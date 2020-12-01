@@ -6,6 +6,7 @@ using static Charger;
 
 namespace AbyssBatteries.Patches
 {
+    // yoinked from MrPurple6411
     [HarmonyPatch(typeof(Charger), nameof(Charger.OnEquip))]
     internal static class Charger_OnEquip_Patch
     {
