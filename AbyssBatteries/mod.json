@@ -1,0 +1,18 @@
+{
+  "Id": "AbyssBatteries",
+  "DisplayName": "Abyss Batteries",
+  "Author": "Metious",
+  "Version": "0.0.0.7",
+  "Dependencies": [
+    "SMLHelper"
+  ],
+  "VersionDependencies": {
+    "SMLHelper": "2.9"
+  },
+  "Game": "Subnautica",
+  "NexusId": {
+    "Subnautica": "583"
+  },
+  "AssemblyName": "AbyssBatteries.dll",
+  "Enable": true
+}
