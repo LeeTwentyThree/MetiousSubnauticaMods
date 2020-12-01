@@ -4,6 +4,7 @@ namespace AbyssBatteries.MonoBehaviours
 {
     internal class PulsatingBehaviour : MonoBehaviour
     {
+        // this monobehaviour is yoinked from MrPurple6411.
         Renderer renderer;
 
         private float currentStrength = 0;
