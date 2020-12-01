@@ -39,6 +39,7 @@ namespace AbyssBatteries.Patches
                 #endregion
                 if (Language.main.currentLanguage == "English")
                 {
+                    // replacing this things with the GhostLeviathan's ency description
                     Language.main.strings[key] = intro + firstPart + secondPart + thirdPart + fourthPart + fifthPart + outro;
                 }
             }
@@ -66,6 +67,7 @@ namespace AbyssBatteries.Patches
                 #endregion
                 if (Language.main.currentLanguage == "English")
                 {
+                    // replacing this things with the GhostLeviathanJuvenile's ency description
                     Language.main.strings[key] = intro + firstPart + secondPart + thirdPart + outro;
                 }
             }
