@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlayerAcidFix", "PlayerAcid
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RockGrubPickupable", "RockGrubPickupable\RockGrubPickupable.csproj", "{5CB97328-2218-4AE9-B8E3-CD3D9EB2D8FB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AbyssBatteries", "AbyssBatteries\AbyssBatteries.csproj", "{6869AF5B-2938-4165-90A5-CF47BCB8625F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{5CB97328-2218-4AE9-B8E3-CD3D9EB2D8FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5CB97328-2218-4AE9-B8E3-CD3D9EB2D8FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5CB97328-2218-4AE9-B8E3-CD3D9EB2D8FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6869AF5B-2938-4165-90A5-CF47BCB8625F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6869AF5B-2938-4165-90A5-CF47BCB8625F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6869AF5B-2938-4165-90A5-CF47BCB8625F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6869AF5B-2938-4165-90A5-CF47BCB8625F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
