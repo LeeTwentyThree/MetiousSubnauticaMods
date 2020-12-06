@@ -49,9 +49,6 @@ namespace SeamothBrineResist.Modules
                 },
             };
         }
-        protected override Atlas.Sprite GetItemSprite()
-        {
-            return SpriteManager.Get(TechType.SeamothSolarCharge);
-        }
+        public override string AssetsFolder { get; } = Main.AssetsFolder;
     }
 }
