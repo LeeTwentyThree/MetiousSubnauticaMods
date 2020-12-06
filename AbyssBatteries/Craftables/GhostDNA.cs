@@ -95,7 +95,7 @@ namespace AbyssBatteries.Craftables
                     renderer.material.SetFloat("_GlowStrength", 1.5f);
                 }
                 #region nuclear_reactor_rod_glass
-                else if(renderer.name == "nuclear_reactor_rod_glass")
+                else if (renderer.name == "nuclear_reactor_rod_glass")
                 {
                     renderer.material = glass;
                     renderer.sharedMaterial.SetColor("_Color", new Color(1f, 1f, 1f, 0.87f));

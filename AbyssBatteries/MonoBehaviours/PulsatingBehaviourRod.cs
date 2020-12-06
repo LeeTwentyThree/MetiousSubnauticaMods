@@ -2,6 +2,7 @@
 
 namespace AbyssBatteries.MonoBehaviours
 {
+    // this one is also yoinked from MrPurple6411, but i changed a bit so it can work for the Reactor Rod
     internal class PulsatingBehaviourRod : MonoBehaviour
     {
         Renderer[] renderers;
@@ -17,7 +18,7 @@ namespace AbyssBatteries.MonoBehaviours
         public void Update()
         {
             timer += Time.deltaTime;
-            if(timer > changeTime)
+            if (timer > changeTime)
             {
                 currentStrength = nextStrength;
                 nextStrength = currentStrength == 2.5f ? 0 : 2.5f;

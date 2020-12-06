@@ -1,5 +1,4 @@
-﻿using AbyssBatteries;
-using System.Reflection;
+﻿using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
@@ -21,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("e4665a00-28b3-40db-87e6-a05c0a807b63")]
+[assembly: Guid("6869af5b-2938-4165-90a5-cf47bcb8625f")]
 
 // Version information for an assembly consists of the following four values:
 //
@@ -33,5 +32,5 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion(Main.version)]
-[assembly: AssemblyFileVersion(Main.version)]
+[assembly: AssemblyVersion("1.0.0.0")]
+[assembly: AssemblyFileVersion("1.0.0.0")]

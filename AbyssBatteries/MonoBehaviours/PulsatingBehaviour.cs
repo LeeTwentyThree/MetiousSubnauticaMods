@@ -2,6 +2,7 @@
 
 namespace AbyssBatteries.MonoBehaviours
 {
+    // this Mono Behaviour is yoinked from MrPurple6411
     internal class PulsatingBehaviour : MonoBehaviour
     {
         Renderer renderer;
@@ -17,15 +18,15 @@ namespace AbyssBatteries.MonoBehaviours
         public void Update()
         {
             timer += Time.deltaTime;
-            if(timer > changeTime)
+            if (timer > changeTime)
             {
                 currentStrength = nextStrength;
                 nextStrength = currentStrength == 2 ? 0 : 2;
                 timer = 0.0f;
             }
-            if(renderer != null)
+            if (renderer != null)
             {
-                renderer.material.SetFloat(ShaderPropertyID._GlowStrength ,Mathf.Lerp(currentStrength, nextStrength, timer / changeTime));
+                renderer.material.SetFloat(ShaderPropertyID._GlowStrength, Mathf.Lerp(currentStrength, nextStrength, timer / changeTime));
                 renderer.material.SetFloat(ShaderPropertyID._GlowStrengthNight, Mathf.Lerp(currentStrength, nextStrength, timer / changeTime));
             }
         }

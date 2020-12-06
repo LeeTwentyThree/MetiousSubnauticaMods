@@ -6,6 +6,7 @@ using static Charger;
 
 namespace AbyssBatteries.Patches
 {
+    // this patch is yoinked from MrPurple6411
     [HarmonyPatch(typeof(Charger), nameof(Charger.OnEquip))]
     internal static class Charger_OnEquip_Patch
     {
@@ -18,11 +19,11 @@ namespace AbyssBatteries.Patches
                 Pickupable pickupable = item?.item;
                 if (battery != null && pickupable != null && Main.abyssBatteries.Contains(pickupable.GetTechType()))
                 {
-                    battery.EnsureComponent<PulsatingBehaviour>();
+                    battery.EnsureComponent<PulsatingBehaviour>(); // Ensure the Pulsating Behaviour when the battery is in a charger
                 }
                 else if (battery != null && battery.TryGetComponent(out PulsatingBehaviour pulsatingBehaviour))
                 {
-                    GameObject.Destroy(pulsatingBehaviour);
+                    GameObject.Destroy(pulsatingBehaviour); 
                 }
             }
         }

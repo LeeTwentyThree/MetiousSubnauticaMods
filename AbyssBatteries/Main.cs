@@ -31,8 +31,8 @@ namespace AbyssBatteries
         public const string AbyssBatteryTab = "aBatteryTab";
         public const string AbyssPowCellTab = "aPowCell";
         public const string AbyssResourcesTab = "AbyssResources";
-        #endregion  
-        
+        #endregion
+
         #region static Batteries
         public static List<TechType> abyssBatteries = new List<TechType>();
 
@@ -204,7 +204,7 @@ namespace AbyssBatteries
         }
         #endregion
 
-        
+
         [QModPatch]
         public static void Load()
         {
@@ -298,7 +298,7 @@ namespace AbyssBatteries
                 Name = "High Voltage Electro-Magnetic Battery",
                 FlavorText = "This Battery combines the Ampeel's tremendous bioelectric capacity with the complex EMP organ of the CrabSquid, harnessing the resulting energy and sorting it into a single, portable, rrechargeable source",
                 CraftingMaterials = Config.Complement ? complementAmpSquidBattery : nonComplementAmpSquidattery,
-                UnlocksWith = TechType.Gold,
+                UnlocksWith = Config.Complement ? TechType.CopperWire : TechType.Gold,
                 //CustomIcon = ImageUtils.LoadSpriteFromFile(Path.Combine(AssetsFolder, "AmpSquidBattery.png")),
                 AddToFabricator = false,
                 CBModelData = new CBModelData

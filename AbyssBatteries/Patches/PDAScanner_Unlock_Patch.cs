@@ -9,7 +9,7 @@ namespace AbyssBatteries.Patches
         [HarmonyPrefix]
         public static bool Prefix(ref PDAScanner.EntryData entryData, ref bool unlockBlueprint)
         {
-            if(entryData.key == TechType.GhostLeviathan)
+            if (entryData.key == TechType.GhostLeviathan)
             {
                 unlockBlueprint = true;
                 entryData.blueprint = GhostPiece.TechTypeID;
@@ -42,7 +42,7 @@ namespace AbyssBatteries.Patches
                     Language.main.strings[key] = intro + firstPart + secondPart + thirdPart + fourthPart + fifthPart + outro;
                 }
             }
-            else if(entryData.key == TechType.GhostLeviathanJuvenile)
+            else if (entryData.key == TechType.GhostLeviathanJuvenile)
             {
                 unlockBlueprint = true;
                 entryData.blueprint = GhostPiece.TechTypeID;
