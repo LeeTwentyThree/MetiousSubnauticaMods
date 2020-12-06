@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{6869AF5B-2938-4165-90A5-CF47BCB8625F}</ProjectGuid>
+    <ProjectGuid>{E4665A00-28B3-40DB-87E6-A05C0A807B63}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>AbyssBatteries</RootNamespace>
@@ -18,9 +18,10 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -40,7 +41,8 @@
     <Reference Include="Assembly-CSharp_publicized">
       <HintPath>E:\Program Files (x86)\Steam\steamapps\common\Subnautica\Subnautica_Data\Managed\publicized_assemblies\Assembly-CSharp_publicized.dll</HintPath>
     </Reference>
-    <Reference Include="CustomBatteries">
+    <Reference Include="CustomBatteries, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>E:\Program Files (x86)\Steam\steamapps\common\Subnautica\QMods\CustomBatteries\CustomBatteries.dll</HintPath>
     </Reference>
     <Reference Include="QModInstaller">
@@ -57,14 +59,11 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
-    <Reference Include="UnityEngine.AssetBundleModule">
-      <HintPath>E:\Program Files (x86)\Steam\steamapps\common\Subnautica\Subnautica_Data\Managed\UnityEngine.AssetBundleModule.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEngine.CoreModule">
-      <HintPath>E:\Program Files (x86)\Steam\steamapps\common\Subnautica\Subnautica_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
+      <HintPath>E:\Program Files (x86)\Steam\steamapps\common\Subnautica\Subnautica_Data\Managed\publicized_assemblies\UnityEngine.CoreModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.ParticleSystemModule">
-      <HintPath>E:\Program Files (x86)\Steam\steamapps\common\Subnautica\Subnautica_Data\Managed\UnityEngine.ParticleSystemModule.dll</HintPath>
+      <HintPath>E:\Program Files (x86)\Steam\steamapps\common\Subnautica\Subnautica_Data\Managed\publicized_assemblies\UnityEngine.ParticleSystemModule.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -72,15 +71,37 @@
     <Compile Include="Common\MetiousLogger.cs" />
     <Compile Include="Configuration\Config.cs" />
     <Compile Include="Craftables\GhostDNA.cs" />
+    <Compile Include="Items\DragonScale.cs" />
     <Compile Include="Items\GhostPiece.cs" />
+    <Compile Include="Items\ReefbackEnzyme.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="MonoBehaviours\PulsatingBehaviour.cs" />
     <Compile Include="MonoBehaviours\PulsatingBehaviourRod.cs" />
     <Compile Include="Patches\Charger_OnEquip_Patch.cs" />
+    <Compile Include="Patches\Creature_OnTakeDamage.cs" />
     <Compile Include="Patches\EnergyMixin_NotifyHasBattery_Patch.cs" />
     <Compile Include="Patches\PDAScanner_Unlock_Patch.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Recipes.cs" />
   </ItemGroup>
   <ItemGroup />
+  <ItemGroup>
+    <Content Include="Assets\AbyssFabricatorskin.png" />
+    <Content Include="Assets\GhostBattery.png" />
+    <Content Include="Assets\GhostBatteryillum.png" />
+    <Content Include="Assets\GhostBatteryskin.png" />
+    <Content Include="Assets\GhostBatteryspec.png" />
+    <Content Include="Assets\GhostCell.png" />
+    <Content Include="Assets\GhostCellillum.png" />
+    <Content Include="Assets\GhostCellskin.png" />
+    <Content Include="Assets\ghostdna.png" />
+    <Content Include="Assets\GhostDNAillum.png" />
+    <Content Include="Assets\GhostDNAnormal.png" />
+    <Content Include="Assets\GhostDNAskin.png" />
+    <Content Include="Assets\GhostDNAspec.png" />
+    <Content Include="Assets\ghostpiece.png" />
+    <Content Include="Assets\JellyBattery.png" />
+    <Content Include="Assets\JellyCell.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

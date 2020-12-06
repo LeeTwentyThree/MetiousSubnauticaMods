@@ -1,4 +1,4 @@
-using HarmonyLib;
+﻿using HarmonyLib;
 using QModManager.API.ModLoading;
 using System;
 using System.Reflection;
@@ -14,24 +14,25 @@ using Common;
 using System.Linq;
 using AbyssBatteries.Configuration;
 using SMLHelper.V2.Handlers;
-
+using Sprite = Atlas.Sprite;
 namespace AbyssBatteries
 {
     [QModCore]
     public static class Main
     {
-        internal static Config Config { get; } = OptionsPanelHandler.Main.RegisterModOptions<Config>();
+        internal static Config Config { get; private set; }
         internal static Values Values { get; } = new Values();
         private static Assembly myAssembly = Assembly.GetExecutingAssembly();
         private static string ModPath = Path.GetDirectoryName(myAssembly.Location);
         internal static string AssetsFolder = Path.Combine(ModPath, "Assets");
-        public const string version = "0.0.0.7";
+        public const string version = "0.0.0.11";
         public const string modName = "[AbyssBatteries] ";
         #region Tabs
         public const string AbyssBatteryTab = "aBatteryTab";
         public const string AbyssPowCellTab = "aPowCell";
         public const string AbyssResourcesTab = "AbyssResources";
-        #endregion
+        #endregion  
+        
         #region static Batteries
         public static List<TechType> abyssBatteries = new List<TechType>();
 
@@ -203,13 +204,17 @@ namespace AbyssBatteries
         }
         #endregion
 
+        
         [QModPatch]
         public static void Load()
         {
             MetiousLogger.PatchStart(modName, version);
             try
             {
+                Config = OptionsPanelHandler.RegisterModOptions<Config>();
+                IngameMenuHandler.RegisterOnSaveEvent(Config.Save);
                 Values.Load();
+                InventorySetup();
                 CreateAndPatchPacks();
                 var aFabricator = new AbyssFabricator();
                 #region TabNodes
@@ -244,45 +249,56 @@ namespace AbyssBatteries
         private static void CreateAndPatchPacks()
         {
             #region Custom Items Patching
+            var reefEnzyme = new ReefbackEnzyme();
+            reefEnzyme.Patch();
+
             var ghostPiece = new GhostPiece();
             ghostPiece.Patch();
 
             var ghostDna = new GhostDNA();
             ghostDna.Patch();
+
+            var dragonScale = new DragonScale();
+            dragonScale.Patch();
             #endregion
             #region Batteries
             JellyBattery = new CbBattery()
             {
                 EnergyCapacity = Values.JellyBatteryEnergy,
                 ID = "JellyBattery",
-                Name = "Jelly Battery",
-                FlavorText = "Jelly Battery Comes out of JellyShrooms",
-                CraftingMaterials = { TechType.JellyPlantSeed, TechType.Copper, TechType.Titanium },
+                Name = "Cavernous Jellyshroom Battery",
+                FlavorText = "A battery composed of a strange, organic filament found on Crabsnake eggs and the incredibly high-energy content seeds of Jellyshrooms, as well as an assortment of minerals found in the Jellyshroom Caves.",
+                CraftingMaterials = { Config.Complement ? TechType.Battery : TechType.Titanium, Config.Complement ? TechType.None : TechType.Quartz, TechType.SnakeMushroomSpore, TechType.CrabsnakeEgg, TechType.Gold, TechType.Magnetite, TechType.Magnetite },
                 CustomIcon = ImageUtils.LoadSpriteFromFile(Path.Combine(AssetsFolder, "JellyBattery.png")),
-                UnlocksWith = TechType.None,
+                UnlocksWith = TechType.SnakeMushroomSpore,
                 AddToFabricator = false,
             };
             abyssBatteries.Add(JellyBattery.TechType);
+            List<TechType> complementPoopBattery = new List<TechType> { JellyBattery.TechType, reefEnzyme.TechType, TechType.SeaTreaderPoop, TechType.Gold };
+            List<TechType> nonComplementPoopBattery = new List<TechType> { reefEnzyme.TechType, TechType.SeaTreaderPoop, TechType.Lithium, TechType.Lithium, TechType.AluminumOxide, TechType.Quartz, TechType.Titanium, TechType.Diamond };
             PoopBattery = new CbBattery()
             {
                 EnergyCapacity = Values.PoopBatteryEnergy,
                 ID = "PoopBattery",
-                Name = "Poop Battery",
-                FlavorText = "a Battery from Poooooooooooop",
-                CraftingMaterials = { Config.Complement ? JellyBattery.TechType : TechType.None, TechType.SeaTreaderPoop, TechType.Titanium, TechType.Copper },
-                UnlocksWith = TechType.None,
+                Name = "Reefback Enzyme-Charged Poop Battery",
+                FlavorText = "A battery fuelled by a potent chemical reaction between a Reefback's pod enzymes and a specific combination of minerals and organic compounds found in a Sea Treader's alien feces",
+                CraftingMaterials = Config.Complement ? complementPoopBattery : nonComplementPoopBattery,
+                UnlocksWith = TechType.SeaTreaderPoop,
                 //CustomIcon = ImageUtils.LoadSpriteFromFile(Path.Combine(AssetsFolder, "PoopBattery.png")),
                 AddToFabricator = false,
             };
             abyssBatteries.Add(PoopBattery.TechType);
+
+            List<TechType> complementAmpSquidBattery = new List<TechType> { PoopBattery.TechType, TechType.Shocker, TechType.CrabSquid, TechType.CopperWire, TechType.Silicone };
+            List<TechType> nonComplementAmpSquidattery = new List<TechType> { TechType.Shocker, TechType.CrabSquid, TechType.CopperWire, TechType.WiringKit, TechType.Gold, TechType.Silicone, TechType.BloodOil, TechType.Quartz, TechType.Titanium };
             AmpSquidBattery = new CbBattery()
             {
                 EnergyCapacity = Values.AmpSquidBatteryEnergy,
                 ID = "AmpSquidBattery",
-                Name = "AmpSquid Battery",
-                FlavorText = "A Battery comes out of Ampeel and Crabsquid",
-                CraftingMaterials = { Config.Complement ? PoopBattery.TechType : TechType.None, TechType.Shocker, TechType.CrabSquid, TechType.Titanium },
-                UnlocksWith = TechType.None,
+                Name = "High Voltage Electro-Magnetic Battery",
+                FlavorText = "This Battery combines the Ampeel's tremendous bioelectric capacity with the complex EMP organ of the CrabSquid, harnessing the resulting energy and sorting it into a single, portable, rrechargeable source",
+                CraftingMaterials = Config.Complement ? complementAmpSquidBattery : nonComplementAmpSquidattery,
+                UnlocksWith = TechType.Gold,
                 //CustomIcon = ImageUtils.LoadSpriteFromFile(Path.Combine(AssetsFolder, "AmpSquidBattery.png")),
                 AddToFabricator = false,
                 CBModelData = new CBModelData
@@ -291,14 +307,17 @@ namespace AbyssBatteries
                 }
             };
             abyssBatteries.Add(AmpSquidBattery.TechType);
+
+            List<TechType> complementFossilBattery = new List<TechType> { AmpSquidBattery.TechType, TechType.SpineEel, TechType.MesmerEgg, TechType.RedGreenTentacleSeed, TechType.Sulphur, TechType.Sulphur, TechType.Nickel };
+            List<TechType> nonComplementFossilBattery = new List<TechType> { TechType.SpineEel, TechType.MesmerEgg, TechType.RedGreenTentacleSeed, TechType.Sulphur, TechType.Sulphur, TechType.Sulphur, TechType.Nickel, TechType.Nickel, TechType.UraniniteCrystal, TechType.Titanium, TechType.Quartz };
             FossilBattery = new CbBattery()
             {
                 EnergyCapacity = Values.FossilBatteryEnergy,
                 ID = "FossilBattery",
-                Name = "Fossil Battery",
-                FlavorText = "a Battery comes out of Fossil",
-                CraftingMaterials = { Config.Complement ? AmpSquidBattery.TechType : TechType.None, TechType.Spinefish, TechType.AluminumOxide, TechType.Copper, TechType.Titanium },
-                UnlocksWith = TechType.None,
+                Name = "Fossil-Fueled Battery",
+                FlavorText = "A battery made out of an assortment of creatures and minerals found in the Lost River",
+                CraftingMaterials = Config.Complement ? complementFossilBattery : nonComplementFossilBattery,
+                UnlocksWith = TechType.MesmerEgg,
                 //CustomIcon = ImageUtils.LoadSpriteFromFile(Path.Combine(AssetsFolder, "FossilBattery.png")),
                 AddToFabricator = false,
                 CBModelData = new CBModelData
@@ -307,13 +326,16 @@ namespace AbyssBatteries
                 }
             };
             abyssBatteries.Add(FossilBattery.TechType);
+
+            List<TechType> complementGhostBattery = new List<TechType> { FossilBattery.TechType, TechType.Lithium, GhostDNA.TechTypeID, TechType.AdvancedWiringKit, TechType.PrecursorIonCrystal };
+            List<TechType> nonComplementGhostBattery = new List<TechType> { TechType.Lithium, GhostDNA.TechTypeID, TechType.AdvancedWiringKit, TechType.AluminumOxide, TechType.AluminumOxide, TechType.AluminumOxide, TechType.Titanium, TechType.Quartz, TechType.PrecursorIonCrystal, TechType.PrecursorIonCrystal, TechType.Diamond };
             GhostBattery = new CbBattery()
             {
                 EnergyCapacity = Values.GhostBatteryEnergy,
                 ID = "GhostBattery",
-                Name = "Ghost Battery",
-                FlavorText = "A Battery made by the Precursor Technology and its interaction with Ghostish DNA",
-                CraftingMaterials = { Config.Complement ? FossilBattery.TechType : TechType.None, TechType.Lithium, ghostDna.TechType, FossilBattery.TechType },
+                Name = "Ghost-Charged Plasma Battery",
+                FlavorText = "A mysterious golden substance runs deep through the Ghost Leviathan's veins, which, when combined with its natural bioelectricity produces a plasma of unprecedented power.",
+                CraftingMaterials = Config.Complement ? complementGhostBattery : nonComplementGhostBattery,
                 UnlocksWith = ghostPiece.TechType,
                 //CustomIcon = ImageUtils.LoadSpriteFromFile(Path.Combine(AssetsFolder, "GhostBattery.png")),
                 AddToFabricator = false,
@@ -328,14 +350,16 @@ namespace AbyssBatteries
                 EnhanceGameObject = new Action<GameObject>((go) => EnhanceGameObject(go))
             };
             abyssBatteries.Add(GhostBattery.TechType);
+            List<TechType> complementThermalBattery = new List<TechType> { GhostBattery.TechType, TechType.Kyanite, TechType.Kyanite, dragonScale.TechType, TechType.PrecursorIonCrystal };
+            List<TechType> nonComplementThermalBattery = new List<TechType> { dragonScale.TechType, TechType.Kyanite, TechType.Kyanite, TechType.PrecursorIonCrystal, TechType.PrecursorIonCrystal, TechType.PrecursorIonCrystal, TechType.Aerogel, TechType.Aerogel, TechType.Quartz, TechType.Titanium, TechType.Diamond, TechType.Diamond };
             ThermalBattery = new CbBattery()
             {
                 EnergyCapacity = Values.ThermalBatteryEnergy,
                 ID = "ThermalBattery",
-                Name = "Thermal Battery",
-                FlavorText = "a Battery from Thermal",
-                CraftingMaterials = { Config.Complement ? GhostBattery.TechType : TechType.None, TechType.LavaBoomerang, TechType.AluminumOxide },
-                UnlocksWith = TechType.None,
+                Name = "Dragon-Energized Thermal Battery",
+                FlavorText = "This Battery combines state-of-the-art Alterran thermal-charging technology with the superlative heat-resistant qualities of Sea Dragon scales.",
+                CraftingMaterials = Config.Complement ? complementThermalBattery : nonComplementThermalBattery,
+                UnlocksWith = dragonScale.TechType,
                 //CustomIcon = ImageUtils.LoadSpriteFromFile(Path.Combine(AssetsFolder, "ThermalBattery.png")),
                 AddToFabricator = false,
                 CBModelData = new CBModelData
@@ -346,40 +370,46 @@ namespace AbyssBatteries
             abyssBatteries.Add(ThermalBattery.TechType);
             #endregion
             #region PowerCells
+            List<TechType> complementJellyCell = new List<TechType> { TechType.PowerCell, JellyBattery.TechType, TechType.Titanium };
+            List<TechType> nonComplementJellyCell = new List<TechType> { JellyBattery.TechType, JellyBattery.TechType, TechType.Silicone };
             JellyCell = new CbPowerCell()
             {
                 EnergyCapacity = JellyBattery.EnergyCapacity * 2,
                 ID = "JellyPowerCell",
-                Name = "Jelly Power Cell",
-                FlavorText = "Jelly Power Cell Comes out of JellyShrooms",
-                CraftingMaterials = { JellyBattery.TechType, JellyBattery.TechType, TechType.Silicone },
+                Name = "Cavernous Jellyshroom Power Cell",
+                FlavorText = "A Power Cell composed of a strange, organic filament found on Crabsnake eggs and the incredibly high-energy content seeds of Jellyshrooms, as well as an assortment of minerals found in the Jellyshroom Caves.",
+                CraftingMaterials = Config.Complement ? complementJellyCell : nonComplementJellyCell,
                 CustomIcon = ImageUtils.LoadSpriteFromFile(Path.Combine(AssetsFolder, "JellyCell.png")),
                 UnlocksWith = JellyBattery.TechType,
                 AddToFabricator = false,
             };
             abyssBatteries.Add(JellyCell.TechType);
 
+            List<TechType> complementPoopCell = new List<TechType> { JellyCell.TechType, PoopBattery.TechType, TechType.Titanium };
+            List<TechType> nonComplementPoopCell = new List<TechType> { PoopBattery.TechType, PoopBattery.TechType, TechType.Silicone };
             PoopCell = new CbPowerCell()
             {
                 EnergyCapacity = PoopBattery.EnergyCapacity * 2,
                 ID = "PoopPowercell",
                 Name = "Poop Power Cell",
-                FlavorText = "a Power Cell from Poooooooooooop",
-                CraftingMaterials = { PoopBattery.TechType, PoopBattery.TechType, TechType.Silicone },
-                UnlocksWith = TechType.None,
+                FlavorText = "A Power Cell fuelled by a potent chemical reaction between a Reefback's pod enzymes and a specific combination of minerals and organic compounds found in a Sea Treader's alien feces",
+                CraftingMaterials = Config.Complement ? complementPoopCell : nonComplementPoopCell,
+                UnlocksWith = PoopBattery.TechType,
                 AddToFabricator = false,
                 //CustomIcon = ImageUtils.LoadSpriteFromFile(Path.Combine(AssetsFolder, "PoopCell.png")),
             };
             abyssBatteries.Add(PoopCell.TechType);
 
+            List<TechType> complementAmpSquidCell = new List<TechType> { PoopCell.TechType, AmpSquidBattery.TechType, TechType.Lead };
+            List<TechType> nonComplementAmpSquidCell = new List<TechType> { AmpSquidBattery.TechType, AmpSquidBattery.TechType, TechType.Silicone };
             AmpSquidCell = new CbPowerCell()
             {
                 EnergyCapacity = AmpSquidBattery.EnergyCapacity * 2,
                 ID = "AmpSquidCell",
-                Name = "AmpSquid Power Cell",
-                FlavorText = "A Power Cell ",
-                CraftingMaterials = { AmpSquidBattery.TechType, AmpSquidBattery.TechType, TechType.Silicone },
-                UnlocksWith = TechType.None,
+                Name = "High Voltage Electro-Magnetic Power Cell",
+                FlavorText = "This Power Cell combines the Ampeel's tremendous bioelectric capacity with the complex EMP organ of the CrabSquid, harnessing the resulting energy and sorting it into a single, rechargeable, portable source",
+                CraftingMaterials = Config.Complement ? complementAmpSquidCell : nonComplementAmpSquidCell,
+                UnlocksWith = AmpSquidBattery.TechType,
                 //CustomIcon = ImageUtils.LoadSpriteFromFile(Path.Combine(AssetsFolder, "AmpSquidCell.png")),
                 AddToFabricator = false,
                 CBModelData = new CBModelData
@@ -387,15 +417,17 @@ namespace AbyssBatteries
                     UseIonModelsAsBase = true
                 }
             };
-
+            abyssBatteries.Add(AmpSquidCell.TechType);
+            List<TechType> complementFossilCell = new List<TechType> { AmpSquidCell.TechType, FossilBattery.TechType, TechType.Lead };
+            List<TechType> nonComplementFossilCell = new List<TechType> { FossilBattery.TechType, FossilBattery.TechType, TechType.Silicone };
             FossilCell = new CbPowerCell()
             {
                 EnergyCapacity = FossilBattery.EnergyCapacity * 2,
                 ID = "FossilCell",
-                Name = "Fossil Power Cell",
-                FlavorText = "a Power Cell comes out of Fossil",
-                CraftingMaterials = { FossilBattery.TechType, FossilBattery.TechType, TechType.Silicone },
-                UnlocksWith = TechType.None,
+                Name = "Fossil-Fueled Power Cell",
+                FlavorText = "A Power Cell made out of an assortment of creatures and minerals found in the Lost River",
+                CraftingMaterials = Config.Complement ? complementFossilCell : nonComplementFossilCell,
+                UnlocksWith = FossilBattery.TechType,
                 //CustomIcon = ImageUtils.LoadSpriteFromFile(Path.Combine(AssetsFolder, "FossilCell.png")),
                 AddToFabricator = false,
                 CBModelData = new CBModelData
@@ -405,13 +437,15 @@ namespace AbyssBatteries
             };
             abyssBatteries.Add(FossilCell.TechType);
 
+            List<TechType> complementGhostCell = new List<TechType> { FossilCell.TechType, GhostBattery.TechType, TechType.Lithium };
+            List<TechType> nonComplementGhostCell = new List<TechType> { GhostBattery.TechType, GhostBattery.TechType, TechType.Silicone };
             GhostCell = new CbPowerCell()
             {
                 EnergyCapacity = GhostBattery.EnergyCapacity * 2,
                 ID = "GhostPowercell",
-                Name = "Ghost Power Cell",
-                FlavorText = "A Power Cell made by the Precursor Technology and its interaction with Nuclear Power and Ghostish DNA",
-                CraftingMaterials = { GhostBattery.TechType, GhostBattery.TechType, TechType.Silicone },
+                Name = "Ghost-Charged Plasma Power Cell",
+                FlavorText = "A mysterious golden substance runs deep through the Ghost Leviathan's veins, which, when combined with its natural bioelectricity produces a plasma of unprecedented power.",
+                CraftingMaterials = Config.Complement ? complementGhostCell : nonComplementGhostCell,
                 UnlocksWith = GhostBattery.TechType,
                 //CustomIcon = ImageUtils.LoadSpriteFromFile(Path.Combine(AssetsFolder, "GhostCell.png")),
                 AddToFabricator = false,
@@ -426,14 +460,16 @@ namespace AbyssBatteries
             };
             abyssBatteries.Add(GhostCell.TechType);
 
+            List<TechType> complementThermalCell = new List<TechType> { GhostCell.TechType, ThermalBattery.TechType, TechType.Lithium };
+            List<TechType> nonComplementThermalCell = new List<TechType> { ThermalBattery.TechType, ThermalBattery.TechType, TechType.Silicone };
             ThermalCell = new CbPowerCell()
             {
                 EnergyCapacity = ThermalBattery.EnergyCapacity * 2,
                 ID = "ThermalPowerCell",
-                Name = "Thermal Power Cell",
-                FlavorText = "a Power Cell from Thermal",
-                CraftingMaterials = { ThermalBattery.TechType, ThermalBattery.TechType, TechType.Silicone },
-                UnlocksWith = TechType.None,
+                Name = "Dragon-Energized Thermal Power Cell",
+                FlavorText = "This Power Cell combines state-of-the-art Alterran thermal-charging technology with the superlative heat-resistant qualities of Sea Dragon scales.",
+                CraftingMaterials = Config.Complement ? complementThermalCell : nonComplementThermalCell,
+                UnlocksWith = ThermalBattery.TechType,
                 //CustomIcon = ImageUtils.LoadSpriteFromFile(Path.Combine(AssetsFolder, "ThermalCell.png")),
                 AddToFabricator = false,
                 CBModelData = new CBModelData
@@ -448,6 +484,16 @@ namespace AbyssBatteries
         public static void EnhanceGameObject(GameObject gameObject)
         {
             gameObject.EnsureComponent<PulsatingBehaviour>();
+        }
+        private static void InventorySetup()
+        {
+            LanguageHandler.SetTechTypeName(TechType.SpineEel, "River Prowler");
+            LanguageHandler.SetTechTypeTooltip(TechType.SpineEel, "A fast, agile predator discovered at great depths");
+
+            Sprite spineEel = ImageUtils.LoadSpriteFromFile(Path.Combine(Main.AssetsFolder, "SpineEel.png"));
+            if (spineEel != null)
+                SpriteHandler.RegisterSprite(TechType.SpineEel, spineEel);
+            CraftDataHandler.SetItemSize(TechType.SpineEel, new Vector2int(3, 3));
         }
     }
 }

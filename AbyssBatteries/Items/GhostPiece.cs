@@ -7,7 +7,7 @@
     {
         public static TechType TechTypeID { get; protected set; }
         public GhostPiece()
-            : base("GhostPiece", "Electrical Ghost Node", "an Electrical Ghost Node comes out of a Ghost Leviathan")
+            : base("GhostPiece", "Electrical Ghost Node", "This strange, pulsating, prong-like node was harvested from a Ghost Leviathan's body. can be used in advanced battery fabrication")
         {
             OnFinishedPatching += () =>
             {
