@@ -13,16 +13,16 @@ namespace SeamothBrineResist.Patches
             // convert the DamageSystem.acidImmune array to a list and store it to the acidImmune variable
             var acidImmune = DamageSystem.acidImmune == null ? new List<TechType>() : DamageSystem.acidImmune.ToList();
             if (count > 0) // if the module is equipped
-            {                             
+            {
                 // add the seamoth to the acidImmune list
                 if (!acidImmune.Contains(TechType.Seamoth))
-                    acidImmune.Add(TechType.Seamoth);             
+                    acidImmune.Add(TechType.Seamoth);
             }
-            else if (count < 0) // if the module isn't equipped
+            else if (count == 0) // if the module isn't equipped
             {
                 // remove the seamoth from the acidImmune list
                 if (acidImmune.Contains(TechType.Seamoth))
-                    acidImmune.Remove(TechType.Seamoth);
+                    acidImmune.Remove(TechType.Seamoth);               
             }
             DamageSystem.acidImmune = acidImmune.ToArray();
         }
