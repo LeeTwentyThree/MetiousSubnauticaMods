@@ -7,7 +7,7 @@ namespace SeamothBrineResist.Patches
     public class SeaMoth_Update_Patch
     {
         [HarmonyPostfix]
-        static void Prefix(SeaMoth __instance)
+        static void Postfix(SeaMoth __instance)
         {
             var count = __instance.modules.GetCount(Modules.SeamothBrineResistanceModule.TechTypeID); // get the Module count
             // convert the DamageSystem.acidImmune array to a list and store it to the acidImmune variable

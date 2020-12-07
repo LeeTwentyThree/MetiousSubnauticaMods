@@ -68,8 +68,9 @@
   <ItemGroup>
     <None Include="mod.json" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Assets\" />
+    <Content Include="Assets\SeamothBrineResistModule.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
