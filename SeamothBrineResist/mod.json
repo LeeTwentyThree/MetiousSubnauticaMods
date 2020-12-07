@@ -1,9 +1,15 @@
 {
-    "Id": "SeamothBrineResist",
-    "DisplayName": "Seamoth Brine Resist",
-    "Author": "Metious",
-    "Version": "1.1.0",
-    "Game": "Subnautica",
-    "AssemblyName": "SeamothBrineResist.dll",
-    "Enable": true
+  "Id": "SeamothBrineResist",
+  "DisplayName": "Seamoth Brine Resist",
+  "Author": "Metious",
+  "Version": "1.1.0",
+  "Game": "Subnautica",
+  "Dependencies": [
+    "SMLHelper"
+  ],
+  "AssemblyName": "SeamothBrineResist.dll",
+  "NexusId": {
+    "Subnautica": "595"
+  },
+  "Enable": true
 }
