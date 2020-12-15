@@ -1,0 +1,12 @@
+{
+  "Id": "PassiveSeaDragons",
+  "DisplayName": "Passive Sea Dragons",
+  "Author": "Metious",
+  "Version": "1.0.0",
+  "Game": "Subnautica",
+  "NexusId": {
+    "Subnautica": "613"
+  },
+  "AssemblyName": "PassiveSeaDragon.dll",
+  "Enable": true
+}
