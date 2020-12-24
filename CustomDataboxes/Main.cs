@@ -4,8 +4,13 @@ using System.Linq;
 using QModManager.API.ModLoading;
 using System.IO;
 using System.Reflection;
+#if SN1
 using Oculus.Newtonsoft.Json;
 using Oculus.Newtonsoft.Json.Converters;
+#elif BZ
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+#endif
 using CustomDataboxes.Databoxes;
 namespace CustomDataboxes
 {

@@ -25,6 +25,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScannableSeaDragon", "Scann
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScannableGhostLeviathan", "ScannableGhostLeviathan\ScannableGhostLeviathan.csproj", "{9F1CDB3B-653F-491F-9CF2-45A3F46CB405}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8B93F75F-B4C6-4147-A6E4-DE17A91BB742}"
+	ProjectSection(SolutionItems) = preProject
+		GameDir.targets = GameDir.targets
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,8 +68,8 @@ Global
 		{617B1C88-3C4B-44AC-A265-8293F5DEB031}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{617B1C88-3C4B-44AC-A265-8293F5DEB031}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{617B1C88-3C4B-44AC-A265-8293F5DEB031}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8B844156-8A4E-43DE-BEFF-2C1CF3F40462}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8B844156-8A4E-43DE-BEFF-2C1CF3F40462}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B844156-8A4E-43DE-BEFF-2C1CF3F40462}.Debug|Any CPU.ActiveCfg = SN1|Any CPU
+		{8B844156-8A4E-43DE-BEFF-2C1CF3F40462}.Debug|Any CPU.Build.0 = SN1|Any CPU
 		{8B844156-8A4E-43DE-BEFF-2C1CF3F40462}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8B844156-8A4E-43DE-BEFF-2C1CF3F40462}.Release|Any CPU.Build.0 = Release|Any CPU
 		{A23E9479-9A6B-4192-A975-67A6E65A8748}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
