@@ -10,6 +10,7 @@ using Oculus.Newtonsoft.Json.Converters;
 #elif BZ
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Serialization;
 #endif
 using CustomDataboxes.Databoxes;
 namespace CustomDataboxes
@@ -70,6 +71,7 @@ namespace CustomDataboxes
                     PrimaryDescription = "Unlock Seaglide",
                     SecondaryDescription = "a Databox to unlock the Seaglide",
                     ItemToUnlock = TechType.Seaglide,
+#if SN1
                     BiomesToSpawnIn = new List<LootDistributionData.BiomeData>
                     {
                         new LootDistributionData.BiomeData()
@@ -91,12 +93,39 @@ namespace CustomDataboxes
                             probability = 0.1f
                         }
                     }
+#elif BZ
+                    BiomesToSpawnIn = new List<LootDistributionData.BiomeData>
+                    {
+                        new LootDistributionData.BiomeData()
+                        {
+                            biome = BiomeType.TwistyBridges_Cave_Ground,
+                            count = 1,
+                            probability = 0.1f
+                        },
+                        new LootDistributionData.BiomeData()
+                        {
+                            biome = BiomeType.TwistyBridges_Coral,
+                            count = 1,
+                            probability = 0.1f
+                        },
+                        new LootDistributionData.BiomeData()
+                        {
+                            biome = BiomeType.SparseArctic_Ground,
+                            count = 1,
+                            probability = 0.1f
+                        }
+                    }
+#endif
                 };
                 using (StreamWriter writer = new StreamWriter(ExampleFile))
                 {
                     writer.Write(JsonConvert.SerializeObject(databox, Formatting.Indented, new StringEnumConverter()
                     {
+#if SN1
                         CamelCaseText = true,
+#elif BZ
+                        NamingStrategy = new CamelCaseNamingStrategy(),
+#endif
                         AllowIntegerValues = true
                     }));
                 }

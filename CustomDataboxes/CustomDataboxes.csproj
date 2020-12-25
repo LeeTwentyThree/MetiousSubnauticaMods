@@ -117,7 +117,11 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <None Include="mod.json" />
+    <None Include="mod_BZ.json" />
+    <None Include="mod_SN1.json" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>copy "$(ProjectDir)mod_$(ConfigurationName).json" "$(OutDir)mod.json" /y</PostBuildEvent>
+  </PropertyGroup>
 </Project>

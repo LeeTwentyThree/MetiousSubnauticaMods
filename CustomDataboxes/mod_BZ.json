@@ -1,0 +1,18 @@
+﻿{
+  "Id": "CustomDataboxesBZ",
+  "DisplayName": "Custom Databoxes BZ",
+  "Author": "Metious",
+  "Version": "1.0.0",
+  "Dependencies": [
+    "SMLHelper"
+  ],
+  "VersionDependencies": {
+    "SMLHelper": "2.9.2"
+  },
+  "Game": "BelowZero",
+  "NexusId": {
+    "Subnautica": "121"
+  },
+  "AssemblyName": "CustomDataboxes.dll",
+  "Enable": true
+}
