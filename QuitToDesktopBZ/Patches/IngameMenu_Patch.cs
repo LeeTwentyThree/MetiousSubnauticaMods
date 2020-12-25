@@ -27,6 +27,7 @@ namespace QuitToDesktopBZ.Patches
 				quitButton.onClick.AddListener(() => { __instance.QuitGame(true); });
 
 				IEnumerable<TextMeshProUGUI> texts = quitButton.GetComponents<TextMeshProUGUI>().Concat(quitButton.GetComponentsInChildren<TextMeshProUGUI>());
+
 				foreach (TextMeshProUGUI text in texts)
 				{
 					text.text = "Quit to Desktop";
