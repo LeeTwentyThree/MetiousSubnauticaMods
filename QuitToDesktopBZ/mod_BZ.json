@@ -1,0 +1,12 @@
+﻿{
+  "Id": "QuitToDesktopBZ",
+  "DisplayName": "Quit To Desktop for BZ",
+  "Author": "Originally by RandyKnapp - rewritten for BZ by Metious",
+  "Version": "1.0.0",
+  "Game": "BelowZero",
+  "NexusId": {
+    "BelowZero": "120"
+  },
+  "AssemblyName": "QuitToDesktopBZ.dll",
+  "Enable": true
+}
