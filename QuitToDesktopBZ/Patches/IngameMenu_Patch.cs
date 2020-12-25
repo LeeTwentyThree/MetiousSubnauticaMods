@@ -17,29 +17,29 @@ namespace QuitToDesktopBZ.Patches
         {
             if (GameModeUtils.IsPermadeath())
                 return;
-			if (__instance != null && quitButton == null)
+            if (__instance != null && quitButton == null)
             {
-				// make a new button
-				var prefab = __instance.quitToMainMenuButton.transform.parent.GetChild(0).gameObject.GetComponent<Button>();
-				quitButton = GameObject.Instantiate(prefab, __instance.quitToMainMenuButton.transform.parent);
-				quitButton.name = "ButtonQuitToDesktop";
-				quitButton.onClick.RemoveAllListeners();
-				quitButton.onClick.AddListener(() => { __instance.QuitGame(true); });
+                // make a new button
+                var prefab = __instance.quitToMainMenuButton.transform.parent.GetChild(0).gameObject.GetComponent<Button>();
+                quitButton = GameObject.Instantiate(prefab, __instance.quitToMainMenuButton.transform.parent);
+                quitButton.name = "ButtonQuitToDesktop";
+                quitButton.onClick.RemoveAllListeners();
+                quitButton.onClick.AddListener(() => { __instance.QuitGame(true); });
 
-				IEnumerable<TextMeshProUGUI> texts = quitButton.GetComponents<TextMeshProUGUI>().Concat(quitButton.GetComponentsInChildren<TextMeshProUGUI>());
+                IEnumerable<TextMeshProUGUI> texts = quitButton.GetComponents<TextMeshProUGUI>().Concat(quitButton.GetAllComponentsInChildren<TextMeshProUGUI>());
 
-				foreach (TextMeshProUGUI text in texts)
+                foreach (var text in texts)
                 {
-					text.text = "Quit to Desktop"; // change our new button text into Quit to Desktop
+                    text.text = "Quit to Desktop"; // change our Button text to Quit To Desktop
                 }
 
-				texts = __instance.quitToMainMenuButton.GetComponents<TextMeshProUGUI>().Concat(__instance.quitToMainMenuButton.GetAllComponentsInChildren<TextMeshProUGUI>());
+                texts = __instance.quitToMainMenuButton.GetComponents<TextMeshProUGUI>().Concat(__instance.quitToMainMenuButton.GetAllComponentsInChildren<TextMeshProUGUI>());
 
-				foreach (TextMeshProUGUI text in texts)
+                foreach (var text in texts)
                 {
-					text.text = "Quit to Main Menu"; // change the Quit button text into Quite to Main Menu
+                    text.text = "Quit to Main Menu"; // change the Quit button text into Quit to Main Menu
                 }
             }
-		}
+        }
     }
 }
