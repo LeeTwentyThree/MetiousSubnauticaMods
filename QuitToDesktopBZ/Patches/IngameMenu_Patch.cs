@@ -29,16 +29,14 @@ namespace QuitToDesktopBZ.Patches
 				IEnumerable<TextMeshProUGUI> texts = quitButton.GetComponents<TextMeshProUGUI>().Concat(quitButton.GetComponentsInChildren<TextMeshProUGUI>());
 
 				foreach (TextMeshProUGUI text in texts)
-				{
 					text.text = "Quit to Desktop";
-				}
 
 				texts = __instance.quitToMainMenuButton.GetComponents<TextMeshProUGUI>().Concat(__instance.quitToMainMenuButton.GetComponentsInChildren<TextMeshProUGUI>());
+
 				foreach (TextMeshProUGUI text in texts)
-				{
 					text.text = "Quit to Main Menu";
-				}
 			}
+
 		}
     }
 }
