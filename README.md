@@ -3,7 +3,7 @@
 | Mod |Description  | Download
 |--|--|--|
 |  Nuclear Batteries| a very Simple [CustomBatteries](https://www.nexusmods.com/subnautica/mods/382) Mod| [#573](https://www.nexusmods.com/subnautica/mods/573)
-| Abyss Batteries| my and probably the most complex [CustomBatteries](https://www.nexusmods.com/subnautica/mods/382) that add multiple Batteries & PowerCells with different Functional Behaviour. (WIP)| [#583](https://www.nexusmods.com/subnautica/mods/583) 
+| Abyss Batteries| my and probably the most complex [CustomBatteries](https://www.nexusmods.com/subnautica/mods/382) mod that add multiple Batteries & PowerCells with different Functional Behaviour. (WIP)| [#583](https://www.nexusmods.com/subnautica/mods/583) 
 |  Enzyme-Charged Battery| another very simple [CustomBatteries](https://www.nexusmods.com/subnautica/mods/382) Mod| [#584](https://www.nexusmods.com/subnautica/mods/584)
 | Coffee Sound Fix| a fix for a bug in Subnautica where when you consume a Coffee, it gives a Crunchy sound| [#586](https://www.nexusmods.com/subnautica/mods/586)
 | Seamoth Brine Resistance| a mod that makes the Seamoth immune to the Lost River's Brine Damage| [#595](https://www.nexusmods.com/subnautica/mods/595)
