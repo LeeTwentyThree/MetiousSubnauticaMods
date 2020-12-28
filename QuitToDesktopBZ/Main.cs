@@ -8,7 +8,7 @@ namespace QuitToDesktopBZ
     public static class Main
     {
         private static Assembly myAssembly = Assembly.GetExecutingAssembly();
-        public const string version = "1.0.0.0";
+        public const string version = "1.0.1.0";
         [QModPatch]
         public static void Load()
         {
