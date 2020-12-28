@@ -2,7 +2,7 @@
   "Id": "QuitToDesktopBZ",
   "DisplayName": "Quit To Desktop BZ",
   "Author": "Originally by RandyKnapp - rewritten for BZ by Metious",
-  "Version": "1.0.0",
+  "Version": "1.0.1",
   "Game": "BelowZero",
   "NexusId": {
     "BelowZero": "120"
