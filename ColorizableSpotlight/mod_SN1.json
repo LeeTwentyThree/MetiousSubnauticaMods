@@ -9,7 +9,7 @@
   },
   "AssemblyName": "ColorizableSpotlight.dll",
   "VersionChecker": {
-    "LatestVersionURL": "https://github.com/Metious/MetiousSubnauticaMods/raw/ColorizableSpotlight/mod_SN1.json"
+    "LatestVersionURL": "https://github.com/Metious/MetiousSubnauticaMods/raw/master/ColorizableSpotlight/mod_SN1.json"
   },
   "Enable": true
 }
