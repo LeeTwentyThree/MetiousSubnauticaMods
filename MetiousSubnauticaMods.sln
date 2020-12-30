@@ -32,6 +32,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuitToDesktopBZ", "QuitToDesktopBZ\QuitToDesktopBZ.csproj", "{4ABDD0F9-409D-4002-BBB3-64F0EB3D308D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ColorizableSpotlight", "ColorizableSpotlight\ColorizableSpotlight.csproj", "{869F874F-BBC8-4395-87FB-10AB7A715538}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		BZ|Any CPU = BZ|Any CPU
@@ -136,6 +138,14 @@ Global
 		{4ABDD0F9-409D-4002-BBB3-64F0EB3D308D}.Release|Any CPU.Build.0 = BZ|Any CPU
 		{4ABDD0F9-409D-4002-BBB3-64F0EB3D308D}.SN1|Any CPU.ActiveCfg = SN1|Any CPU
 		{4ABDD0F9-409D-4002-BBB3-64F0EB3D308D}.SN1|Any CPU.Build.0 = SN1|Any CPU
+		{869F874F-BBC8-4395-87FB-10AB7A715538}.BZ|Any CPU.ActiveCfg = BZ|Any CPU
+		{869F874F-BBC8-4395-87FB-10AB7A715538}.BZ|Any CPU.Build.0 = BZ|Any CPU
+		{869F874F-BBC8-4395-87FB-10AB7A715538}.Debug|Any CPU.ActiveCfg = BZ|Any CPU
+		{869F874F-BBC8-4395-87FB-10AB7A715538}.Debug|Any CPU.Build.0 = BZ|Any CPU
+		{869F874F-BBC8-4395-87FB-10AB7A715538}.Release|Any CPU.ActiveCfg = BZ|Any CPU
+		{869F874F-BBC8-4395-87FB-10AB7A715538}.Release|Any CPU.Build.0 = BZ|Any CPU
+		{869F874F-BBC8-4395-87FB-10AB7A715538}.SN1|Any CPU.ActiveCfg = SN1|Any CPU
+		{869F874F-BBC8-4395-87FB-10AB7A715538}.SN1|Any CPU.Build.0 = SN1|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
