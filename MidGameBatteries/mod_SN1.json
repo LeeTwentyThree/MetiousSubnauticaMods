@@ -1,0 +1,20 @@
+{
+  "Id": "MidGameBatteries",
+  "DisplayName": "Mid Game Batteries",
+  "Author": "Metious",
+  "Version": "1.0.0",
+  "Dependencies": [
+    "SMLHelper",
+    "CustomBatteries"
+  ],
+  "VersionDependencies": {
+    "SMLHelper": "2.9",
+    "CustomBatteries": "1.1"
+  },
+  "Game": "Subnautica",
+  "NexusId": {
+    "Subnautica": "632"
+  },
+  "AssemblyName": "MidGameBatteries.dll",
+  "Enable": true
+}
