@@ -4,7 +4,6 @@ using CustomBatteries.API;
 using SMLHelper.V2.Utility;
 using System.Reflection;
 using QModManager.API.ModLoading;
-using Common;
 
 namespace EnzymeChargedBatteries
 {
@@ -21,15 +20,7 @@ namespace EnzymeChargedBatteries
         [QModPatch]
         public static void Load()
         {
-            MetiousLogger.PatchStart(modName, version);
-            try
-            {
-                CreateAndPatchPacks();
-            }
-            catch(Exception e)
-            {
-                MetiousLogger.PatchFailed(modName, e);
-            }
+            CreateAndPatchPacks();
         }
         #region Create And Patch Packs
         private static void CreateAndPatchPacks()

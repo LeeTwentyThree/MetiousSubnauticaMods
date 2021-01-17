@@ -124,7 +124,6 @@
     <Folder Include="MonoBehaviours\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="mod_BZ.json" />
     <None Include="mod_SN1.json" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

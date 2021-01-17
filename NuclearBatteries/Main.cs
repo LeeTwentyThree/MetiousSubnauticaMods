@@ -3,7 +3,6 @@ using System.Reflection;
 using System.IO;
 using CustomBatteries.API;
 using SMLHelper.V2.Utility;
-using Common;
 using System;
 namespace NuclearBatteries
 {
@@ -20,17 +19,7 @@ namespace NuclearBatteries
         [QModPatch]
         public static void Load()
         {
-            MetiousLogger.PatchStart(modName, version);
-            try
-            {
-                CreateAndPatchPacks();
-
-                MetiousLogger.PatchComplete(modName);
-            }
-            catch(Exception e)
-            {
-                MetiousLogger.PatchFailed(modName, e);
-            }
+            CreateAndPatchPacks();
         }
         #region Create And Patch Packs
         private static void CreateAndPatchPacks()
