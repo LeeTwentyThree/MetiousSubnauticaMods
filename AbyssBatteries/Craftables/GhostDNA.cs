@@ -82,8 +82,6 @@ namespace AbyssBatteries.Craftables
                     renderer.sharedMaterial.SetTexture("_Illum", illumTexture);
                     renderer.material.SetTexture("_Illum", illumTexture);
 
-                    obj.EnsureComponent<PulsatingBehaviourRod>();
-
                     renderer.sharedMaterial.EnableKeyword("MARMO_NORMALMAP");
                     renderer.sharedMaterial.EnableKeyword("MARMO_EMISSION");
                     renderer.sharedMaterial.EnableKeyword("MARMO_SPECMAP");
@@ -103,6 +101,7 @@ namespace AbyssBatteries.Craftables
                 }
                 #endregion
             }
+            obj.EnsureComponent<PulsatingBehaviourRod>();
             prefab.SetActive(false);
             return obj;
         }

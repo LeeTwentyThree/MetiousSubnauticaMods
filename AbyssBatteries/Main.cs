@@ -10,7 +10,6 @@ using AbyssBatteries.Craftables;
 using UnityEngine;
 using AbyssBatteries.MonoBehaviours;
 using System.Collections.Generic;
-using Common;
 using System.Linq;
 using AbyssBatteries.Configuration;
 using SMLHelper.V2.Handlers;
@@ -208,43 +207,34 @@ namespace AbyssBatteries
         [QModPatch]
         public static void Load()
         {
-            MetiousLogger.PatchStart(modName, version);
-            try
-            {
-                Config = OptionsPanelHandler.RegisterModOptions<Config>();
-                IngameMenuHandler.RegisterOnSaveEvent(Config.Save);
-                Values.Load();
-                InventorySetup();
-                CreateAndPatchPacks();
-                var aFabricator = new AbyssFabricator();
-                #region TabNodes
-                aFabricator.AddTabNode(AbyssBatteryTab, "AbyssBatteries", SpriteManager.Get(TechType.Battery));
-                aFabricator.AddTabNode(AbyssPowCellTab, "AbyssPowerCells", SpriteManager.Get(TechType.PowerCell));
-                aFabricator.AddTabNode(AbyssResourcesTab, "Resources", SpriteManager.Get(TechType.Aerogel));
-                #endregion
-                #region CraftNodes
-                aFabricator.AddCraftNode(GhostDNA.TechTypeID, AbyssResourcesTab);
-                aFabricator.AddCraftNode(JellyBattery.TechType, AbyssBatteryTab);
-                aFabricator.AddCraftNode(JellyCell.TechType, AbyssPowCellTab);
-                aFabricator.AddCraftNode(PoopBattery.TechType, AbyssBatteryTab);
-                aFabricator.AddCraftNode(PoopCell.TechType, AbyssPowCellTab);
-                aFabricator.AddCraftNode(AmpSquidBattery.TechType, AbyssBatteryTab);
-                aFabricator.AddCraftNode(AmpSquidCell.TechType, AbyssPowCellTab);
-                aFabricator.AddCraftNode(FossilBattery.TechType, AbyssBatteryTab);
-                aFabricator.AddCraftNode(FossilCell.TechType, AbyssPowCellTab);
-                aFabricator.AddCraftNode(GhostBattery.TechType, AbyssBatteryTab);
-                aFabricator.AddCraftNode(GhostCell.TechType, AbyssPowCellTab);
-                aFabricator.AddCraftNode(ThermalBattery.TechType, AbyssBatteryTab);
-                aFabricator.AddCraftNode(ThermalCell.TechType, AbyssPowCellTab);
-                #endregion
-                aFabricator.Patch();
-                Harmony.CreateAndPatchAll(myAssembly, $"Metious_{myAssembly.GetName().Name}");
-                MetiousLogger.PatchComplete(modName);
-            }
-            catch (Exception e)
-            {
-                MetiousLogger.PatchFailed(modName, e);
-            }
+            Config = OptionsPanelHandler.RegisterModOptions<Config>();
+            IngameMenuHandler.RegisterOnSaveEvent(Config.Save);
+            Values.Load();
+            InventorySetup();
+            CreateAndPatchPacks();
+            var aFabricator = new AbyssFabricator();
+            #region TabNodes
+            aFabricator.AddTabNode(AbyssBatteryTab, "AbyssBatteries", SpriteManager.Get(TechType.Battery));
+            aFabricator.AddTabNode(AbyssPowCellTab, "AbyssPowerCells", SpriteManager.Get(TechType.PowerCell));
+            aFabricator.AddTabNode(AbyssResourcesTab, "Resources", SpriteManager.Get(TechType.Aerogel));
+            #endregion
+            #region CraftNodes
+            aFabricator.AddCraftNode(GhostDNA.TechTypeID, AbyssResourcesTab);
+            aFabricator.AddCraftNode(JellyBattery.TechType, AbyssBatteryTab);
+            aFabricator.AddCraftNode(JellyCell.TechType, AbyssPowCellTab);
+            aFabricator.AddCraftNode(PoopBattery.TechType, AbyssBatteryTab);
+            aFabricator.AddCraftNode(PoopCell.TechType, AbyssPowCellTab);
+            aFabricator.AddCraftNode(AmpSquidBattery.TechType, AbyssBatteryTab);
+            aFabricator.AddCraftNode(AmpSquidCell.TechType, AbyssPowCellTab);
+            aFabricator.AddCraftNode(FossilBattery.TechType, AbyssBatteryTab);
+            aFabricator.AddCraftNode(FossilCell.TechType, AbyssPowCellTab);
+            aFabricator.AddCraftNode(GhostBattery.TechType, AbyssBatteryTab);
+            aFabricator.AddCraftNode(GhostCell.TechType, AbyssPowCellTab);
+            aFabricator.AddCraftNode(ThermalBattery.TechType, AbyssBatteryTab);
+            aFabricator.AddCraftNode(ThermalCell.TechType, AbyssPowCellTab);
+            #endregion
+            aFabricator.Patch();
+            Harmony.CreateAndPatchAll(myAssembly, $"Metious_{myAssembly.GetName().Name}");
         }
         private static void CreateAndPatchPacks()
         {

@@ -1,0 +1,18 @@
+{
+  "Id": "LeviathanEggs",
+  "DisplayName": "Leviathan Eggs",
+  "Author": "Metious",
+  "Version": "1.0.0",
+  "Dependencies": [
+    "SMLHelper"
+  ],
+  "VersionDependencies": {
+    "SMLHelper": "2.9"
+  },
+  "Game": "Subnautica",
+  "NexusId": {
+    "Subnautica": "623"
+  },
+  "AssemblyName": "LeviathanEggs.dll",
+  "Enable": true
+}
