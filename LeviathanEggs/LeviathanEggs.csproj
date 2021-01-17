@@ -116,7 +116,7 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="Patches\Creature_Patch.cs" />
-    <Compile Include="Prefabs\SeaDragonEgg.cs" />
+    <Compile Include="Prefabs\SeaEmperorEgg.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

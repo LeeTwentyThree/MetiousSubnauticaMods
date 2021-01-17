@@ -69,7 +69,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AbyssFabricator.cs" />
-    <Compile Include="Common\MetiousLogger.cs" />
     <Compile Include="Configuration\Config.cs" />
     <Compile Include="Craftables\GhostDNA.cs" />
     <Compile Include="Items\DragonScale.cs" />
