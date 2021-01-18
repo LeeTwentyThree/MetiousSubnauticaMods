@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 namespace CustomDataboxes.Databoxes
 {
-    public class DataboxInfo
+    internal class DataboxInfo
     {
         public string DataboxID { get; set; }
         public string AlreadyUnlockedDescription { get; set; }

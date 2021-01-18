@@ -2,7 +2,7 @@
 using SMLHelper.V2.Options.Attributes;
 namespace AbyssBatteries.Configuration
 {
-    [Menu("Abyss Batteries", LoadOn = MenuAttribute.LoadEvents.MenuOpened | MenuAttribute.LoadEvents.MenuRegistered)]
+    [Menu("Abyss Batteries", SaveOn = MenuAttribute.SaveEvents.ChangeValue ,LoadOn = MenuAttribute.LoadEvents.MenuOpened | MenuAttribute.LoadEvents.MenuRegistered)]
     public class Config : ConfigFile
     {
         [Toggle("Complement Chain (restart required)")]

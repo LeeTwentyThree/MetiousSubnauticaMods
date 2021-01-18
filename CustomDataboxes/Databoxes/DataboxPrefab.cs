@@ -6,7 +6,7 @@ using System.Collections;
 
 namespace CustomDataboxes.Databoxes
 {
-    public class DataboxPrefab : Spawnable
+    internal class DataboxPrefab : Spawnable
     {
         private readonly string alreadyUnlockedTooltip;
         private readonly string primaryTooltip;
