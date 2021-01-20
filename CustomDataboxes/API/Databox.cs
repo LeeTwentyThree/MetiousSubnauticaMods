@@ -16,7 +16,7 @@ namespace CustomDataboxes.API
         public string PrimaryDescription { get; set; }
         /// <summary>
         /// <para>the smaller Description of the databox which is normally below the
-        /// <seealso cref="AlreadyUnlockedDescription"/> (Optional)</para>
+        /// <seealso cref="PrimaryDescription"/> (Optional)</para>
         /// </summary>
         public string SecondaryDescription { get; set; }
         /// <summary>
