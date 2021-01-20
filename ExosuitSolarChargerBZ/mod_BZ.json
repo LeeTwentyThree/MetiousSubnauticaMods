@@ -1,0 +1,18 @@
+﻿{
+  "Id": "ExosuitSolarChargerBZ",
+  "DisplayName": "Prawn Suit Solar Charger BZ",
+  "Author": "Metious",
+  "Version": "1.0.0",
+  "Dependencies": [
+    "SMLHelper"
+  ],
+  "VersionDependencies": {
+    "SMLHelper": "2.9"
+  },
+  "Game": "BelowZero",
+  "NexusId": {
+    "BelowZero": "125"
+  },
+  "AssemblyName": "ExosuitSolarChargerBZ.dll",
+  "Enable": true
+}

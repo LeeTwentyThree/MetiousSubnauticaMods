@@ -40,6 +40,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LeviathanEggs", "LeviathanE
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Common", "Common\Common.shproj", "{FBCF11A8-BC4F-4CB5-9D49-4B2B7446C9EF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExosuitSolarChargerBZ", "ExosuitSolarChargerBZ\ExosuitSolarChargerBZ.csproj", "{511E2F48-0636-467D-91E9-F49CC25457FD}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		Common\Common.projitems*{fbcf11a8-bc4f-4cb5-9d49-4b2b7446c9ef}*SharedItemsImports = 13
@@ -171,6 +173,14 @@ Global
 		{F6786908-F37B-4D1E-B440-217077BB3E3F}.Release|Any CPU.Build.0 = BZ|Any CPU
 		{F6786908-F37B-4D1E-B440-217077BB3E3F}.SN1|Any CPU.ActiveCfg = SN1|Any CPU
 		{F6786908-F37B-4D1E-B440-217077BB3E3F}.SN1|Any CPU.Build.0 = SN1|Any CPU
+		{511E2F48-0636-467D-91E9-F49CC25457FD}.BZ|Any CPU.ActiveCfg = BZ|Any CPU
+		{511E2F48-0636-467D-91E9-F49CC25457FD}.BZ|Any CPU.Build.0 = BZ|Any CPU
+		{511E2F48-0636-467D-91E9-F49CC25457FD}.Debug|Any CPU.ActiveCfg = BZ|Any CPU
+		{511E2F48-0636-467D-91E9-F49CC25457FD}.Debug|Any CPU.Build.0 = BZ|Any CPU
+		{511E2F48-0636-467D-91E9-F49CC25457FD}.Release|Any CPU.ActiveCfg = BZ|Any CPU
+		{511E2F48-0636-467D-91E9-F49CC25457FD}.Release|Any CPU.Build.0 = BZ|Any CPU
+		{511E2F48-0636-467D-91E9-F49CC25457FD}.SN1|Any CPU.ActiveCfg = SN1|Any CPU
+		{511E2F48-0636-467D-91E9-F49CC25457FD}.SN1|Any CPU.Build.0 = SN1|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
