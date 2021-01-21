@@ -1,4 +1,5 @@
-﻿using HarmonyLib;
+﻿using System.Globalization;
+using HarmonyLib;
 using QModManager.API.ModLoading;
 using SMLHelper.V2.Handlers;
 using SMLHelper.V2.Utility;
@@ -21,17 +22,23 @@ namespace LeviathanEggs
             WaterParkCreatureParametersSettings();
 
             var seEggModel = Resources.Load<GameObject>("WorldEntities/Eggs/EmperorEgg");
+            //var seEgg = GameObject.Instantiate(seEggModel);
             var seaEmperorEgg = new SeaEmperorEgg(seEggModel);
             seaEmperorEgg.Patch();
 
             var sdEggModel = Resources.Load<GameObject>("WorldEntities/Environment/Precursor/LostRiverBase/Precursor_LostRiverBase_SeaDragonEggShell");
+            //var sdEgg = GameObject.Instantiate(sdEggModel);
             var seaDragonEgg = new SeaDragonEgg(sdEggModel);
             seaDragonEgg.Patch();
 
-            var glEggModel = Resources.Load<GameObject>("WorldEntities/Doodads/Lost_river/Lost_river_tree_01");
-            var ghostEgg = new GhostLeviathanEgg(glEggModel);
+            //var glEggModel = Resources.Load<GameObject>("WorldEntities/Doodads/Lost_river/lost_river_cove_tree_01");
+           // GameObject glEgg = GameObject.Instantiate(glEggModel);
+            var ghostEgg = new GhostEgg();
             ghostEgg.Patch();
 
+            //seEggModel.SetActive(false);
+            //sdEggModel.SetActive(false);
+            //glEggModel.SetActive(false);
             //Harmony.CreateAndPatchAll(myAssembly, $"Metious_{myAssembly.GetName().Name}");
         }
         private static void WaterParkCreatureParametersSettings()
