@@ -119,17 +119,26 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Main.cs" />
+    <Compile Include="Patches\Creature_Start.cs" />
+    <Compile Include="Patches\PDAScanner_Patch.cs" />
     <Compile Include="Prefabs\GhostEgg.cs" />
     <Compile Include="Prefabs\SeaDragonEgg.cs" />
     <Compile Include="Prefabs\SeaEmperorEgg.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Assets\" />
-    <Folder Include="MonoBehaviours\" />
+    <None Include="Assets\eggs" />
+    <None Include="Assets\eggs.manifest" />
+    <None Include="mod_SN1.json" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="mod_SN1.json" />
+    <Content Include="Assets\Ghost.png" />
+    <Content Include="Assets\GhostEgg.png" />
+    <Content Include="Assets\SeaDragon.png" />
+    <Content Include="Assets\SeaDragonEgg.png" />
+    <Content Include="Assets\SeaEmperor.png" />
+    <Content Include="Assets\SeaEmperorEgg.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
