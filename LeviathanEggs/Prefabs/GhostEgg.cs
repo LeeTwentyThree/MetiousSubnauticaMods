@@ -6,6 +6,7 @@ using SMLHelper.V2.Utility;
 using ECCLibrary;
 using UnityEngine;
 using System;
+using LeviathanEggs.MonoBehaviours;
 namespace LeviathanEggs.Prefabs
 {
     class GhostEgg : CreatureEggAsset
@@ -17,9 +18,6 @@ namespace LeviathanEggs.Prefabs
         {
         }
         public override bool AcidImmune => true;
-        public override bool IsScannable => true;
-        public override string GetEncyDesc => "";
-        public override string GetEncyTitle => "";
         public override string AssetsFolder => Main.AssetsFolder;
         public override List<LootDistributionData.BiomeData> BiomesToSpawnIn => new List<LootDistributionData.BiomeData>()
         {
@@ -67,17 +65,13 @@ namespace LeviathanEggs.Prefabs
                     break;
             }
             Renderer[] renderers = prefab.GetComponentsInChildren<Renderer>();
+            Material[] materials = new Material[2] { shell, embryo };
             foreach(var renderer in renderers)
             {
                 if (shell != null && embryo != null)
                 {
                     renderer.material.shader = shader;
-                    renderer.material = shell;
-                    renderer.sharedMaterial = shell;
-                    /*
-                    renderer.materials[1].shader = shader;
-                    renderer.materials[1] = embryo;
-                    renderer.sharedMaterials[1] = embryo;*/
+                    renderer.materials = materials;
                 }
             }
             if (renderers == null)
@@ -99,11 +93,16 @@ namespace LeviathanEggs.Prefabs
 
             prefab.GetComponent<LargeWorldEntity>().cellLevel = LargeWorldEntity.CellLevel.Near;
 
-            prefab.GetComponent<Rigidbody>().isKinematic = false;
             prefab.GetComponent<Rigidbody>().mass = 100f;
+
             ResourceTracker resourceTracker = prefab.EnsureComponent<ResourceTracker>();
             resourceTracker.techType = this.TechType;
             resourceTracker.overrideTechType = TechType.GenericEgg;
+            resourceTracker.rb = prefab.GetComponent<Rigidbody>();
+            resourceTracker.prefabIdentifier = prefab.GetComponent<PrefabIdentifier>();
+            resourceTracker.pickupable = prefab.GetComponent<Pickupable>();
+
+            prefab.AddComponent<SpawnLocations>();
         }
         protected override Atlas.Sprite GetItemSprite()
         {

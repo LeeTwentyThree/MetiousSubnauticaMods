@@ -24,7 +24,7 @@ namespace LeviathanEggs
         internal static SeaDragonEgg seaDragonEgg = new SeaDragonEgg();
         internal static GhostEgg ghostEgg = new GhostEgg();
 
-        public static List<TechType> TechTypesToSkyApply = new List<TechType>() { TechType.SeaEmperor, TechType.SeaEmperorBaby, TechType.SeaEmperorJuvenile };
+        public static List<TechType> TechTypesToSkyApply = new List<TechType>() { TechType.SeaEmperor, TechType.SeaEmperorBaby, TechType.SeaEmperorJuvenile, TechType.SeaDragon, TechType.GhostLeviathan, TechType.GhostLeviathanJuvenile };
         public static List<TechType> TechTypesToMakePickupable = new List<TechType>() { TechType.GhostLeviathan, TechType.GhostLeviathanJuvenile, TechType.SeaDragon };
         [QModPatch]
         public static void Load()
@@ -32,6 +32,28 @@ namespace LeviathanEggs
             seaEmperorEgg.Patch(); 
             seaDragonEgg.Patch();
             ghostEgg.Patch();
+
+            PDAHandler.AddCustomScannerEntry(new PDAScanner.EntryData()
+            {
+                key = seaEmperorEgg.TechType,
+                encyclopedia = "UnknownEgg",
+                scanTime = 2f,
+                isFragment = false
+            });
+            PDAHandler.AddCustomScannerEntry(new PDAScanner.EntryData()
+            {
+                key = seaDragonEgg.TechType,
+                encyclopedia = "UnknownEgg",
+                scanTime = 2f,
+                isFragment = false
+            });
+            PDAHandler.AddCustomScannerEntry(new PDAScanner.EntryData()
+            {
+                key = ghostEgg.TechType,
+                encyclopedia = "UnknownEgg",
+                scanTime = 2f,
+                isFragment = false
+            });
 
             WaterParkCreatureParametersSettings();
 
