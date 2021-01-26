@@ -10,6 +10,7 @@ using LeviathanEggs.Prefabs;
 using UnityEngine;
 using static LootDistributionData;
 using UWE;
+using LeviathanEggs.MonoBehaviours;
 namespace LeviathanEggs
 {
     [QModCore]
@@ -24,8 +25,9 @@ namespace LeviathanEggs
         internal static SeaDragonEgg seaDragonEgg = new SeaDragonEgg();
         internal static GhostEgg ghostEgg = new GhostEgg();
 
-        public static List<TechType> TechTypesToSkyApply = new List<TechType>() { TechType.SeaEmperor, TechType.SeaEmperorBaby, TechType.SeaEmperorJuvenile, TechType.SeaDragon, TechType.GhostLeviathan, TechType.GhostLeviathanJuvenile };
+        public static List<TechType> TechTypesToSkyApply = new List<TechType>() { TechType.SeaDragon, TechType.GhostLeviathan, TechType.GhostLeviathanJuvenile, TechType.SeaEmperorJuvenile, TechType.SeaEmperorBaby, TechType.SeaEmperor };
         public static List<TechType> TechTypesToMakePickupable = new List<TechType>() { TechType.GhostLeviathan, TechType.GhostLeviathanJuvenile, TechType.SeaDragon };
+        public static List<TechType> TechTypesToTweak = new List<TechType>() { TechType.Bleeder, TechType.Rockgrub };
         [QModPatch]
         public static void Load()
         {
@@ -110,6 +112,8 @@ namespace LeviathanEggs
 
             WaterParkCreature.waterParkCreatureParameters[TechType.GhostLeviathanJuvenile] = new WaterParkCreatureParameters(0.03f, 0.05f, 0.07f, 1f, false);
             WaterParkCreature.waterParkCreatureParameters[TechType.GhostLeviathan] = new WaterParkCreatureParameters(0.03f, 0.05f, 0.07f, 1f, false);
+
+            WaterParkCreature.waterParkCreatureParameters[TechType.Bleeder] = new WaterParkCreatureParameters(0.2f, 0.7f, 1f, 1f, true);
             #endregion
             #region Creature Eggs
             WaterParkCreature.creatureEggs[TechType.GhostLeviathanJuvenile] = ghostEgg.TechType;

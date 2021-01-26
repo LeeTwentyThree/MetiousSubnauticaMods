@@ -119,8 +119,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Main.cs" />
+    <Compile Include="MonoBehaviours\SpawnDisplay.cs" />
     <Compile Include="MonoBehaviours\SpawnLocations.cs" />
     <Compile Include="Patches\Creature_Start.cs" />
+    <Compile Include="Patches\WaterParkCreature_Patch.cs" />
     <Compile Include="Prefabs\GhostEgg.cs" />
     <Compile Include="Prefabs\SeaDragonEgg.cs" />
     <Compile Include="Prefabs\SeaEmperorEgg.cs" />

@@ -8,6 +8,9 @@ namespace LeviathanEggs.Patches
         [HarmonyPostfix]
         static void Postfix(Creature __instance)
         {
+            if (__instance.gameObject.TryGetComponent(out WaterParkCreature waterParkCreature) && waterParkCreature.IsInsideWaterPark())
+                return;
+
             if (__instance.gameObject.transform.position == Vector3.zero)
                 GameObject.DestroyImmediate(__instance.gameObject);
 
@@ -16,15 +19,11 @@ namespace LeviathanEggs.Patches
             {
                 if (techType == tt)
                 {
-                    GameObject.DestroyImmediate(__instance.gameObject.GetComponent<SkyApplier>());
+                    SkyApplier skyApplier = __instance.gameObject.EnsureComponent<SkyApplier>();
 
-                    SkyApplier skyApplier = __instance.gameObject.AddComponent<SkyApplier>();
-
-                    if (__instance.gameObject.TryGetComponent(out WaterParkCreature waterParkCreature) && waterParkCreature.IsInsideWaterPark())
-                        skyApplier.anchorSky = Skies.BaseInterior;
-                    else
-                        skyApplier.anchorSky = Skies.Auto;
-                    skyApplier.dynamic = false;
+                    skyApplier.anchorSky = Skies.Auto;
+                    skyApplier.renderers = __instance.gameObject.GetAllComponentsInChildren<Renderer>();
+                    skyApplier.dynamic = true;
                     skyApplier.emissiveFromPower = false;
                     skyApplier.hideFlags = HideFlags.None;
                     skyApplier.enabled = true;
@@ -38,17 +37,29 @@ namespace LeviathanEggs.Patches
                     pickupable.isPickupable = false;
                 }
             }
-        }
-    }
-    [HarmonyPatch(typeof(Creature), nameof(Creature.OnTakeDamage))]
-    static class Creature_OnTakeDamage_Patch
-    {
-        [HarmonyPostfix]
-        static void Postfix(Creature __instance, ref DamageInfo damageInfo)
-        {
-            if (__instance.TryGetComponent(out WaterParkCreature waterParkCreature) && waterParkCreature.IsInsideWaterPark())
+            foreach (TechType tt in Main.TechTypesToTweak)
             {
-                ErrorMessage.AddMessage($"Creature {__instance.gameObject.GetComponent<TechTag>().type.AsString()} is damaged with amount: '{damageInfo.damage}' by dealer: '{damageInfo.dealer.name}' in the ACU.");
+                if (techType == tt)
+                {
+                    Pickupable pickupable = __instance.gameObject.EnsureComponent<Pickupable>();
+                    pickupable.isPickupable = true;
+
+                    AquariumFish aquariumFish = __instance.gameObject.EnsureComponent<AquariumFish>();
+                    aquariumFish.model = __instance.gameObject;
+
+                    Eatable eatable = __instance.gameObject.EnsureComponent<Eatable>();
+                    if (tt == TechType.Bleeder)
+                    {
+                        eatable.foodValue = -1f;
+                        eatable.waterValue = -5f;
+                    }
+                    else
+                    {
+                        eatable.foodValue = 10f;
+                        eatable.waterValue = 4f;
+                    }
+
+                }
             }
         }
     }

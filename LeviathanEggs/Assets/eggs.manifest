@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 72842772
+CRC: 188863465
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: dda16758253d4d2d73ce56dee62bf963
+    Hash: 1c56aea10a5e7f68dc7c1edf355bde5c
   TypeTreeHash:
     serializedVersion: 2
     Hash: c1426fe5ecc2d3b4d3cd516ff577582d
@@ -27,4 +27,6 @@ ClassTypes:
   Script: {instanceID: 0}
 Assets:
 - Assets/Prefabs/GhostEgg.prefab
+- Assets/Prefabs/SeaEmperorEgg.prefab
+- Assets/Prefabs/SeaDragonEgg.prefab
 Dependencies: []
