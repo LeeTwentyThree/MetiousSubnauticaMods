@@ -1,0 +1,17 @@
+{
+  "Id": "xxx",
+  "DisplayName": "xxx",
+  "Author": "Metious",
+  "Version": "1.0.0",
+  "Dependencies": [
+    "SMLHelper",
+    "CustomBatteries"
+  ],
+  "VersionDependencies": {
+    "SMLHelper": "2.9",
+    "CustomBatteries": "1.1"
+  },
+  "Game": "Subnautica",
+  "AssemblyName": "BioChemicalBatteries2.dll",
+  "Enable": true
+}
