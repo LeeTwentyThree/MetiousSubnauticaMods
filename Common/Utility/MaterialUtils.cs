@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using UnityEngine;
+﻿using UnityEngine;
 namespace Common.Utility
 {
     public static class MaterialUtils
@@ -14,6 +11,7 @@ namespace Common.Utility
             {
                 foreach (var material in renderer.materials)
                 {
+                    material.shader = shader;
                     material.mainTexture = mainTexture;
                 }
             }
@@ -26,6 +24,7 @@ namespace Common.Utility
             {
                 foreach (var material in renderer.materials)
                 {
+                    material.shader = shader;
                     material.mainTexture = mainTexture;
                     material.SetTexture(ShaderPropertyID._SpecTex, specTexture);
                 }
@@ -39,6 +38,7 @@ namespace Common.Utility
             {
                 foreach (var material in renderer.materials)
                 {
+                    material.shader = shader;
                     material.mainTexture = mainTexture;
                     material.SetTexture(ShaderPropertyID._SpecTex, specTexture);
                     material.SetTexture(ShaderPropertyID._Illum, illumTexture);
@@ -53,6 +53,9 @@ namespace Common.Utility
             {
                 if (renderer.name == meshName)
                 {
+                    renderer.material.shader = shader;
+                    renderer.sharedMaterial.shader = shader;
+
                     renderer.material.mainTexture = mainTexture;
                     renderer.sharedMaterial.mainTexture = mainTexture;
 
