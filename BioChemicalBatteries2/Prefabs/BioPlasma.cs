@@ -1,6 +1,5 @@
 ﻿using SMLHelper.V2.Assets;
 using SMLHelper.V2.Handlers;
-using SMLHelper.V2.Utility;
 using UnityEngine;
 
 namespace BioChemicalBatteries2.Prefabs
@@ -8,7 +7,7 @@ namespace BioChemicalBatteries2.Prefabs
     class BioPlasma : Spawnable
     {
         public BioPlasma()
-            : base("BioPlasma", "Bio Plasma Core", "A mysterious, powerful energy core harvested from a deceased Warper.")
+            : base("BioPlasmaMK2", "Warper Power Core", "A mysterious, powerful energy core harvested from a deceased Warper.")
         {
             OnFinishedPatching += () =>
             {
@@ -20,6 +19,7 @@ namespace BioChemicalBatteries2.Prefabs
         {
             return SpriteManager.Get(TechType.Titanium);
         }
+        public override Vector2int SizeInInventory => new Vector2int(1, 1);
         public override GameObject GetGameObject()
         {
             GameObject prefab = Main.assetBundle.LoadAsset<GameObject>("BioPlasma.prefab");
@@ -27,6 +27,7 @@ namespace BioChemicalBatteries2.Prefabs
 
             obj.EnsureComponent<TechTag>().type = this.TechType;
             obj.EnsureComponent<PrefabIdentifier>().classId = this.ClassID;
+            obj.EnsureComponent<Pickupable>().isPickupable = true;
 
             Renderer[] renderers = obj.GetComponentsInChildren<Renderer>();
             foreach(var rend in renderers)
@@ -37,6 +38,10 @@ namespace BioChemicalBatteries2.Prefabs
                     mat.mainTexture = Main.assetBundle.LoadAsset<Texture2D>("warper_entrails");
                     mat.SetTexture(ShaderPropertyID._SpecTex, Main.assetBundle.LoadAsset<Texture2D>("warper_entrails_spec"));
                     mat.SetTexture(ShaderPropertyID._BumpMap, Main.assetBundle.LoadAsset<Texture2D>("warper_entrails_normal"));
+                    mat.SetColor(ShaderPropertyID._SpecColor, new Color(0.3f, 0.3f, 0.3f, 0.3f));
+
+                    mat.EnableKeyword("MARMO_SPECMAP");
+                    mat.EnableKeyword("MARMO_NORMALMAP");
                 }
             }
             SkyApplier skyApplier = obj.EnsureComponent<SkyApplier>();

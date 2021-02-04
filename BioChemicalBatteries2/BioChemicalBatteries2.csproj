@@ -114,6 +114,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Configuration\Config.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="Prefabs\BioPlasma.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
