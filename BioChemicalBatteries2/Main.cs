@@ -42,7 +42,7 @@ namespace BioChemicalBatteries2
             {
                 ID = "BioChemBatteryMK2",
                 Name = "Biochemical Battery",
-                FlavorText = "Alterra Battery technology combined with a Warper power core makes for quite a potent renewable energy source.",
+                FlavorText = "Alterra battery technology combined with a Warper power core makes for quite a potent renewable energy source.",
                 EnergyCapacity = Config.BioChemBatteryEnergy,
                 UnlocksWith = bioPlasma.TechType,
                 CraftingMaterials = new List<TechType>()
@@ -67,7 +67,7 @@ namespace BioChemicalBatteries2
             {
                 ID = "BioChemCellMK2",
                 Name = "Biochemical Power Cell",
-                FlavorText = "Alterra Power Cell technology combined with a Warper power core makes for quite a potent renewable energy source.",
+                FlavorText = "Alterra power cell technology combined with a Warper power core makes for quite a potent renewable energy source.",
                 EnergyCapacity = Config.BioChemCellenergy,
                 UnlocksWith = bioPlasma.TechType,
                 CraftingMaterials = new List<TechType>()
