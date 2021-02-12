@@ -24,6 +24,22 @@ namespace BioChemicalBatteries2.Prefabs
         {
             GameObject prefab = Main.assetBundle.LoadAsset<GameObject>("BioPlasma.prefab");
             GameObject obj = Object.Instantiate(prefab);
+            Material warperMaterial = null;
+            GameObject warperPiece = Resources.Load<GameObject>("WorldEntities/Environment/Precursor/LostRiverBase/Precursor_LostRiverBase_WarperLab_Extras");
+
+            Renderer[] aRenderers = warperPiece.GetComponentsInChildren<Renderer>();
+            foreach (var rend in aRenderers)
+            {
+                if (rend.name.EndsWith("part_08"))
+                {
+                    warperMaterial = rend.material;
+                    break;
+                }
+                if (warperMaterial != null)
+                    break;
+            }
+            if (warperMaterial is null)
+                QModManager.Utility.Logger.Log(QModManager.Utility.Logger.Level.Error, "Warper Material is null!", null, true);
 
             obj.EnsureComponent<TechTag>().type = this.TechType;
             obj.EnsureComponent<PrefabIdentifier>().classId = this.ClassID;
@@ -32,17 +48,11 @@ namespace BioChemicalBatteries2.Prefabs
             Renderer[] renderers = obj.GetComponentsInChildren<Renderer>();
             foreach(var rend in renderers)
             {
-                foreach(var mat in rend.materials)
-                {
-                    mat.shader = Shader.Find("MarmosetUBER");
-                    mat.mainTexture = Main.assetBundle.LoadAsset<Texture2D>("warper_entrails");
-                    mat.SetTexture(ShaderPropertyID._SpecTex, Main.assetBundle.LoadAsset<Texture2D>("warper_entrails_spec"));
-                    mat.SetTexture(ShaderPropertyID._BumpMap, Main.assetBundle.LoadAsset<Texture2D>("warper_entrails_normal"));
-                    mat.SetColor(ShaderPropertyID._SpecColor, new Color(0.3f, 0.3f, 0.3f, 0.3f));
+                rend.material.shader = Shader.Find("MarmosetUBER");
+                rend.sharedMaterial.shader = Shader.Find("MarmosetUBER");
 
-                    mat.EnableKeyword("MARMO_SPECMAP");
-                    mat.EnableKeyword("MARMO_NORMALMAP");
-                }
+                rend.material = warperMaterial;
+                rend.sharedMaterial = warperMaterial;
             }
             SkyApplier skyApplier = obj.EnsureComponent<SkyApplier>();
             skyApplier.anchorSky = Skies.Auto;
@@ -55,6 +65,7 @@ namespace BioChemicalBatteries2.Prefabs
             wf.aboveWaterGravity = 0f;
             wf.underwaterGravity = 0f;
 
+            warperPiece.SetActive(false);
             prefab.SetActive(false);
             return obj;
         }
