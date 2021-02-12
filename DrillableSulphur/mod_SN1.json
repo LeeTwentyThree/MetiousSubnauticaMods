@@ -1,0 +1,19 @@
+{
+  "Id": "DrillableSulphur",
+  "DisplayName": "Drillable Sulphur",
+  "Author": "Metious",
+  "Version": "1.0.0",
+  "Dependencies": [
+    "SMLHelper"
+  ],
+  "VersionDependencies": {
+    "SMLHelper": "2.9"
+  },
+  "Game": "Subnautica",
+  "NexusId": {
+    "Subnautica": "675"
+  },
+  "LoadBefore": [ "CustomizeYourSpawns" ],
+  "AssemblyName": "DrillableSulphur.dll",
+  "Enable": true
+}
