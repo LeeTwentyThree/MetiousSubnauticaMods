@@ -10,7 +10,7 @@ namespace SeamothBrineResist.Modules
         public SeamothBrineResistanceModule()
             : base("SeamothBrineResistModule",
                   "Seamoth brine resistant coating",
-                  "Adds a protective coating on the Seamoth that prevents it from taking damage from corrosive brine pools.")
+                  "Makes the Seamoth resistant to corrosive brine pools, by means of a protective coating.")
         {
             OnFinishedPatching += () =>
             {
@@ -38,7 +38,7 @@ namespace SeamothBrineResist.Modules
                 Ingredients =
                 {
                     new Ingredient(TechType.Polyaniline, 1),
-                    new Ingredient(TechType.WiringKit, 2),
+                    new Ingredient(TechType.CopperWire, 2),
                     new Ingredient(TechType.AluminumOxide, 2),
                     new Ingredient(TechType.Nickel, 1),
                 },
