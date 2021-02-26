@@ -11,11 +11,14 @@ namespace SeamothBrineResist
         private static Assembly myAssembly = Assembly.GetExecutingAssembly();
         private static string ModPath = Path.GetDirectoryName(myAssembly.Location);
         internal static string AssetsFolder = Path.Combine(ModPath, "Assets");
+        public const string version = "1.1.2.0";
+
         [QModPatch]
         public static void Load()
         {
             var brineResist = new SeamothBrineResistanceModule();
             brineResist.Patch();
+
             var assembly = Assembly.GetExecutingAssembly();
             new Harmony($"Metious_{assembly.GetName().Name}").PatchAll(assembly);
         }

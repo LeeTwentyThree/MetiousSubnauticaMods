@@ -2,7 +2,7 @@
   "Id": "SeamothBrineResist",
   "DisplayName": "Seamoth Brine Resist",
   "Author": "Metious",
-  "Version": "1.1.0",
+  "Version": "1.1.2",
   "Game": "Subnautica",
   "Dependencies": [
     "SMLHelper"
