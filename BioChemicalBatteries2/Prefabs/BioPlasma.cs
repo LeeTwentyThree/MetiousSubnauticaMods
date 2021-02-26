@@ -1,5 +1,6 @@
 ﻿using SMLHelper.V2.Assets;
 using SMLHelper.V2.Handlers;
+using SMLHelper.V2.Utility;
 using UnityEngine;
 
 namespace BioChemicalBatteries2.Prefabs
@@ -15,10 +16,7 @@ namespace BioChemicalBatteries2.Prefabs
                 CraftDataHandler.SetHarvestType(TechType.Warper, HarvestType.DamageDead);
             };
         }
-        protected override Atlas.Sprite GetItemSprite()
-        {
-            return SpriteManager.Get(TechType.Titanium);
-        }
+        public override string AssetsFolder => Main.AssetsFolder;
         public override Vector2int SizeInInventory => new Vector2int(1, 1);
         public override GameObject GetGameObject()
         {

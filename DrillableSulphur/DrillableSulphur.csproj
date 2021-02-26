@@ -113,6 +113,7 @@
     <Compile Include="Main.cs" />
     <Compile Include="Patches\CraftData_PreparePrefabIDCache_Patch.cs" />
     <Compile Include="Patches\Drillable_Start_Patch.cs" />
+    <Compile Include="Prefabs\DrillableSulfur.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

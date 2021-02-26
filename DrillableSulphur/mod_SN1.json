@@ -2,7 +2,7 @@
   "Id": "DrillableSulphur",
   "DisplayName": "Drillable Sulphur",
   "Author": "Metious",
-  "Version": "1.0.0",
+  "Version": "1.0.5",
   "Dependencies": [
     "SMLHelper"
   ],

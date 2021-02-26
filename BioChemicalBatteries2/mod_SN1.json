@@ -1,7 +1,7 @@
 {
   "Id": "BioChemBatteriesMK2",
   "DisplayName": "BioChemical Batteries MK2",
-  "Author": "Metious",
+  "Author": "Metious & Al-An",
   "Version": "1.0.0",
   "Dependencies": [
     "SMLHelper",
@@ -10,6 +10,9 @@
   "VersionDependencies": {
     "SMLHelper": "2.9",
     "CustomBatteries": "1.1"
+  },
+  "NexusId": {
+    "Subnautica": "664"
   },
   "Game": "Subnautica",
   "AssemblyName": "BioChemicalBatteries2.dll",
