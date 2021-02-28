@@ -11,5 +11,6 @@
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)Utility\AsyncUtils.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Utility\MaterialUtils.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utility\ReflectionUtils.cs" />
   </ItemGroup>
 </Project>
