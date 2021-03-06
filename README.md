@@ -20,9 +20,3 @@
 |--|--|--|
 | Quit To Desktop BZ| simple mod that adds a "Quit to Desktop" button to the pause menu.| [#120](https://www.nexusmods.com/subnauticabelowzero/mods/120)
 | Custom Databoxes BZ| a VERY powerful mod that makes you be able to make a Custom Databox with custom unlocks, names, description and spawns and unlimited amount of Databoxes.| [#121](https://www.nexusmods.com/subnauticabelowzero/mods/121)
-
-## Credits
-
-Special Thanks to [PrimeSonic](https://www.github.com/primesonic) for helping me out growing with Subnautica Modding.
-
-Special Thanks to [Foreverwing](https://www.nexusmods.com/users/97529853) for making all of the assets.
