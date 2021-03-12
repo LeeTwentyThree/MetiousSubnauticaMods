@@ -116,13 +116,13 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <None Include="Assets\midgamebatteries" />
+    <None Include="Assets\midgamebatteries.manifest" />
     <None Include="mod_SN1.json" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\DeepBattery.png" />
-    <Content Include="Assets\DeepBatteryskin.png" />
     <Content Include="Assets\DeepCell.png" />
-    <Content Include="Assets\DeepCellskin.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

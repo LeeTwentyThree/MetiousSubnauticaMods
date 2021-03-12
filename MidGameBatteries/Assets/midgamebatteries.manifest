@@ -1,0 +1,21 @@
+ManifestFileVersion: 0
+CRC: 2526106990
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 298f34ac9cc774df0433d26beb891a7d
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: f19fbf085e00d23fbc8d6cf7b345590b
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+Assets:
+- Assets/Packs/MidGameBatteries/DeepBatteryskin.png
+- Assets/Packs/MidGameBatteries/DeepCellillum.png
+- Assets/Packs/MidGameBatteries/DeepCellskin.png
+- Assets/Packs/MidGameBatteries/DeepBatteryillum.png
+- Assets/Packs/MidGameBatteries/DeepBatteryspec.png
+- Assets/Packs/MidGameBatteries/DeepCellspec.png
+Dependencies: []

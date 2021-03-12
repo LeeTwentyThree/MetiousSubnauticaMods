@@ -5,6 +5,7 @@ using System.IO;
 using System.Reflection;
 using MidGameBatteries.Configuration;
 using CustomBatteries.API;
+using UnityEngine;
 namespace MidGameBatteries
 {
     [QModCore]
@@ -14,8 +15,9 @@ namespace MidGameBatteries
         private static Assembly myAssembly = Assembly.GetExecutingAssembly();
         private static string ModPath = Path.GetDirectoryName(myAssembly.Location);
         internal static string AssetsFolder = Path.Combine(ModPath, "Assets");
+        internal static AssetBundle assetBundle = AssetBundle.LoadFromFile(Path.Combine(AssetsFolder, "midgamebatteries"));
 
-        public const string version = "1.0.0.0";
+        public const string version = "1.0.2.0";
         [QModPatch]
         public static void Load()
         {
@@ -29,7 +31,7 @@ namespace MidGameBatteries
                 EnergyCapacity = Config.DeepBatteryEnergy,
                 ID = "CBDeepBattery",
                 Name = "Deep Battery",
-                FlavorText = "A longer lasting batterry created from rare materials and stronger chemicals.",
+                FlavorText = "A longer lasting battery created from rare materials and stronger chemicals.",
                 CraftingMaterials = new List<TechType>()
                 {
                     TechType.WhiteMushroom, TechType.WhiteMushroom,
@@ -42,8 +44,9 @@ namespace MidGameBatteries
                 CBModelData = new CBModelData()
                 {
                     UseIonModelsAsBase = false,
-                    CustomTexture = ImageUtils.LoadTextureFromFile(Path.Combine(AssetsFolder, "DeepBatteryskin.png")),
-                    CustomSpecMap = ImageUtils.LoadTextureFromFile(Path.Combine(AssetsFolder, "DeepBatteryskin.png")),
+                    CustomTexture = assetBundle.LoadAsset<Texture2D>("DeepBatteryskin"),
+                    CustomSpecMap = assetBundle.LoadAsset<Texture2D>("DeepBatteryspec"),
+                    CustomIllumMap = assetBundle.LoadAsset<Texture2D>("DeepBatteryillum"),
                 },
             };
             deepBattery.Patch();
@@ -64,8 +67,9 @@ namespace MidGameBatteries
                 CBModelData = new CBModelData()
                 {
                     UseIonModelsAsBase = false,
-                    CustomTexture = ImageUtils.LoadTextureFromFile(Path.Combine(AssetsFolder, "DeepCellskin.png")),
-                    CustomSpecMap = ImageUtils.LoadTextureFromFile(Path.Combine(AssetsFolder, "DeepCellskin.png")),
+                    CustomTexture = assetBundle.LoadAsset<Texture2D>("DeepCellskin"),
+                    CustomSpecMap = assetBundle.LoadAsset<Texture2D>("DeepCellspec"),
+                    CustomIllumMap = assetBundle.LoadAsset<Texture2D>("DeepCellillum"),
                 },
             };
             deepCell.Patch();
