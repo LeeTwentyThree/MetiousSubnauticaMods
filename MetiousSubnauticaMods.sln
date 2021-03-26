@@ -46,6 +46,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DrillableSulphur", "Drillab
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpadefishHitFix", "SpadefishHitFix\SpadefishHitFix.csproj", "{75BF454F-9DAD-4C2F-98C8-32B7B607B0E0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeaMothAutomaticSonar", "SeaMothAutomaticSonar\SeaMothAutomaticSonar.csproj", "{0E4548A3-6F0E-44BD-964F-4247A9BC32C8}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		Common\Common.projitems*{fbcf11a8-bc4f-4cb5-9d49-4b2b7446c9ef}*SharedItemsImports = 13
@@ -201,6 +203,14 @@ Global
 		{75BF454F-9DAD-4C2F-98C8-32B7B607B0E0}.Release|Any CPU.Build.0 = BZ|Any CPU
 		{75BF454F-9DAD-4C2F-98C8-32B7B607B0E0}.SN1|Any CPU.ActiveCfg = SN1|Any CPU
 		{75BF454F-9DAD-4C2F-98C8-32B7B607B0E0}.SN1|Any CPU.Build.0 = SN1|Any CPU
+		{0E4548A3-6F0E-44BD-964F-4247A9BC32C8}.BZ|Any CPU.ActiveCfg = BZ|Any CPU
+		{0E4548A3-6F0E-44BD-964F-4247A9BC32C8}.BZ|Any CPU.Build.0 = BZ|Any CPU
+		{0E4548A3-6F0E-44BD-964F-4247A9BC32C8}.Debug|Any CPU.ActiveCfg = BZ|Any CPU
+		{0E4548A3-6F0E-44BD-964F-4247A9BC32C8}.Debug|Any CPU.Build.0 = BZ|Any CPU
+		{0E4548A3-6F0E-44BD-964F-4247A9BC32C8}.Release|Any CPU.ActiveCfg = BZ|Any CPU
+		{0E4548A3-6F0E-44BD-964F-4247A9BC32C8}.Release|Any CPU.Build.0 = BZ|Any CPU
+		{0E4548A3-6F0E-44BD-964F-4247A9BC32C8}.SN1|Any CPU.ActiveCfg = SN1|Any CPU
+		{0E4548A3-6F0E-44BD-964F-4247A9BC32C8}.SN1|Any CPU.Build.0 = SN1|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

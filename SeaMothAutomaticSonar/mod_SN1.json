@@ -1,0 +1,12 @@
+{
+  "Id": "SeaMothAutomaticSonar",
+  "DisplayName": "SeaMoth Automatic Sonar",
+  "Author": "Metious",
+  "Version": "1.0.0",
+  "Game": "Subnautica",
+  "NexusId": {
+    "Subnautica": "705"
+  },
+  "AssemblyName": "SeaMothAutomaticSonar.dll",
+  "Enable": true
+}
