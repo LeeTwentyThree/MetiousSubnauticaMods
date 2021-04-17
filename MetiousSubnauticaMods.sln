@@ -48,7 +48,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpadefishHitFix", "Spadefis
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeaMothAutomaticSonar", "SeaMothAutomaticSonar\SeaMothAutomaticSonar.csproj", "{0E4548A3-6F0E-44BD-964F-4247A9BC32C8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CameraDronePickup", "CameraDronePickup\CameraDronePickup.csproj", "{75BF454F-9DAD-4C2F-98C8-32B7B607B0E0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CameraDronePickup", "CameraDronePickup\CameraDronePickup.csproj", "{9726FF38-F6C2-4F6E-9D65-965A14AFE32C}"
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
