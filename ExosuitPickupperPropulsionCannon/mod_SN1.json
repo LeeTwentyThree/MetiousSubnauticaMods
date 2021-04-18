@@ -1,0 +1,15 @@
+{
+  "Id": "ExosuitPickupperPropulsionCannon",
+  "DisplayName": "Exosuit Pickupper Propulsion Cannon",
+  "Author": "Metious",
+  "Version": "1.0.0",
+  "Dependencies": [
+    "SMLHelper"
+  ],
+  "VersionDependencies": {
+    "SMLHelper": "2.9"
+  },
+  "Game": "Subnautica",
+  "AssemblyName": "ExosuitPickupperPropulsionCannon.dll",
+  "Enable": true
+}

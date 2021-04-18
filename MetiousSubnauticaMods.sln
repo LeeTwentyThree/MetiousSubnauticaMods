@@ -50,6 +50,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeaMothAutomaticSonar", "Se
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CameraDronePickup", "CameraDronePickup\CameraDronePickup.csproj", "{9726FF38-F6C2-4F6E-9D65-965A14AFE32C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExosuitPickupperPropulsionCannon", "ExosuitPickupperPropulsionCannon\ExosuitPickupperPropulsionCannon.csproj", "{43A5FC33-EC95-426E-8FC8-AAC9B467EDA3}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		Common\Common.projitems*{fbcf11a8-bc4f-4cb5-9d49-4b2b7446c9ef}*SharedItemsImports = 13
@@ -213,6 +215,16 @@ Global
 		{0E4548A3-6F0E-44BD-964F-4247A9BC32C8}.Release|Any CPU.Build.0 = BZ|Any CPU
 		{0E4548A3-6F0E-44BD-964F-4247A9BC32C8}.SN1|Any CPU.ActiveCfg = SN1|Any CPU
 		{0E4548A3-6F0E-44BD-964F-4247A9BC32C8}.SN1|Any CPU.Build.0 = SN1|Any CPU
+		{9726FF38-F6C2-4F6E-9D65-965A14AFE32C}.SN1|Any CPU.ActiveCfg = SN1|Any CPU
+		{9726FF38-F6C2-4F6E-9D65-965A14AFE32C}.SN1|Any CPU.Build.0 = SN1|Any CPU
+		{43A5FC33-EC95-426E-8FC8-AAC9B467EDA3}.BZ|Any CPU.ActiveCfg = Debug|Any CPU
+		{43A5FC33-EC95-426E-8FC8-AAC9B467EDA3}.BZ|Any CPU.Build.0 = Debug|Any CPU
+		{43A5FC33-EC95-426E-8FC8-AAC9B467EDA3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43A5FC33-EC95-426E-8FC8-AAC9B467EDA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43A5FC33-EC95-426E-8FC8-AAC9B467EDA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43A5FC33-EC95-426E-8FC8-AAC9B467EDA3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{43A5FC33-EC95-426E-8FC8-AAC9B467EDA3}.SN1|Any CPU.ActiveCfg = SN1|Any CPU
+		{43A5FC33-EC95-426E-8FC8-AAC9B467EDA3}.SN1|Any CPU.Build.0 = SN1|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
