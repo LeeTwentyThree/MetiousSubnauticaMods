@@ -14,7 +14,7 @@ namespace ExosuitPickupperPropulsionCannon.MonoBehaviours
             get 
             {
                 if (_exosuit is null)
-                    return GetComponentInParent<Exosuit>();
+                    _exosuit = GetComponentInParent<Exosuit>();
                     
                 return _exosuit;
             }
