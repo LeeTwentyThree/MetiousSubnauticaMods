@@ -2,7 +2,7 @@
   "Id": "SeaMothAutomaticSonar",
   "DisplayName": "SeaMoth Automatic Sonar",
   "Author": "Metious",
-  "Version": "1.0.0",
+  "Version": "1.0.1",
   "Game": "Subnautica",
   "NexusId": {
     "Subnautica": "705"
