@@ -4,7 +4,7 @@ using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using System;
+
 namespace QuitToDesktopBZ.Patches
 {
     [HarmonyPatch(typeof(IngameMenu))]
@@ -19,6 +19,7 @@ namespace QuitToDesktopBZ.Patches
         {
             if (GameModeUtils.IsPermadeath())
                 return;
+
             if (__instance != null && quitButton == null)
             {
                 // make a new Confirmation Menu 

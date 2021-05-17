@@ -7,26 +7,17 @@ namespace PlayerAcidFix.Patches
     class DamageSystem_CalculateDamage_Patch
     {
         [HarmonyPostfix]
-        public static float Postfix(float damage, DamageType type, GameObject target)
+        public static float Postfix(float damage, DamageType type)
         {
-            if (target == Player.main.gameObject)
+            if (type == DamageType.Acid)
             {
-                damage *= DamageSystem.damageMultiplier;
-                DamageModifier[] componentsInChildren = target.GetComponentsInChildren<DamageModifier>();
-                for (int i = 0; i < componentsInChildren.Length; i++)
+                if (Player.main.GetVehicle() != null)
                 {
-                    damage = componentsInChildren[i].ModifyDamage(damage, type);
-                }
-                if (type == DamageType.Acid)
-                {
-                    if (Player.main.GetVehicle() != null)
+                    if (Player.main.acidLoopingSound.playing)
                     {
-                        if (Player.main.acidLoopingSound.playing)
-                        {
-                            Player.main.acidLoopingSound.Stop();
-                        }
-                        damage = 0f;
+                        Player.main.acidLoopingSound.Stop();
                     }
+                    damage = 0f;
                 }
             }
 

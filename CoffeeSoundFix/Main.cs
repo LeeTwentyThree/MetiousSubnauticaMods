@@ -6,9 +6,6 @@ namespace CoffeeSoundFix
     public static class Main
     {
         [QModPatch]
-        public static void Load()
-        {
-            CraftDataHandler.SetEatingSound(TechType.Coffee, "event:/player/drink");
-        }
+        public static void Load() => CraftDataHandler.SetEatingSound(TechType.Coffee, "event:/player/drink");
     }
 }

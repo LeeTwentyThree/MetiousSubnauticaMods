@@ -3,7 +3,7 @@ using System.Linq;
 using HarmonyLib;
 namespace SeamothBrineResist.Patches
 {
-    [HarmonyPatch(typeof(SeaMoth), nameof(SeaMoth.Update))]
+    [HarmonyPatch(typeof(SeaMoth), nameof(SeaMoth.OnUpgradeModuleChange))]
     public class SeaMoth_Update_Patch
     {
         [HarmonyPostfix]

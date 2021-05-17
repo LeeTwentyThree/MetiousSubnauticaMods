@@ -23,6 +23,7 @@ namespace ExosuitSolarChargerBZ.Modules
             GameObject obj = GameObject.Instantiate(prefab);
             prefab.SetActive(false);
 
+            obj.SetActive(true);
             gameObject.Set(obj);
         }
         protected override RecipeData GetBlueprintRecipe()

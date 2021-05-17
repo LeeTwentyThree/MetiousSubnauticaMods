@@ -23,12 +23,9 @@ namespace ColorizableSpotlight.MonoBehaviours
         public void Start()
         {
             PrefabIdentifier prefabIdentifier = GetComponentInParent<PrefabIdentifier>();
-            if (prefabIdentifier == null)
-            {
-                if ((prefabIdentifier = GetComponent<PrefabIdentifier>()) == null)
-                    if ((prefabIdentifier = this.GetComponent<PrefabIdentifier>()) == null)
-                        return;
-            }
+            if ((prefabIdentifier ??= GetComponent<PrefabIdentifier>()) is null)
+                return;
+            
             ColorInfo colorInfo;
             string saveFolder = Main.GetSaveFolderPath();
             string filePath = Main.Combine(saveFolder, prefabIdentifier.Id + ".json");
@@ -42,17 +39,15 @@ namespace ColorizableSpotlight.MonoBehaviours
                 if (colorInfo != null)
                 {
                     savedColor = new Color(colorInfo.RedLevel, colorInfo.GreenLevel, colorInfo.BlueLevel);
+                    return;
                 }
-                else
-                {
-                    Logger.Log(Logger.Level.Warn,"[Spotlight Colorizable] ColorInfo is null");
-                }
+                Logger.Log(Logger.Level.Warn,"[Spotlight Colorizable] ColorInfo is null");
+                return;
             }
-            else
-            {
-                Logger.Log(Logger.Level.Warn, "saved file doesn't exist");
-            }
+            
+            Logger.Log(Logger.Level.Warn, "saved file doesn't exist");
         }
+
         public void Update()
         {
             Light light = this.gameObject.GetComponentInChildren<Light>();
@@ -67,15 +62,15 @@ namespace ColorizableSpotlight.MonoBehaviours
                 }
             }
         }
+
         public void OnHandClick(GUIHand hand)
-        {
-            if (!enabled)
-                return;
-        }
+        {}
+
         public void OnHandHover(GUIHand hand)
         {
             if (!enabled)
-                return;          
+                return;
+            
             Light light = this.gameObject.GetComponentInChildren<Light>();
             Renderer[] renderers = this.gameObject.GetComponentsInChildren<Renderer>();
             if (light == null)
@@ -130,12 +125,11 @@ namespace ColorizableSpotlight.MonoBehaviours
         {
             if (!enabled)
                 return;
+
             PrefabIdentifier prefabIdentifier = GetComponentInParent<PrefabIdentifier>();
-            if (prefabIdentifier == null)
+            if ((prefabIdentifier ??= GetComponent<PrefabIdentifier>()) is null)
             {
-                if ((prefabIdentifier = GetComponent<PrefabIdentifier>()) == null)
-                    if ((prefabIdentifier = this.GetComponent<PrefabIdentifier>()) == null)
-                        return;
+                return; // return if we couldn't find a PrefabIdentifier component anywhere.
             }
             string saveFolder = Main.GetSaveFolderPath();
             if (!Directory.Exists(saveFolder))
@@ -160,6 +154,7 @@ namespace ColorizableSpotlight.MonoBehaviours
                 savedColor = new Color(colorInfo.RedLevel, colorInfo.GreenLevel, colorInfo.BlueLevel);
             }
         }
+
         public void OnProtoDeserialize(ProtobufSerializer serializer)
         {
         }

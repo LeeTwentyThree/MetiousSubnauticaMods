@@ -7,8 +7,8 @@ namespace ColorizableSpotlight
     [QModCore]
     public static class Main
     {
-        public static Assembly myAssembly = Assembly.GetExecutingAssembly();
-        private static string ModPath = Path.GetDirectoryName(myAssembly.Location);
+        static Assembly myAssembly = Assembly.GetExecutingAssembly();
+        static string ModPath = Path.GetDirectoryName(myAssembly.Location);
         public static string Combine(string path1, string path2) => Path.Combine(path1, path2).Replace('\\', '/');
         public static string GetSaveFolderPath() => Path.GetFullPath(Path.Combine(ModPath, "../../SNAppData/SavedGames/", SaveLoadManager.main.GetCurrentSlot(), "ColorizedSpotlight")).Replace('\\', '/');
         

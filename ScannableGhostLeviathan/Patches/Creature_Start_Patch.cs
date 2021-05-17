@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using HarmonyLib;
+﻿using HarmonyLib;
 using UnityEngine;
 namespace ScannableGhostLeviathan.Patches
 {
@@ -23,7 +18,7 @@ namespace ScannableGhostLeviathan.Patches
                 resourceTracker.prefabIdentifier = __instance.gameObject.GetComponent<PrefabIdentifier>();
                 resourceTracker.pickupable = __instance.gameObject.GetComponent<Pickupable>();
             }
-            if (techType == TechType.GhostLeviathanJuvenile)
+            else if (techType == TechType.GhostLeviathanJuvenile)
             {
                 ResourceTracker resourceTracker = __instance.gameObject.EnsureComponent<ResourceTracker>();
                 resourceTracker.techType = TechType.GhostLeviathanJuvenile;
