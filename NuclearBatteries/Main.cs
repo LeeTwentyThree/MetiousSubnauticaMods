@@ -3,15 +3,17 @@ using System.Reflection;
 using System.IO;
 using CustomBatteries.API;
 using SMLHelper.V2.Utility;
-using System;
+using UnityEngine;
 namespace NuclearBatteries
 {
     [QModCore]
     public static class Main
     {
-        private static Assembly myAssembly = Assembly.GetExecutingAssembly();
-        private static string ModPath = Path.GetDirectoryName(myAssembly.Location);
-        internal static string AssetsFolder = Path.Combine(ModPath, "Assets");
+        static Assembly myAssembly = Assembly.GetExecutingAssembly();
+        static string ModPath = Path.GetDirectoryName(myAssembly.Location);
+        static string AssetsFolder = Path.Combine(ModPath, "Assets");
+        static AssetBundle assetBundle = AssetBundle.LoadFromFile(Path.Combine(AssetsFolder, "nuclearbatteries"));
+
 
         public const string version = "1.1.1.1";
         public const string modName = "[NuclearBatteries] ";
@@ -32,12 +34,12 @@ namespace NuclearBatteries
                 FlavorText = "A Battery made by the Precursor Technology and its interaction with Nuclear Power.",
                 CraftingMaterials = { TechType.UraniniteCrystal, TechType.UraniniteCrystal, TechType.PrecursorIonCrystal, TechType.Lead, TechType.Lead, TechType.Nickel },
                 UnlocksWith = TechType.UraniniteCrystal,
-                CustomIcon = ImageUtils.LoadSpriteFromFile(Path.Combine(AssetsFolder, "NuclearBattery.png")),
+                CustomIcon = new Atlas.Sprite(assetBundle.LoadAsset<Sprite>("NuclearBattery")),
                 CBModelData = new CBModelData
                 {
-                    CustomTexture = ImageUtils.LoadTextureFromFile(Path.Combine(AssetsFolder, "NuclearBatteryskin.png")),
-                    CustomIllumMap = ImageUtils.LoadTextureFromFile(Path.Combine(AssetsFolder, "NuclearBatteryillum.png")),
-                    CustomSpecMap = ImageUtils.LoadTextureFromFile(Path.Combine(AssetsFolder, "NuclearBatteryspec.png")),
+                    CustomTexture = assetBundle.LoadAsset<Texture2D>("NuclearBatteryskin"),
+                    CustomIllumMap = assetBundle.LoadAsset<Texture2D>( "NuclearBatteryillum"),
+                    CustomSpecMap = assetBundle.LoadAsset<Texture2D>("NuclearBatteryspec"),
                     CustomIllumStrength = 0.95f,
                     UseIonModelsAsBase = true
                 },
@@ -52,11 +54,12 @@ namespace NuclearBatteries
                 FlavorText = "A Power Cell made by the Precursor Technology and its interaction with Nuclear Power.",
                 CraftingMaterials = { nBattery.TechType, nBattery.TechType, TechType.Silicone },
                 UnlocksWith = nBattery.TechType,
-                CustomIcon = ImageUtils.LoadSpriteFromFile(Path.Combine(AssetsFolder, "NuclearPowerCell.png")),
+                CustomIcon = new Atlas.Sprite(assetBundle.LoadAsset<Sprite>("NuclearPowerCell")),
                 CBModelData = new CBModelData
                 {
-                    CustomTexture = ImageUtils.LoadTextureFromFile(Path.Combine(AssetsFolder, "Nuclearcellskin.png")),
-                    CustomIllumMap = ImageUtils.LoadTextureFromFile(Path.Combine(AssetsFolder, "Nuclearcellillum.png")),
+                    CustomTexture = assetBundle.LoadAsset<Texture2D>("NuclearCellskin"),
+                    CustomIllumMap = assetBundle.LoadAsset<Texture2D>("NuclearCellillum"),
+                    CustomSpecMap = assetBundle.LoadAsset<Texture2D>("NuclearCellspec"),
                     UseIonModelsAsBase = true,
                     CustomIllumStrength = 1.2f
                 },
@@ -71,12 +74,12 @@ namespace NuclearBatteries
                 FlavorText = "This Battery pulsates with Radioactive energy. Extreme caution when handling; Contains too much Uranium!",
                 CraftingMaterials = { nBattery.TechType, TechType.UraniniteCrystal, TechType.UraniniteCrystal, TechType.UraniniteCrystal, TechType.Lead, TechType.Lead, TechType.Sulphur, TechType.Sulphur, TechType.Sulphur },
                 UnlocksWith = nBattery.TechType,
-                CustomIcon = ImageUtils.LoadSpriteFromFile(Path.Combine(AssetsFolder, "VolatileBattery.png")),
+                CustomIcon = new Atlas.Sprite(assetBundle.LoadAsset<Sprite>("VolatileBattery")),
                 CBModelData = new CBModelData
                 {
-                    CustomTexture = ImageUtils.LoadTextureFromFile(Path.Combine(AssetsFolder, "VolatileBatteryskin.png")),
-                    CustomIllumMap = ImageUtils.LoadTextureFromFile(Path.Combine(AssetsFolder, "VolatileBatteryillum.png")),
-                    CustomSpecMap = ImageUtils.LoadTextureFromFile(Path.Combine(AssetsFolder, "VolatileBatteryspec.png")),
+                    CustomTexture = assetBundle.LoadAsset<Texture2D>("VolatileBatteryskin"),
+                    CustomIllumMap = assetBundle.LoadAsset<Texture2D>("VolatileBatteryillum"),
+                    CustomSpecMap = assetBundle.LoadAsset<Texture2D>("VolatileBatteryspec"),
                     UseIonModelsAsBase = true,
                     CustomIllumStrength = 1.2f
                 },
@@ -92,11 +95,12 @@ namespace NuclearBatteries
                 FlavorText = "This Power Cell pulsates with Radioactive energy. Extreme caution when handling; Contains too much Uranium!",
                 CraftingMaterials = { unBattery.TechType, unBattery.TechType, TechType.Silicone },
                 UnlocksWith = unBattery.TechType,
-                CustomIcon = ImageUtils.LoadSpriteFromFile(Path.Combine(AssetsFolder, "VolatileCell.png")),
+                CustomIcon = new Atlas.Sprite(assetBundle.LoadAsset<Sprite>("VolatileCell")),
                 CBModelData = new CBModelData
                 {
-                    CustomTexture = ImageUtils.LoadTextureFromFile(Path.Combine(AssetsFolder, "VolatileCellskin.png")),
-                    CustomIllumMap = ImageUtils.LoadTextureFromFile(Path.Combine(AssetsFolder, "VolatileCellillum.png")),
+                    CustomTexture = assetBundle.LoadAsset<Texture2D>("VolatileCellskin"),
+                    CustomIllumMap = assetBundle.LoadAsset<Texture2D>("VolatileCellillum"),
+                    CustomSpecMap = assetBundle.LoadAsset<Texture2D>("VolatileCellspec"),
                     UseIonModelsAsBase = true,
                     CustomIllumStrength = 1.2f
                 },

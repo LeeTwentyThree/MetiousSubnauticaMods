@@ -16,7 +16,7 @@ namespace BioChemicalBatteries2.Prefabs
                 CraftDataHandler.SetHarvestType(TechType.Warper, HarvestType.DamageDead);
             };
         }
-        public override string AssetsFolder => Main.AssetsFolder;
+        protected override Atlas.Sprite GetItemSprite() => new Atlas.Sprite(Main.assetBundle.LoadAsset<Sprite>("BioPlasmaMK2"));
         public override Vector2int SizeInInventory => new Vector2int(1, 1);
         public override GameObject GetGameObject()
         {

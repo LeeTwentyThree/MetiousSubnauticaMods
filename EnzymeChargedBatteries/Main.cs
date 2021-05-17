@@ -1,7 +1,6 @@
-using System;
+using UnityEngine;
 using System.IO;
 using CustomBatteries.API;
-using SMLHelper.V2.Utility;
 using System.Reflection;
 using QModManager.API.ModLoading;
 
@@ -10,9 +9,10 @@ namespace EnzymeChargedBatteries
     [QModCore]
     public static class Main
     {
-        private static Assembly myAssembly = Assembly.GetExecutingAssembly();
-        private static string ModPath = Path.GetDirectoryName(myAssembly.Location);
-        internal static string AssetsFolder = Path.Combine(ModPath, "Assets");
+        static Assembly myAssembly = Assembly.GetExecutingAssembly();
+        static string ModPath = Path.GetDirectoryName(myAssembly.Location);
+        static string AssetsFolder = Path.Combine(ModPath, "Assets");
+        static AssetBundle assetBundle = AssetBundle.LoadFromFile(Path.Combine(AssetsFolder, "enzymechargedbatteries"));
 
         public const string modName = "[EnzymeChargedBatteries] ";
         public const string version = "1.0.2.1";
@@ -30,13 +30,13 @@ namespace EnzymeChargedBatteries
                 Name = "Enzyme-Charged Ion Battery",
                 FlavorText = "A new battery based on the discovery of a chemical interaction between hatching enzymes, radiation, and ion crystals.",
                 CraftingMaterials = { TechType.PrecursorIonCrystal, TechType.HatchingEnzymes, TechType.HatchingEnzymes, TechType.Lead, TechType.UraniniteCrystal, TechType.UraniniteCrystal },
-                CustomIcon = ImageUtils.LoadSpriteFromFile(Path.Combine(AssetsFolder, "EnzymeBattery.png")),
+                CustomIcon = new Atlas.Sprite(assetBundle.LoadAsset<Sprite>("EnzymeBattery.png")),
                 UnlocksWith = TechType.HatchingEnzymes,
                 CBModelData = new CBModelData
                 {
-                    CustomTexture = ImageUtils.LoadTextureFromFile(Path.Combine(AssetsFolder, "EnzymeBatteryskin.png")),
-                    CustomIllumMap = ImageUtils.LoadTextureFromFile(Path.Combine(AssetsFolder, "EnzymeBatteryillum.png")),
-                    CustomSpecMap = ImageUtils.LoadTextureFromFile(Path.Combine(AssetsFolder, "EnzymeBatteryspec.png")),
+                    CustomTexture = assetBundle.LoadAsset<Texture2D>("EnzymeBatteryskin"),
+                    CustomIllumMap = assetBundle.LoadAsset<Texture2D>("EnzymeBatteryillum"),
+                    CustomSpecMap = assetBundle.LoadAsset<Texture2D>("EnzymeBatteryspec"),
                     CustomIllumStrength = 1.1f,
                     UseIonModelsAsBase = true
                 }
@@ -51,12 +51,13 @@ namespace EnzymeChargedBatteries
                 Name = "Enzyme-Charged Ion Power Cell",
                 FlavorText = "A new power cell based on the discovery of a chemical interaction between hatching enzymes, radiation, and ion crystals.",
                 CraftingMaterials = { enzymeBattery.TechType, enzymeBattery.TechType, TechType.Silicone },
-                CustomIcon = ImageUtils.LoadSpriteFromFile(Path.Combine(AssetsFolder, "EnzymeCell.png")),
+                CustomIcon = new Atlas.Sprite(assetBundle.LoadAsset<Sprite>("EnzymeCell")),
                 UnlocksWith = TechType.HatchingEnzymes,
                 CBModelData = new CBModelData
                 {
-                    CustomTexture = ImageUtils.LoadTextureFromFile(Path.Combine(AssetsFolder, "EnzymeCellskin.png")),
-                    CustomIllumMap = ImageUtils.LoadTextureFromFile(Path.Combine(AssetsFolder, "EnzymeCellillum.png")),
+                    CustomTexture = assetBundle.LoadAsset<Texture2D>("EnzymeCellskin"),
+                    CustomIllumMap = assetBundle.LoadAsset<Texture2D>("EnzymeCellillum"),
+                    CustomSpecMap = assetBundle.LoadAsset<Texture2D>("EnzymeCellspec"),
                     CustomIllumStrength = 1.1f,
                     UseIonModelsAsBase = true
                 }

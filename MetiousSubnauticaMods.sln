@@ -56,6 +56,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RemoveBlacklisteds", "RemoveBlacklisteds\RemoveBlacklisteds.csproj", "{301BD149-B50B-4207-9F5F-C2215B7DB633}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlasmaChargedBatteries", "PlasmaChargedBatteries\PlasmaChargedBatteries.csproj", "{97EFB1A4-8BD1-4228-85D5-8768743FC859}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		Common\Common.projitems*{fbcf11a8-bc4f-4cb5-9d49-4b2b7446c9ef}*SharedItemsImports = 13
@@ -251,6 +253,14 @@ Global
 		{301BD149-B50B-4207-9F5F-C2215B7DB633}.Release|Any CPU.Build.0 = BZ|Any CPU
 		{301BD149-B50B-4207-9F5F-C2215B7DB633}.SN1|Any CPU.ActiveCfg = SN1|Any CPU
 		{301BD149-B50B-4207-9F5F-C2215B7DB633}.SN1|Any CPU.Build.0 = SN1|Any CPU
+		{97EFB1A4-8BD1-4228-85D5-8768743FC859}.BZ|Any CPU.ActiveCfg = BZ|Any CPU
+		{97EFB1A4-8BD1-4228-85D5-8768743FC859}.BZ|Any CPU.Build.0 = BZ|Any CPU
+		{97EFB1A4-8BD1-4228-85D5-8768743FC859}.Debug|Any CPU.ActiveCfg = BZ|Any CPU
+		{97EFB1A4-8BD1-4228-85D5-8768743FC859}.Debug|Any CPU.Build.0 = BZ|Any CPU
+		{97EFB1A4-8BD1-4228-85D5-8768743FC859}.Release|Any CPU.ActiveCfg = BZ|Any CPU
+		{97EFB1A4-8BD1-4228-85D5-8768743FC859}.Release|Any CPU.Build.0 = BZ|Any CPU
+		{97EFB1A4-8BD1-4228-85D5-8768743FC859}.SN1|Any CPU.ActiveCfg = SN1|Any CPU
+		{97EFB1A4-8BD1-4228-85D5-8768743FC859}.SN1|Any CPU.Build.0 = SN1|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

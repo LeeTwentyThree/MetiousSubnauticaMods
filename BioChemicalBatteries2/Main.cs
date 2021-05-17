@@ -1,6 +1,5 @@
 ﻿using QModManager.API.ModLoading;
 using Logger = QModManager.Utility.Logger;
-using SMLHelper.V2.Utility;
 using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
@@ -19,6 +18,7 @@ namespace BioChemicalBatteries2
         internal static string AssetsFolder = Path.Combine(ModPath, "Assets");
         internal static AssetBundle assetBundle = AssetBundle.LoadFromFile(Path.Combine(AssetsFolder, "biochemicalbatteries2"));
         public const string version = "1.0.0.0";
+
         [QModPatch]
         public static void Load()
         {
@@ -52,7 +52,7 @@ namespace BioChemicalBatteries2
                     TechType.Gold,
                     TechType.Lead
                 },
-                CustomIcon = ImageUtils.LoadSpriteFromFile(Path.Combine(AssetsFolder, "BioChemBattery.png")),
+                CustomIcon = new Atlas.Sprite(assetBundle.LoadAsset<Sprite>("BioChemBattery")),
                 CBModelData = new CBModelData()
                 {
                     UseIonModelsAsBase = true,
@@ -75,7 +75,7 @@ namespace BioChemicalBatteries2
                     bioChemBattery.TechType, bioChemBattery.TechType,
                     TechType.Silicone
                 },
-                CustomIcon = ImageUtils.LoadSpriteFromFile(Path.Combine(AssetsFolder, "BioChemCell.png")),
+                CustomIcon = new Atlas.Sprite(assetBundle.LoadAsset<Sprite>("BioChemCell.png")),
                 CBModelData = new CBModelData()
                 {
                     UseIonModelsAsBase = true,
