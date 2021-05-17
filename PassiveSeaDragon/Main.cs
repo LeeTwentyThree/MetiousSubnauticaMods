@@ -10,9 +10,6 @@ namespace PassiveSeaDragon
         private static Assembly myAssembly = Assembly.GetExecutingAssembly();
         public const string version = "1.0.0.0";
         [QModPatch]
-        public static void Load()
-        {
-            Harmony.CreateAndPatchAll(myAssembly, $"Metious_{myAssembly.GetName().Name}");
-        }
+        public static void Load() => Harmony.CreateAndPatchAll(myAssembly, $"Metious_{myAssembly.GetName().Name}");
     }
 }

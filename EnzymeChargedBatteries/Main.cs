@@ -18,10 +18,8 @@ namespace EnzymeChargedBatteries
         public const string version = "1.0.2.1";
 
         [QModPatch]
-        public static void Load()
-        {
-            CreateAndPatchPacks();
-        }
+        public static void Load() => CreateAndPatchPacks();
+
         #region Create And Patch Packs
         private static void CreateAndPatchPacks()
         {

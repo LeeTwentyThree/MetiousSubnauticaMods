@@ -115,9 +115,7 @@
     <Compile Include="Patches\Exosuit_Update_Patch.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="MonoBehaviours\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="mod_BZ.json" />
   </ItemGroup>
