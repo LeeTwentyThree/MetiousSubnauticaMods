@@ -1,20 +1,21 @@
-﻿using System.Collections.Generic;
-using System;
-using System.Linq;
-using QModManager.API.ModLoading;
-using System.IO;
-using System.Reflection;
+﻿namespace CustomDataboxes
+{
+    using System.Collections.Generic;
+    using System;
+    using System.Linq;
+    using QModManager.API.ModLoading;
+    using System.IO;
+    using System.Reflection;
 #if SN1
-using Oculus.Newtonsoft.Json;
-using Oculus.Newtonsoft.Json.Converters;
+    using Oculus.Newtonsoft.Json;
+    using Oculus.Newtonsoft.Json.Converters;
 #elif BZ
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Serialization;
 #endif
-using CustomDataboxes.Databoxes;
-namespace CustomDataboxes
-{
+    using Databoxes;
+
     [QModCore]
     public static class Main
     {
