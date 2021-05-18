@@ -54,7 +54,7 @@ namespace NuclearBatteries
                 FlavorText = "A Power Cell made by the Precursor Technology and its interaction with Nuclear Power.",
                 CraftingMaterials = { nBattery.TechType, nBattery.TechType, TechType.Silicone },
                 UnlocksWith = nBattery.TechType,
-                CustomIcon = new Atlas.Sprite(assetBundle.LoadAsset<Sprite>("NuclearPowerCell")),
+                CustomIcon = new Atlas.Sprite(assetBundle.LoadAsset<Sprite>("NuclearCell")),
                 CBModelData = new CBModelData
                 {
                     CustomTexture = assetBundle.LoadAsset<Texture2D>("NuclearCellskin"),
