@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Collections;
 using SMLHelper.V2.Assets;
 using UWE;
@@ -17,6 +18,8 @@ namespace CustomDataboxes.Databoxes
         
         public List<Vector3> Vector3Spawns { get; set; }
         
+        public Action<GameObject> ModifyGameObject { get; set; }
+        
         public CustomDatabox(string databoxID)
             :base(databoxID, databoxID ,databoxID)
         {}
@@ -27,9 +30,6 @@ namespace CustomDataboxes.Databoxes
 
         public override List<LootDistributionData.BiomeData> BiomesToSpawnIn => this.BiomesToSpawn;
 
-        public delegate void GameObjectModification(GameObject obj);
-
-        public GameObjectModification ModifyGameObject;
 #if SN1
         public override GameObject GetGameObject()
         {

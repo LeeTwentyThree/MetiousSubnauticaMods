@@ -39,6 +39,8 @@ namespace CustomDataboxes.API
         /// </summary>
         public List<Vector3> CoordinatedSpawns { get; set; }
         
+        public Action<GameObject> ModifyGameObject { get; set; }
+        
         public void Patch()
         {
             string name = this.GetType().Assembly.GetName().Name;
@@ -63,7 +65,8 @@ namespace CustomDataboxes.API
                 SecondaryDescription = this.SecondaryDescription,
                 TechTypeToUnlock = this.TechTypeToUnlock,
                 BiomesToSpawn = BiomesToSpawnIn,
-                Vector3Spawns = CoordinatedSpawns
+                Vector3Spawns = CoordinatedSpawns,
+                ModifyGameObject = this.ModifyGameObject
             };
             dataBox.Patch();
         }
