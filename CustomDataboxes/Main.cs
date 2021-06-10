@@ -5,6 +5,7 @@ namespace CustomDataboxes
     using System.Collections.Generic;
     using System;
     using System.Linq;
+    using SMLHelper.V2.Handlers;
     using QModManager.API.ModLoading;
     using System.IO;
     using System.Reflection;
@@ -17,6 +18,7 @@ using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Serialization;
 #endif
     using Databoxes;
+    using Converter;
 
     [QModCore]
     public static class Main
@@ -27,7 +29,8 @@ using Newtonsoft.Json.Serialization;
         internal static string BiomeList = ModPath + "/Biomes.json";
         internal static string ExampleFile = ModPath + "/ExampleFile.json";
         public const string version = "1.1.0.0";
-        [QModPatch]
+
+        [QModPostPatch]
         public static void Load()
         {
             EnsureBiomeList();
@@ -45,21 +48,45 @@ using Newtonsoft.Json.Serialization;
                     using (var reader = new StreamReader(file.FullName))
                     {
                         var serializer = new JsonSerializer();
-                        databox = serializer.Deserialize(reader, typeof(DataboxInfo)) as DataboxInfo;
+                        databox = JsonConvert.DeserializeObject<DataboxInfo>(reader.ReadToEnd(), new JsonConverter[] 
+                        {
+                            new StringEnumConverter()
+                            {
+#if SN1
+                                CamelCaseText = true,
+#elif BZ
+                                NamingStrategy = new CamelCaseNamingStrategy(),
+#endif
+                                AllowIntegerValues = true
+                            },
+                            new TechTypeConverter(),
+                            new Vector3Converter()
+                        });
                     }
                     if (databox != null)
                     {
-                        var customDatabox = new DataboxPrefab(databox.DataboxID, databox.AlreadyUnlockedDescription, databox.PrimaryDescription, databox.SecondaryDescription, databox.ItemToUnlock, databox.BiomesToSpawnIn, databox.CoordinatedSpawns);
-                        customDatabox.Patch();
+                        var tt = TechTypeExtensions.FromString(databox.ItemToUnlock, out var techType, true) ? techType
+                            : TechTypeHandler.TryGetModdedTechType(databox.ItemToUnlock, out techType) ? techType
+                                : TechType.None;
+
+                        if (tt != TechType.None)
+                        {
+                            var customDatabox = new DataboxPrefab(databox.DataboxID, databox.AlreadyUnlockedDescription, databox.PrimaryDescription, databox.SecondaryDescription, tt, databox.BiomesToSpawnIn, databox.CoordinatedSpawns);
+                            customDatabox.Patch();
+                        }
+                        else
+                        {
+                            throw new Exception($"Couldn't parse {databox.ItemToUnlock} to TechType.");
+                        }
                     }
                     else
                     {
-                        Console.WriteLine($"[Custom Databoxes] Unable to load Custom Databox from {Path.GetDirectoryName(file.Name)}!");
+                        QModManager.Utility.Logger.Log(QModManager.Utility.Logger.Level.Error, $"Unable to load Custom Databox from {Path.GetDirectoryName(file.FullName)}!");
                     }
                 }
-                catch (Exception)
+                catch (Exception e)
                 {
-                    Console.WriteLine($"[Custom Databoxes] Unable to load Custom Databox from {Path.GetDirectoryName(file.Name)}!");
+                    QModManager.Utility.Logger.Log(QModManager.Utility.Logger.Level.Error, $"Unable to load Custom Databox from {Path.GetDirectoryName(file.FullName)}!", e);
                 }
             }
         }
@@ -73,11 +100,21 @@ using Newtonsoft.Json.Serialization;
                     AlreadyUnlockedDescription = "Seaglide Databox. already unlocked",
                     PrimaryDescription = "Unlock Seaglide",
                     SecondaryDescription = "a Databox to unlock the Seaglide",
-                    ItemToUnlock = TechType.Seaglide,
+                    ItemToUnlock = TechType.Seaglide.AsString(),
                     CoordinatedSpawns = new List<Vector3>()
                     {
-                        new Vector3(0, 0, 0),
-                        new Vector3(50, 5, -100)
+                        new Vector3()
+                        {
+                            x = 5,
+                            y = -5,
+                            z = 5
+                        },
+                        new Vector3()
+                        {
+                            x = 10,
+                            y = -100,
+                            z = 253
+                        }
                     },
 #if SN1
                     BiomesToSpawnIn = new List<LootDistributionData.BiomeData>
@@ -127,14 +164,18 @@ using Newtonsoft.Json.Serialization;
                 };
                 using (StreamWriter writer = new StreamWriter(ExampleFile))
                 {
-                    writer.Write(JsonConvert.SerializeObject(databox, Formatting.Indented, new StringEnumConverter()
+                    writer.Write(JsonConvert.SerializeObject(databox, Formatting.Indented, new JsonConverter[]
                     {
+                        new StringEnumConverter()
+                        {
 #if SN1
-                        CamelCaseText = true,
+                            CamelCaseText = true,
 #elif BZ
-                        NamingStrategy = new CamelCaseNamingStrategy(),
+                            NamingStrategy = new CamelCaseNamingStrategy(),
 #endif
-                        AllowIntegerValues = true
+                            AllowIntegerValues = true
+                        },
+                        new Vector3Converter()
                     }));
                 }
             }

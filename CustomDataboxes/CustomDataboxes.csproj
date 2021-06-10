@@ -111,13 +111,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="API\Databox.cs" />
+    <Compile Include="Converter\TechTypeConverter.cs" />
+    <Compile Include="Converter\Vector3Converter.cs" />
     <Compile Include="Databoxes\CustomDatabox.cs" />
     <Compile Include="Databoxes\DataboxPrefab.cs" />
     <Compile Include="Databoxes\DataboxInfo.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <None Include="mod_BZ.json" />
     <None Include="mod_SN1.json" />
