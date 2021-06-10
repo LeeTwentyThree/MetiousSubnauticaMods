@@ -8,12 +8,16 @@ namespace CustomDataboxes.Databoxes
 {
     internal class DataboxPrefab : Spawnable
     {
-        private readonly string alreadyUnlockedTooltip;
-        private readonly string primaryTooltip;
-        private readonly string secondaryTooltip;
-        private readonly TechType unlockTechType;
-        private readonly List<LootDistributionData.BiomeData> biomesToSpawnIn;
-        public DataboxPrefab(string classId, string alreadyUnlockedTooltip, string primaryTooltip, string secondaryTooltip, TechType unlockTechType, List<LootDistributionData.BiomeData> biomesToSpawnIn)
+        readonly string alreadyUnlockedTooltip;
+        readonly string primaryTooltip;
+        readonly string secondaryTooltip;
+        readonly TechType unlockTechType;
+        readonly List<LootDistributionData.BiomeData> biomesToSpawnIn;
+        List<Vector3> coordinatedSpawns;
+
+        public DataboxPrefab(string classId, string alreadyUnlockedTooltip, string primaryTooltip,
+            string secondaryTooltip, TechType unlockTechType, List<LootDistributionData.BiomeData> biomesToSpawnIn,
+            List<Vector3> coordinatedSpawns)
             : base(classId, classId, classId + " Databox")
         {
             this.alreadyUnlockedTooltip = alreadyUnlockedTooltip;
@@ -21,9 +25,15 @@ namespace CustomDataboxes.Databoxes
             this.secondaryTooltip = secondaryTooltip;
             this.unlockTechType = unlockTechType;
             this.biomesToSpawnIn = biomesToSpawnIn;
+            this.coordinatedSpawns = coordinatedSpawns;
         }
+
         public override WorldEntityInfo EntityInfo => new WorldEntityInfo() { cellLevel = LargeWorldEntity.CellLevel.Medium, classId = ClassID, localScale = Vector3.one, prefabZUp = false, slotType = EntitySlot.Type.Medium, techType = this.TechType};
+        
         public override List<LootDistributionData.BiomeData> BiomesToSpawnIn => this.biomesToSpawnIn;
+
+        public override List<Vector3> CoordinatedSpawns => coordinatedSpawns;
+        
 #if SN1
         public override GameObject GetGameObject()
         {

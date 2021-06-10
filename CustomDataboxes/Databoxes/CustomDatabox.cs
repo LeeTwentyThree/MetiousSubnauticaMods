@@ -8,15 +8,28 @@ namespace CustomDataboxes.Databoxes
     internal class CustomDatabox : Spawnable
     {
         public string PrimaryDescription { get; set; }
+        
         public string SecondaryDescription { get; set; }
+        
         public TechType TechTypeToUnlock { get; set; }
+
         public List<LootDistributionData.BiomeData> BiomesToSpawn { get; set; }
+        
+        public List<Vector3> Vector3Spawns { get; set; }
+        
         public CustomDatabox(string databoxID)
             :base(databoxID, databoxID ,databoxID)
-        {
-        }
+        {}
+        
         public override WorldEntityInfo EntityInfo => new WorldEntityInfo() { cellLevel = LargeWorldEntity.CellLevel.Medium, classId = ClassID, localScale = Vector3.one, prefabZUp = false, slotType = EntitySlot.Type.Medium, techType = this.TechType };
+
+        public override List<Vector3> CoordinatedSpawns => Vector3Spawns;
+
         public override List<LootDistributionData.BiomeData> BiomesToSpawnIn => this.BiomesToSpawn;
+
+        public delegate void GameObjectModification(GameObject obj);
+
+        public GameObjectModification ModifyGameObject;
 #if SN1
         public override GameObject GetGameObject()
         {
@@ -31,6 +44,8 @@ namespace CustomDataboxes.Databoxes
             blueprintHandTarget.primaryTooltip = PrimaryDescription;
             blueprintHandTarget.secondaryTooltip = SecondaryDescription ?? PrimaryDescription;
             blueprintHandTarget.unlockTechType = TechTypeToUnlock;
+            
+            ModifyGameObject?.Invoke(obj);
 
             obj.SetActive(true);
             return obj;
@@ -51,6 +66,8 @@ namespace CustomDataboxes.Databoxes
             blueprintHandTarget.primaryTooltip = PrimaryDescription;
             blueprintHandTarget.secondaryTooltip = SecondaryDescription ?? PrimaryDescription;
             blueprintHandTarget.unlockTechType = TechTypeToUnlock;
+
+            ModifyGameObject?.Invoke(obj);
 
             obj.SetActive(true);
 

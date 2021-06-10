@@ -1,32 +1,44 @@
 ﻿using System;
 using System.Collections.Generic;
-using QModManager.Utility;
 using CustomDataboxes.Databoxes;
+using UnityEngine;
+using Logger = QModManager.Utility.Logger;
+
 namespace CustomDataboxes.API
 {
     public class Databox
     {
         /// <summary>
-        /// the ClassID for the Custom Databox (Required)
+        /// the ClassID for the Custom Databox.
         /// </summary>
         public string DataboxID { get; set; }
+        
         /// <summary>
-        /// The big and primary Description of the Databox (Required)
+        /// The big and primary Description of the Databox.
         /// </summary>
         public string PrimaryDescription { get; set; }
+        
         /// <summary>
         /// <para>the smaller Description of the databox which is normally below the
-        /// <seealso cref="PrimaryDescription"/> (Optional)</para>
+        /// <seealso cref="PrimaryDescription"/>.</para>
         /// </summary>
         public string SecondaryDescription { get; set; }
+        
         /// <summary>
-        /// The TechType to get unlocked (Required)
+        /// The TechType to get unlocked.
         /// </summary>
         public TechType TechTypeToUnlock { get; set; }
+        
         /// <summary>
-        /// Biomes that the Databox would spawn in (Required)
+        /// Biomes that the Databox would spawn in
         /// </summary>
         public List<LootDistributionData.BiomeData> BiomesToSpawnIn { get; set; }
+        
+        /// <summary>
+        /// Coordinated (<see cref="Vector3"/>) Spawns for the Databox.
+        /// </summary>
+        public List<Vector3> CoordinatedSpawns { get; set; }
+        
         public void Patch()
         {
             string name = this.GetType().Assembly.GetName().Name;
@@ -50,7 +62,8 @@ namespace CustomDataboxes.API
                 PrimaryDescription = this.PrimaryDescription,
                 SecondaryDescription = this.SecondaryDescription,
                 TechTypeToUnlock = this.TechTypeToUnlock,
-                BiomesToSpawn = this.BiomesToSpawnIn,
+                BiomesToSpawn = BiomesToSpawnIn,
+                Vector3Spawns = CoordinatedSpawns
             };
             dataBox.Patch();
         }

@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using UnityEngine;
+
 namespace CustomDataboxes.Databoxes
 {
     internal class DataboxInfo
@@ -9,6 +11,7 @@ namespace CustomDataboxes.Databoxes
         public string SecondaryDescription { get; set; }
         public TechType ItemToUnlock { get; set; }
         public List<LootDistributionData.BiomeData> BiomesToSpawnIn { get; set; }
+        public List<Vector3> CoordinatedSpawns { get; set; }
 
     }
 }

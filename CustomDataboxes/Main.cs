@@ -1,4 +1,6 @@
-﻿namespace CustomDataboxes
+﻿using UnityEngine;
+
+namespace CustomDataboxes
 {
     using System.Collections.Generic;
     using System;
@@ -47,7 +49,7 @@ using Newtonsoft.Json.Serialization;
                     }
                     if (databox != null)
                     {
-                        var customDatabox = new DataboxPrefab(databox.DataboxID, databox.AlreadyUnlockedDescription, databox.PrimaryDescription, databox.SecondaryDescription, databox.ItemToUnlock, databox.BiomesToSpawnIn);
+                        var customDatabox = new DataboxPrefab(databox.DataboxID, databox.AlreadyUnlockedDescription, databox.PrimaryDescription, databox.SecondaryDescription, databox.ItemToUnlock, databox.BiomesToSpawnIn, databox.CoordinatedSpawns);
                         customDatabox.Patch();
                     }
                     else
@@ -72,6 +74,11 @@ using Newtonsoft.Json.Serialization;
                     PrimaryDescription = "Unlock Seaglide",
                     SecondaryDescription = "a Databox to unlock the Seaglide",
                     ItemToUnlock = TechType.Seaglide,
+                    CoordinatedSpawns = new List<Vector3>()
+                    {
+                        new Vector3(0, 0, 0),
+                        new Vector3(50, 5, -100)
+                    },
 #if SN1
                     BiomesToSpawnIn = new List<LootDistributionData.BiomeData>
                     {
