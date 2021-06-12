@@ -40,6 +40,8 @@ namespace CustomDataboxes.API
         public List<Vector3> CoordinatedSpawns { get; set; }
         
         public Action<GameObject> ModifyGameObject { get; set; }
+
+        public TechType TechType { get; private set; }
         
         public void Patch()
         {
@@ -69,6 +71,8 @@ namespace CustomDataboxes.API
                 ModifyGameObject = this.ModifyGameObject
             };
             dataBox.Patch();
+
+            TechType = dataBox.TechType;
         }
     }
 }
