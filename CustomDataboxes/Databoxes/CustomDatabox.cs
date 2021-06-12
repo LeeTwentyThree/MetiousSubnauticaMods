@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections;
 using SMLHelper.V2.Assets;
+using SMLHelper.V2.Handlers;
 using UWE;
 using UnityEngine;
 namespace CustomDataboxes.Databoxes
@@ -16,17 +17,14 @@ namespace CustomDataboxes.Databoxes
 
         public List<LootDistributionData.BiomeData> BiomesToSpawn { get; set; }
         
-        public List<Vector3> Vector3Spawns { get; set; }
+        public Dictionary<Vector3, Vector3> Vector3Spawns { get; set; }
         
         public Action<GameObject> ModifyGameObject { get; set; }
         
         public CustomDatabox(string databoxID)
-            :base(databoxID, databoxID ,databoxID)
-        {}
-        
-        public override WorldEntityInfo EntityInfo => new WorldEntityInfo() { cellLevel = LargeWorldEntity.CellLevel.Medium, classId = ClassID, localScale = Vector3.one, prefabZUp = false, slotType = EntitySlot.Type.Medium, techType = this.TechType };
+            :base(databoxID, databoxID ,databoxID) => OnFinishedPatching += AddCoordinatedSpawns;
 
-        public override List<Vector3> CoordinatedSpawns => Vector3Spawns;
+        public override WorldEntityInfo EntityInfo => new WorldEntityInfo() { cellLevel = LargeWorldEntity.CellLevel.Medium, classId = ClassID, localScale = Vector3.one, prefabZUp = false, slotType = EntitySlot.Type.Medium, techType = this.TechType };
 
         public override List<LootDistributionData.BiomeData> BiomesToSpawnIn => this.BiomesToSpawn;
 
@@ -77,6 +75,19 @@ namespace CustomDataboxes.Databoxes
             gameObject.Set(obj);
         }
 #endif
+
+        void AddCoordinatedSpawns()
+        {
+            if (Vector3Spawns is null)
+                return;
+
+            var spawns = new List<SpawnInfo>();
+            foreach (var spawn in Vector3Spawns)
+            {
+                spawns.Add(new SpawnInfo(TechType, spawn.Key, Quaternion.Euler(spawn.Value)));
+            }
+            CoordinatedSpawnsHandler.RegisterCoordinatedSpawns(spawns);
+        }
     }
 
 }

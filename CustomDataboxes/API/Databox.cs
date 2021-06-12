@@ -37,12 +37,21 @@ namespace CustomDataboxes.API
         /// <summary>
         /// Coordinated (<see cref="Vector3"/>) Spawns for the Databox.
         /// </summary>
-        public List<Vector3> CoordinatedSpawns { get; set; }
+        public Dictionary<Vector3, Vector3> CoordinatedSpawns { get; set; }
         
+        /// <summary>
+        /// To edit the Databox's Game Object.
+        /// </summary>
         public Action<GameObject> ModifyGameObject { get; set; }
 
+        /// <summary>
+        /// the TechType reference of this Databox. please keep in mind that this is always set to <see cref="TechType.None"/> if used before calling the <see cref="Patch"/> method.
+        /// </summary>
         public TechType TechType { get; private set; }
         
+        /// <summary>
+        /// To patch and create the Databox.
+        /// </summary>
         public void Patch()
         {
             string name = this.GetType().Assembly.GetName().Name;
