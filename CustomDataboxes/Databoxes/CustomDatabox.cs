@@ -36,6 +36,8 @@ namespace CustomDataboxes.Databoxes
             var path = "WorldEntities/Environment/DataBoxes/CompassDataBox";
             var prefab = Resources.Load<GameObject>(path);
             var obj = GameObject.Instantiate(prefab);
+            
+            obj.name = ClassID;
             obj.SetActive(false);
             prefab.SetActive(false);
             obj.GetComponent<PrefabIdentifier>().ClassId = this.ClassID;
@@ -58,6 +60,7 @@ namespace CustomDataboxes.Databoxes
             request.TryGetPrefab(out GameObject prefab);
 
             GameObject obj = GameObject.Instantiate(prefab);
+            obj.name = ClassID;
             obj.SetActive(false);
 
             obj.GetComponent<PrefabIdentifier>().classId = this.ClassID;
