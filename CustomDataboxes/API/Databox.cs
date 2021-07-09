@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using CustomDataboxes.Databoxes;
+using SMLHelper.V2.Assets;
 using UnityEngine;
 using Logger = QModManager.Utility.Logger;
 
@@ -37,7 +38,7 @@ namespace CustomDataboxes.API
         /// <summary>
         /// Coordinated (<see cref="Vector3"/>) Spawns for the Databox.
         /// </summary>
-        public Dictionary<Vector3, Vector3> CoordinatedSpawns { get; set; }
+        public List<Spawnable.SpawnLocation> CoordinatedSpawns { get; set; }
         
         /// <summary>
         /// To edit the Databox's Game Object.
@@ -76,7 +77,7 @@ namespace CustomDataboxes.API
                 SecondaryDescription = this.SecondaryDescription,
                 TechTypeToUnlock = this.TechTypeToUnlock,
                 BiomesToSpawn = BiomesToSpawnIn,
-                Vector3Spawns = CoordinatedSpawns,
+                coordinatedSpawns = CoordinatedSpawns,
                 ModifyGameObject = this.ModifyGameObject
             };
             dataBox.Patch();

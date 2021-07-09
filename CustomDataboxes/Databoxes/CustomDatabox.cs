@@ -17,7 +17,7 @@ namespace CustomDataboxes.Databoxes
 
         public List<LootDistributionData.BiomeData> BiomesToSpawn { get; set; }
         
-        public Dictionary<Vector3, Vector3> Vector3Spawns { get; set; }
+        public List<Spawnable.SpawnLocation> coordinatedSpawns { get; set; }
         
         public Action<GameObject> ModifyGameObject { get; set; }
         
@@ -78,13 +78,14 @@ namespace CustomDataboxes.Databoxes
 
         void AddCoordinatedSpawns()
         {
-            if (Vector3Spawns is null)
+            if (coordinatedSpawns is null)
                 return;
 
             var spawns = new List<SpawnInfo>();
-            foreach (var spawn in Vector3Spawns)
+            foreach (var spawn in coordinatedSpawns)
             {
-                spawns.Add(new SpawnInfo(TechType, spawn.Key, Quaternion.Euler(spawn.Value)));
+                spawns.Add(new SpawnInfo(TechType, spawn.position, Quaternion.Euler(spawn.eulerAngles)));
+                //spawns.Add(new SpawnInfo(TechType, spawn.Key, Quaternion.Euler(spawn.Value)));
             }
             CoordinatedSpawnsHandler.RegisterCoordinatedSpawns(spawns);
         }

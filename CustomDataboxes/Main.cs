@@ -19,6 +19,7 @@ using Newtonsoft.Json.Serialization;
 #endif
     using Databoxes;
     using Converter;
+    using SMLHelper.V2.Assets;
 
     [QModCore]
     public static class Main
@@ -101,20 +102,21 @@ using Newtonsoft.Json.Serialization;
                     PrimaryDescription = "Unlock Seaglide",
                     SecondaryDescription = "a Databox to unlock the Seaglide",
                     ItemToUnlock = TechType.Seaglide.AsString(),
-                    CoordinatedSpawns = new List<Vector3>()
+                    CoordinatedSpawns = new List<Spawnable.SpawnLocation>()
                     {
-                        new Vector3()
-                        {
-                            x = 5,
-                            y = -5,
-                            z = 5
-                        },
-                        new Vector3()
-                        {
-                            x = 10,
-                            y = -100,
-                            z = 253
-                        }
+                        new Spawnable.SpawnLocation(new Vector3()
+                            {
+                                x = 5,
+                                y = -5,
+                                z = 5
+                            },
+                            new Vector3()
+                            {
+                                x = 10,
+                                y = -100,
+                                z = 253
+                            }
+                        )
                     },
 #if SN1
                     BiomesToSpawnIn = new List<LootDistributionData.BiomeData>
