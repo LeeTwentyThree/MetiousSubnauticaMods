@@ -11,7 +11,7 @@
     <RootNamespace>CustomDataboxes</RootNamespace>
     <AssemblyName>CustomDataboxes</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
-    <OutputPath>$(SolutionDir)..\Qmods\$(SolutionName)\$(Configuration)\$(AssemblyName)\</OutputPath>
+    <OutputPath>$(SolutionDir)..\Qmods\$(Configuration)\$(AssemblyName)\</OutputPath>
 	<DocumentationFile>$(OutputPath)\CustomDataboxes.xml</DocumentationFile>
     <LangVersion>9</LangVersion>
     <FileAlignment>512</FileAlignment>
