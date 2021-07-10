@@ -13,7 +13,7 @@ namespace CustomDataboxes.Databoxes
         readonly string secondaryTooltip;
         readonly TechType unlockTechType;
         readonly List<LootDistributionData.BiomeData> biomesToSpawnIn;
-        List<Spawnable.SpawnLocation> coordinatedSpawns;
+        readonly List<Spawnable.SpawnLocation> coordinatedSpawns;
 
         public DataboxPrefab(string classId, string alreadyUnlockedTooltip, string primaryTooltip,
             string secondaryTooltip, TechType unlockTechType, List<LootDistributionData.BiomeData> biomesToSpawnIn,
