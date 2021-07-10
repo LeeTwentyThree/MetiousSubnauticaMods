@@ -7,6 +7,9 @@ using Logger = QModManager.Utility.Logger;
 
 namespace CustomDataboxes.API
 {
+    /// <summary>
+    /// The main class to create a Custom Databox.
+    /// </summary>
     public class Databox
     {
         /// <summary>
@@ -36,7 +39,7 @@ namespace CustomDataboxes.API
         public List<LootDistributionData.BiomeData> BiomesToSpawnIn { get; set; }
         
         /// <summary>
-        /// Coordinated (<see cref="Vector3"/>) Spawns for the Databox.
+        /// Coordinated Spawns for the Databox.
         /// </summary>
         public List<Spawnable.SpawnLocation> CoordinatedSpawns { get; set; }
         
