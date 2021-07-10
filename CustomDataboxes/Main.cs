@@ -28,7 +28,7 @@ using Newtonsoft.Json.Serialization;
         private static readonly DirectoryInfo DataboxFolder = Directory.CreateDirectory(Path.Combine(ModPath, "Databoxes"));
         internal static string BiomeList = ModPath + "/Biomes.json";
         internal static string ExampleFile = ModPath + "/ExampleFile.json";
-        public const string version = "1.1.0.0";
+        public const string version = "1.2.0.0";
 
         [QModPostPatch]
         public static void Load()

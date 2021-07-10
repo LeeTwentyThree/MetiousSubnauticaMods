@@ -2,12 +2,12 @@
   "Id": "CustomDataboxes",
   "DisplayName": "Custom Databoxes",
   "Author": "Metious",
-  "Version": "1.1.0",
+  "Version": "1.2.0",
   "Dependencies": [
     "SMLHelper"
   ],
   "VersionDependencies": {
-    "SMLHelper": "2.9"
+    "SMLHelper": "2.10.1"
   },
   "Game": "Subnautica",
   "NexusId": {
