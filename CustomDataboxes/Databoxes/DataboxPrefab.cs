@@ -13,11 +13,11 @@ namespace CustomDataboxes.Databoxes
         readonly string secondaryTooltip;
         readonly TechType unlockTechType;
         readonly List<LootDistributionData.BiomeData> biomesToSpawnIn;
-        List<Vector3> coordinatedSpawns;
+        readonly List<Spawnable.SpawnLocation> coordinatedSpawns;
 
         public DataboxPrefab(string classId, string alreadyUnlockedTooltip, string primaryTooltip,
             string secondaryTooltip, TechType unlockTechType, List<LootDistributionData.BiomeData> biomesToSpawnIn,
-            List<Vector3> coordinatedSpawns)
+            List<Spawnable.SpawnLocation> coordinatedSpawns)
             : base(classId, classId, classId + " Databox")
         {
             this.alreadyUnlockedTooltip = alreadyUnlockedTooltip;
@@ -32,7 +32,7 @@ namespace CustomDataboxes.Databoxes
         
         public override List<LootDistributionData.BiomeData> BiomesToSpawnIn => this.biomesToSpawnIn;
 
-        public override List<Vector3> CoordinatedSpawns => coordinatedSpawns;
+        public override List<Spawnable.SpawnLocation> CoordinatedSpawns => coordinatedSpawns;
         
 #if SN1
         public override GameObject GetGameObject()

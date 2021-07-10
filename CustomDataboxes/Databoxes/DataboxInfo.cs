@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using SMLHelper.V2.Assets;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace CustomDataboxes.Databoxes
@@ -11,7 +12,7 @@ namespace CustomDataboxes.Databoxes
         public string SecondaryDescription { get; set; }
         public string ItemToUnlock { get; set; }
         public List<LootDistributionData.BiomeData> BiomesToSpawnIn { get; set; }
-        public List<Vector3> CoordinatedSpawns { get; set; }
+        public List<Spawnable.SpawnLocation> CoordinatedSpawns { get; set; }
 
     }
 }

@@ -1,6 +1,4 @@
-﻿using UnityEngine;
-
-namespace CustomDataboxes
+﻿namespace CustomDataboxes
 {
     using System.Collections.Generic;
     using System;
@@ -19,6 +17,8 @@ using Newtonsoft.Json.Serialization;
 #endif
     using Databoxes;
     using Converter;
+    using SMLHelper.V2.Assets;
+    using UnityEngine;
 
     [QModCore]
     public static class Main
@@ -101,20 +101,9 @@ using Newtonsoft.Json.Serialization;
                     PrimaryDescription = "Unlock Seaglide",
                     SecondaryDescription = "a Databox to unlock the Seaglide",
                     ItemToUnlock = TechType.Seaglide.AsString(),
-                    CoordinatedSpawns = new List<Vector3>()
+                    CoordinatedSpawns = new List<Spawnable.SpawnLocation>()
                     {
-                        new Vector3()
-                        {
-                            x = 5,
-                            y = -5,
-                            z = 5
-                        },
-                        new Vector3()
-                        {
-                            x = 10,
-                            y = -100,
-                            z = 253
-                        }
+                        new Spawnable.SpawnLocation(new Vector3(5, -5, 5), new Vector3(10, -100, 253))
                     },
 #if SN1
                     BiomesToSpawnIn = new List<LootDistributionData.BiomeData>

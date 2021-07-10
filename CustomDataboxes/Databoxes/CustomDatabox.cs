@@ -17,16 +17,18 @@ namespace CustomDataboxes.Databoxes
 
         public List<LootDistributionData.BiomeData> BiomesToSpawn { get; set; }
         
-        public Dictionary<Vector3, Vector3> Vector3Spawns { get; set; }
+        public List<Spawnable.SpawnLocation> coordinatedSpawns { get; set; }
         
         public Action<GameObject> ModifyGameObject { get; set; }
         
         public CustomDatabox(string databoxID)
-            :base(databoxID, databoxID ,databoxID) => OnFinishedPatching += AddCoordinatedSpawns;
+            : base(databoxID, databoxID , databoxID) {}
 
         public override WorldEntityInfo EntityInfo => new WorldEntityInfo() { cellLevel = LargeWorldEntity.CellLevel.Medium, classId = ClassID, localScale = Vector3.one, prefabZUp = false, slotType = EntitySlot.Type.Medium, techType = this.TechType };
 
         public override List<LootDistributionData.BiomeData> BiomesToSpawnIn => this.BiomesToSpawn;
+        
+        public override List<SpawnLocation> CoordinatedSpawns => this.coordinatedSpawns;
 
 #if SN1
         public override GameObject GetGameObject()
@@ -75,19 +77,6 @@ namespace CustomDataboxes.Databoxes
             gameObject.Set(obj);
         }
 #endif
-
-        void AddCoordinatedSpawns()
-        {
-            if (Vector3Spawns is null)
-                return;
-
-            var spawns = new List<SpawnInfo>();
-            foreach (var spawn in Vector3Spawns)
-            {
-                spawns.Add(new SpawnInfo(TechType, spawn.Key, Quaternion.Euler(spawn.Value)));
-            }
-            CoordinatedSpawnsHandler.RegisterCoordinatedSpawns(spawns);
-        }
     }
 
 }
