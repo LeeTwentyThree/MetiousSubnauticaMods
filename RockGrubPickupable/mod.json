@@ -2,14 +2,11 @@
     "Id": "RockGrubPickupable",
     "DisplayName": "RockGrub Pickupable",
     "Author": "Metious",
-    "Version": "1.0.0",
+    "Version": "1.0.1",
     "Dependencies": [
         "SMLHelper"
       ],
     "Game": "Subnautica",
-    "NexusId": {
-      "Subnautica": "598"
-    },
     "VersionChecker": {
     "LatestVersionURL": "https://github.com/Metious/MetiousSubnauticaMods/raw/master/RockGrubPickupable/mod.json"
     },

@@ -8,8 +8,5 @@
     "SMLHelper"
   ],
   "AssemblyName": "SeamothBrineResist.dll",
-  "NexusId": {
-    "Subnautica": "595"
-  },
   "Enable": true
 }

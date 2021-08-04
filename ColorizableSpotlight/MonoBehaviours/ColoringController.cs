@@ -20,8 +20,13 @@ namespace ColorizableSpotlight.MonoBehaviours
     public class ColoringController : HandTarget, IHandTarget, IProtoEventListener
     {
         Color savedColor = Color.white;
+        Light light;
+        Renderer[] renderers;
         public void Start()
         {
+            light = GetComponentInChildren<Light>(true);
+            renderers = GetComponentsInChildren<Renderer>();
+            
             PrefabIdentifier prefabIdentifier = GetComponentInParent<PrefabIdentifier>();
             if ((prefabIdentifier ??= GetComponent<PrefabIdentifier>()) is null)
                 return;
@@ -41,7 +46,7 @@ namespace ColorizableSpotlight.MonoBehaviours
                     savedColor = new Color(colorInfo.RedLevel, colorInfo.GreenLevel, colorInfo.BlueLevel);
                     return;
                 }
-                Logger.Log(Logger.Level.Warn,"[Spotlight Colorizable] ColorInfo is null");
+                Logger.Log(Logger.Level.Warn,"olorInfo is null");
                 return;
             }
             
@@ -50,9 +55,6 @@ namespace ColorizableSpotlight.MonoBehaviours
 
         public void Update()
         {
-            Light light = this.gameObject.GetComponentInChildren<Light>();
-            Renderer[] renderers = this.gameObject.GetComponentsInChildren<Renderer>();
-
             light.color = new Color(savedColor.r, savedColor.g, savedColor.b);
             foreach (var renderer in renderers)
             {
@@ -71,11 +73,9 @@ namespace ColorizableSpotlight.MonoBehaviours
             if (!enabled)
                 return;
             
-            Light light = this.gameObject.GetComponentInChildren<Light>();
-            Renderer[] renderers = this.gameObject.GetComponentsInChildren<Renderer>();
             if (light == null)
             {
-                Logger.Log(Logger.Level.Error, "[ColorizableSpotlight] Light Component is missing!");
+                Logger.Log(Logger.Level.Error, "Light Component is missing!");
                 return;
             }
 
@@ -123,9 +123,6 @@ namespace ColorizableSpotlight.MonoBehaviours
         }
         public void OnProtoSerialize(ProtobufSerializer serializer)
         {
-            if (!enabled)
-                return;
-
             PrefabIdentifier prefabIdentifier = GetComponentInParent<PrefabIdentifier>();
             if ((prefabIdentifier ??= GetComponent<PrefabIdentifier>()) is null)
             {

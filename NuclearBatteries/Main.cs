@@ -15,8 +15,7 @@ namespace NuclearBatteries
         static AssetBundle assetBundle = AssetBundle.LoadFromFile(Path.Combine(AssetsFolder, "nuclearbatteries"));
 
 
-        public const string version = "1.1.1.1";
-        public const string modName = "[NuclearBatteries] ";
+        public const string version = "1.1.1.2";
 
         [QModPatch]
         public static void Load()

@@ -7,7 +7,7 @@ namespace PlayerAcidFix.Patches
     class DamageSystem_CalculateDamage_Patch
     {
         [HarmonyPostfix]
-        public static float Postfix(float damage, DamageType type)
+        private static void Postfix(ref float __result, DamageType type)
         {
             if (type == DamageType.Acid)
             {
@@ -17,11 +17,9 @@ namespace PlayerAcidFix.Patches
                     {
                         Player.main.acidLoopingSound.Stop();
                     }
-                    damage = 0f;
+                    __result = 0f;
                 }
             }
-
-            return damage;
         }
     }
 }

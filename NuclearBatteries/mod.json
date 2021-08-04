@@ -2,7 +2,7 @@
   "Id": "NuclearBatteries",
   "DisplayName": "Nuclear Batteries",
   "Author": "Metious & Foreverwing",
-  "Version": "1.1.1.1",
+  "Version": "1.1.1.2",
   "Dependencies": [
     "SMLHelper",
     "CustomBatteries"

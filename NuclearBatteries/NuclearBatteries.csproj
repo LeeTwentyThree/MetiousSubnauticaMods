@@ -64,22 +64,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Assets\NuclearBattery.png" />
-    <Content Include="Assets\NuclearBatteryillum.png" />
-    <Content Include="Assets\NuclearBatteryskin.png" />
-    <Content Include="Assets\NuclearBatteryspec.png" />
-    <Content Include="Assets\Nuclearcellillum.png" />
-    <Content Include="Assets\Nuclearcellskin.png" />
-    <Content Include="Assets\NuclearPowerCell.png" />
-    <Content Include="Assets\VolatileBattery.png" />
-    <Content Include="Assets\VolatileBatteryillum.png" />
-    <Content Include="Assets\VolatileBatteryskin.png" />
-    <Content Include="Assets\VolatileBatteryspec.png" />
-    <Content Include="Assets\VolatileCell.png" />
-    <Content Include="Assets\VolatileCellillum.png" />
-    <Content Include="Assets\VolatileCellskin.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="mod.json" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -4,9 +4,6 @@
   "Author": "Metious",
   "Version": "1.0.0",
   "Game": "Subnautica",
-  "NexusId": {
-    "Subnautica": "623"
-  },
   "AssemblyName": "ScannableGhostLeviathan.dll",
   "Enable": true
 }

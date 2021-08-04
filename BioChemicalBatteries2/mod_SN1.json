@@ -11,9 +11,6 @@
     "SMLHelper": "2.9",
     "CustomBatteries": "1.1"
   },
-  "NexusId": {
-    "Subnautica": "664"
-  },
   "Game": "Subnautica",
   "AssemblyName": "BioChemicalBatteries2.dll",
   "Enable": true
