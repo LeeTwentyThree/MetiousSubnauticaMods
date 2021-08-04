@@ -1,4 +1,4 @@
-# Metious Subnautica Mods
+# Metious and Al-An Subnautica Mods
 
 | Mod |Description  | Download
 |--|--|--|
@@ -22,7 +22,7 @@
 | Spadefish Hit Fix| Makes the Spadefish _not_ hurt the Seamoth like a truck.| [SpadefishHitFix.zip](https://github.com/Metious/MetiousSubnauticaMods/files/6933197/SpadefishHitFix.zip)
 
 
-# Metious Subnautica Below Zero Mods
+# Metious and Al-An Subnautica Below Zero Mods
 | Mod |Description | Download
 |--|--|--|
 | Quit To Desktop BZ| simple mod that adds a "Quit to Desktop" button to the pause menu.| [CustomDataboxesBZ.zip](https://github.com/Metious/MetiousSubnauticaMods/files/6933071/CustomDataboxesBZ.zip)
