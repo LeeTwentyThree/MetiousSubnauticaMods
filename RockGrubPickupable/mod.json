@@ -10,6 +10,6 @@
     "VersionChecker": {
     "LatestVersionURL": "https://github.com/Metious/MetiousSubnauticaMods/raw/master/RockGrubPickupable/mod.json"
     },
-    "AssemblyName": "ImprovedRockGrub.dll",
+    "AssemblyName": "RockGrubPickupable.dll",
     "Enable": true
 }
