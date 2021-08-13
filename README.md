@@ -26,7 +26,6 @@
 | Mod |Description | Download
 |--|--|--|
 | Quit To Desktop BZ| simple mod that adds a "Quit to Desktop" button to the pause menu.| [QuitToDesktopBZ.zip](https://github.com/Metious/MetiousSubnauticaMods/files/6961717/QuitToDesktopBZ.zip)
-
 | Custom Databoxes BZ| a VERY powerful mod that makes you be able to make a Custom Databox with custom unlocks, names, description and spawns and unlimited amount of Databoxes.| [CustomDataboxesBZ.zip](https://github.com/Metious/MetiousSubnauticaMods/files/6932037/CustomDataboxesBZ.zip)
 | PRAWN suit Solar Charge| Adds a Solar Charging module for the PRAWN suit.| [ExosuitSolarChargerBZ.zip](https://github.com/Metious/MetiousSubnauticaMods/files/6932966/ExosuitSolarChargerBZ.zip)
 
