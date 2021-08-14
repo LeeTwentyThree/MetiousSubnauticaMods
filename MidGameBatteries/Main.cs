@@ -40,7 +40,7 @@ namespace MidGameBatteries
                     TechType.Magnetite
                 },
                 UnlocksWith = TechType.WhiteMushroom,
-                CustomIcon = ImageUtils.LoadSpriteFromFile(Path.Combine(AssetsFolder, "DeepBattery")),
+                CustomIcon = ImageUtils.LoadSpriteFromFile(Path.Combine(AssetsFolder, "DeepBattery.png")),
                 CBModelData = new CBModelData()
                 {
                     UseIonModelsAsBase = false,
