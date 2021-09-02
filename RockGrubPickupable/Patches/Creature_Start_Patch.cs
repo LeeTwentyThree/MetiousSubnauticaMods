@@ -2,11 +2,12 @@
 using UnityEngine;
 namespace RockGrubPickupable.Patches
 {
-    [HarmonyPatch(typeof(Creature), nameof(Creature.Start))]
+    [HarmonyPatch]
     class Creature_Start_Patch
     {
         [HarmonyPostfix]
-        public static void Postfix(Creature __instance)
+        [HarmonyPatch(typeof(Creature), nameof(Creature.Start))]
+        private static void Postfix(Creature __instance)
         {
             TechType techType = CraftData.GetTechType(__instance.gameObject);
             if (techType == TechType.Rockgrub)
@@ -36,6 +37,16 @@ namespace RockGrubPickupable.Patches
                 // Set the Object inactive cause yes
                 obj.SetActive(false);
             }
+        }
+
+        [HarmonyPostfix]
+        [HarmonyPatch(typeof(WaterParkCreature), nameof(WaterParkCreature.Start))]
+        private static void StartPostfix(WaterParkCreature __instance)
+        {
+            if (CraftData.GetTechType(__instance.gameObject) != TechType.Rockgrub) 
+                return;
+
+            __instance.gameObject.EnsureComponent<Pickupable>().isPickupable = true;
         }
     }
 }

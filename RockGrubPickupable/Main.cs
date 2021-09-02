@@ -39,7 +39,7 @@ namespace RockGrubPickupable
             // Setting Rockgrub's size in the Inventory
             CraftDataHandler.SetItemSize(TechType.Rockgrub, new Vector2int(1, 1));
             // Setting WPC Parameters for Rockgrub so it can grow and breed normaly
-            WaterParkCreature.waterParkCreatureParameters[TechType.Rockgrub] = new WaterParkCreatureParameters(0.03f, 0.7f, 1f, 1f, true);
+            WaterParkCreature.waterParkCreatureParameters[TechType.Rockgrub] = new WaterParkCreatureParameters(0.03f, 0.7f, 1f, 1f);
             // Setting Fuel value for the Rockgrub
             BioReactorHandler.SetBioReactorCharge(TechType.Rockgrub, 350f);
             // Totally origina.. *cough* taken from MrPurple's CYS code
