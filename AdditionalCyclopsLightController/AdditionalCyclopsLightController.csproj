@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+    <Import Project="..\GameDir.targets" />
+    <PropertyGroup>
+        <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+        <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+        <ProjectGuid>{60646D63-4D3F-4EEA-A088-79D3E507C9FE}</ProjectGuid>
+        <OutputType>Library</OutputType>
+        <AppDesignerFolder>Properties</AppDesignerFolder>
+        <RootNamespace>AdditionalCyclopsLightController</RootNamespace>
+        <AssemblyName>AdditionalCyclopsLightController</AssemblyName>
+        <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+        <FileAlignment>512</FileAlignment>
+        <OutputPath>$(SolutionDir)..\Qmods\$(Configuration)\$(AssemblyName)\</OutputPath>
+        <LangVersion>9</LangVersion>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'SN1|AnyCPU'">
+        <DefineConstants>SN1;SUBNAUTICA_STABLE</DefineConstants>
+        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+        <Optimize>true</Optimize>
+        <GameDir>$(CommonDir)Subnautica</GameDir>
+        <DataFolder>Subnautica_Data</DataFolder>
+        <SMLHelperFolder>Modding Helper</SMLHelperFolder>
+        <PlatformTarget>AnyCPU</PlatformTarget>
+        <LangVersion>9</LangVersion>
+        <ErrorReport>prompt</ErrorReport>
+    </PropertyGroup>
+    <ItemGroup>
+        <Reference Include="0Harmony">
+            <HintPath>$(GameDir)\BepInEx\core\0Harmony.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="Assembly-CSharp-firstpass">
+            <HintPath>$(GameDir)\$(DataFolder)\Managed\publicized_assemblies\Assembly-CSharp-firstpass_publicized.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="Assembly-CSharp">
+            <HintPath>$(GameDir)\$(DataFolder)\Managed\publicized_assemblies\Assembly-CSharp_publicized.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.CoreModule">
+            <HintPath>$(GameDir)\$(DataFolder)\Managed\UnityEngine.CoreModule.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.PhysicsModule">
+            <HintPath>$(GameDir)\$(DataFolder)\Managed\UnityEngine.PhysicsModule.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="QModInstaller">
+            <HintPath>$(GameDir)\BepInEx\plugins\QModManager\QModInstaller.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="System" />
+        <Reference Include="System.Core" />
+        <Reference Include="System.Data" />
+        <Reference Include="System.Xml" />
+    </ItemGroup>
+    <ItemGroup>
+        <Compile Include="Main.cs" />
+        <Compile Include="Patches\CyclopsLightingPanelPatches.cs" />
+        <Compile Include="Patches\CyclopsNoiseManagerPatches.cs" />
+        <Compile Include="Properties\AssemblyInfo.cs" />
+    </ItemGroup>
+    <ItemGroup>
+      <Content Include="mod_SN1.json" />
+    </ItemGroup>
+    <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+    <PropertyGroup>
+        <PostBuildEvent>copy "$(ProjectDir)mod_$(ConfigurationName).json" "$(OutDir)mod.json" /y</PostBuildEvent>
+    </PropertyGroup>
+
+</Project>

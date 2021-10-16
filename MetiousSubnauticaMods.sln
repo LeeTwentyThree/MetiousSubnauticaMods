@@ -58,6 +58,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RemoveBlacklisteds", "Remov
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlasmaChargedBatteries", "PlasmaChargedBatteries\PlasmaChargedBatteries.csproj", "{97EFB1A4-8BD1-4228-85D5-8768743FC859}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AirBladderImprovements", "AirBladderImprovements\AirBladderImprovements.csproj", "{0521AC7C-311B-49C6-8807-CA86C9AABFB8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdditionalCyclopsLightController", "AdditionalCyclopsLightController\AdditionalCyclopsLightController.csproj", "{60646D63-4D3F-4EEA-A088-79D3E507C9FE}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		Common\Common.projitems*{fbcf11a8-bc4f-4cb5-9d49-4b2b7446c9ef}*SharedItemsImports = 13
@@ -261,6 +265,22 @@ Global
 		{97EFB1A4-8BD1-4228-85D5-8768743FC859}.Release|Any CPU.Build.0 = BZ|Any CPU
 		{97EFB1A4-8BD1-4228-85D5-8768743FC859}.SN1|Any CPU.ActiveCfg = SN1|Any CPU
 		{97EFB1A4-8BD1-4228-85D5-8768743FC859}.SN1|Any CPU.Build.0 = SN1|Any CPU
+		{0521AC7C-311B-49C6-8807-CA86C9AABFB8}.BZ|Any CPU.ActiveCfg = Debug|Any CPU
+		{0521AC7C-311B-49C6-8807-CA86C9AABFB8}.BZ|Any CPU.Build.0 = Debug|Any CPU
+		{0521AC7C-311B-49C6-8807-CA86C9AABFB8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0521AC7C-311B-49C6-8807-CA86C9AABFB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0521AC7C-311B-49C6-8807-CA86C9AABFB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0521AC7C-311B-49C6-8807-CA86C9AABFB8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0521AC7C-311B-49C6-8807-CA86C9AABFB8}.SN1|Any CPU.ActiveCfg = SN1|Any CPU
+		{0521AC7C-311B-49C6-8807-CA86C9AABFB8}.SN1|Any CPU.Build.0 = SN1|Any CPU
+		{60646D63-4D3F-4EEA-A088-79D3E507C9FE}.BZ|Any CPU.ActiveCfg = Debug|Any CPU
+		{60646D63-4D3F-4EEA-A088-79D3E507C9FE}.BZ|Any CPU.Build.0 = Debug|Any CPU
+		{60646D63-4D3F-4EEA-A088-79D3E507C9FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60646D63-4D3F-4EEA-A088-79D3E507C9FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{60646D63-4D3F-4EEA-A088-79D3E507C9FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{60646D63-4D3F-4EEA-A088-79D3E507C9FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{60646D63-4D3F-4EEA-A088-79D3E507C9FE}.SN1|Any CPU.ActiveCfg = SN1|Any CPU
+		{60646D63-4D3F-4EEA-A088-79D3E507C9FE}.SN1|Any CPU.Build.0 = SN1|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
