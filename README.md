@@ -20,6 +20,7 @@
 | PRAWN suit Propulsion Arm Pickup| Adds a Pickup functionality to the Propulsion Arm and makes you able to pickup items with it!| [ExosuitPickupperPropulsionCannon.zip](https://github.com/Metious/MetiousSubnauticaMods/files/6932949/ExosuitPickupperPropulsionCannon.zip)
 | Seamoth Automatic Sonar| Makes the vanilla Sonar module a toggle, just like the Cyclops sonar.| [SeaMothAutomaticSonar.zip](https://github.com/Metious/MetiousSubnauticaMods/files/6933149/SeaMothAutomaticSonar.zip)
 | Spadefish Hit Fix| Makes the Spadefish _not_ hurt the Seamoth like a truck.| [SpadefishHitFix.zip](https://github.com/Metious/MetiousSubnauticaMods/files/6933197/SpadefishHitFix.zip)
+| Additional Cyclops Light Controller| Duplicates the Cyclops lights/floodlight switch downstairs near the hatch, useful and compatible with the [Vehicle Lights Improved](https://www.nexusmods.com/subnautica/mods/471) mod. (Requested by [Mimes-Pes](https://github.com/Mimes-Pes))| [AdditionalCyclopsLightController.zip](https://github.com/Metious/MetiousSubnauticaMods/files/7816726/AdditionalCyclopsLightController.zip)
 
 
 # Metious and Al-An Subnautica Below Zero Mods
