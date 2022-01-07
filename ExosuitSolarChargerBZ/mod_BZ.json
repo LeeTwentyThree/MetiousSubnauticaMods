@@ -10,9 +10,6 @@
     "SMLHelper": "2.9"
   },
   "Game": "BelowZero",
-  "NexusId": {
-    "BelowZero": "122"
-  },
   "AssemblyName": "ExosuitSolarChargerBZ.dll",
   "Enable": true
 }
