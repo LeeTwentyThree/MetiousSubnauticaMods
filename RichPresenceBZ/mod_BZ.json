@@ -1,0 +1,9 @@
+{
+  "Id": "RichPresenceBZ",
+  "DisplayName": "Discord Rich Presence BZ",
+  "Author": "Metious",
+  "Version": "1.0.0",
+  "Game": "BelowZero",
+  "AssemblyName": "RichPresenceBZ.dll",
+  "Enable": true
+}

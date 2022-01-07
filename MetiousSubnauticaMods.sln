@@ -62,6 +62,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AirBladderImprovements", "A
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdditionalCyclopsLightController", "AdditionalCyclopsLightController\AdditionalCyclopsLightController.csproj", "{60646D63-4D3F-4EEA-A088-79D3E507C9FE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RichPresenceBZ", "RichPresenceBZ\RichPresenceBZ.csproj", "{8D4E99FB-1FC5-448F-90F7-C345A97F29A1}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		Common\Common.projitems*{fbcf11a8-bc4f-4cb5-9d49-4b2b7446c9ef}*SharedItemsImports = 13
@@ -281,6 +283,14 @@ Global
 		{60646D63-4D3F-4EEA-A088-79D3E507C9FE}.Release|Any CPU.Build.0 = Release|Any CPU
 		{60646D63-4D3F-4EEA-A088-79D3E507C9FE}.SN1|Any CPU.ActiveCfg = SN1|Any CPU
 		{60646D63-4D3F-4EEA-A088-79D3E507C9FE}.SN1|Any CPU.Build.0 = SN1|Any CPU
+		{8D4E99FB-1FC5-448F-90F7-C345A97F29A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D4E99FB-1FC5-448F-90F7-C345A97F29A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D4E99FB-1FC5-448F-90F7-C345A97F29A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D4E99FB-1FC5-448F-90F7-C345A97F29A1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D4E99FB-1FC5-448F-90F7-C345A97F29A1}.BZ|Any CPU.ActiveCfg = BZ|Any CPU
+		{8D4E99FB-1FC5-448F-90F7-C345A97F29A1}.BZ|Any CPU.Build.0 = BZ|Any CPU
+		{8D4E99FB-1FC5-448F-90F7-C345A97F29A1}.SN1|Any CPU.ActiveCfg = BZ|Any CPU
+		{8D4E99FB-1FC5-448F-90F7-C345A97F29A1}.SN1|Any CPU.Build.0 = BZ|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
