@@ -4,6 +4,9 @@
   "Author": "Metious",
   "Version": "1.0.0",
   "Game": "BelowZero",
+  "VersionChecker": {
+    "LatestVersionURL": "https://github.com/Metious/MetiousSubnauticaMods/raw/master/RichPresenceBZ/mod_BZ.json"
+  },
   "AssemblyName": "RichPresenceBZ.dll",
   "Enable": true
 }
