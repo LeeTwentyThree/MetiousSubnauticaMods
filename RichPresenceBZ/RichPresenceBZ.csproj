@@ -81,8 +81,10 @@
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
     <PropertyGroup>
-        <PostBuildEvent>copy "$(ProjectDir)mod_$(ConfigurationName).json" "$(OutDir)mod.json" /y</PostBuildEvent>
-        <PostBuildEvent>xcopy "$(ProjectDir)Assets" "$(OutDir)Assets" /e /y /i</PostBuildEvent>
+        <PostBuildEvent>
+            xcopy "$(ProjectDir)Assets" "$(OutDir)Assets" /e /y /i
+            xcopy "$(ProjectDir)mod_$(ConfigurationName).json" "$(OutDir)mod.json" /y
+        </PostBuildEvent>
     </PropertyGroup>
 
 </Project>
