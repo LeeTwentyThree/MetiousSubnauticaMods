@@ -2,11 +2,8 @@
   "Id": "ColorizableSpotlight",
   "DisplayName": "Customizable Spotlight Color",
   "Author": "Metious",
-  "Version": "1.0.5",
+  "Version": "1.0.6",
   "Game": "Subnautica",
-  "NexusId": {
-    "Subnautica": "629"
-  },
   "AssemblyName": "ColorizableSpotlight.dll",
   "VersionChecker": {
     "LatestVersionURL": "https://github.com/Metious/MetiousSubnauticaMods/raw/master/ColorizableSpotlight/mod_SN1.json"
