@@ -1,7 +1,6 @@
-﻿namespace RichPresenceBZ.DiscordGameSDK
+﻿namespace RichPresenceBZ.DiscordGameSDK;
+
+static class Constants
 {
-    static class Constants
-    {
-        public const string DllName = "discord_game_sdk";
-    }
+    public const string DllName = "discord_game_sdk";
 }

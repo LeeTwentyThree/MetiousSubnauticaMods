@@ -13,7 +13,7 @@
         <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
         <FileAlignment>512</FileAlignment>
         <OutputPath>$(SolutionDir)..\Qmods\$(Configuration)\$(AssemblyName)\</OutputPath>
-        <LangVersion>9</LangVersion>
+        <LangVersion>10</LangVersion>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'BZ|AnyCPU'">
         <DefineConstants>BZ;BELOWZERO_STABLE</DefineConstants>
@@ -23,7 +23,7 @@
         <DataFolder>SubnauticaZero_Data</DataFolder>
         <SMLHelperFolder>SMLHelper_BZ</SMLHelperFolder>
         <PlatformTarget>AnyCPU</PlatformTarget>
-        <LangVersion>9</LangVersion>
+        <LangVersion>10</LangVersion>
         <ErrorReport>prompt</ErrorReport>
     </PropertyGroup>
     <ItemGroup>
@@ -73,9 +73,6 @@
         <Compile Include="Main.cs" />
         <Compile Include="MonoBehaviours\DiscordRPManager.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
-    </ItemGroup>
-    <ItemGroup>
-      <Folder Include="Patches" />
     </ItemGroup>
     <ItemGroup>
       <Content Include="Assets\biomes.json" />
