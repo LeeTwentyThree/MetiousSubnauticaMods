@@ -1,0 +1,12 @@
+﻿{
+  "Id": "ExosuitSprint",
+  "DisplayName": "Prawn Suit Sprint",
+  "Author": "Metious",
+  "Version": "1.0.0",
+  "Enable": true,
+  "AssemblyName": "ExosuitSprint.dll",
+  "VersionDependencies": {
+    "SMLHelper": "2.13.0"
+  },
+  "Game": "Subnautica"
+}

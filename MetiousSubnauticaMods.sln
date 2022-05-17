@@ -64,6 +64,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdditionalCyclopsLightContr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RichPresenceBZ", "RichPresenceBZ\RichPresenceBZ.csproj", "{8D4E99FB-1FC5-448F-90F7-C345A97F29A1}"
 EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "ExosuitSprint", "ExosuitSprint\ExosuitSprint.fsproj", "{8DEABCF3-A2E4-435B-806A-49766785ED5E}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		Common\Common.projitems*{fbcf11a8-bc4f-4cb5-9d49-4b2b7446c9ef}*SharedItemsImports = 13
@@ -291,6 +293,14 @@ Global
 		{8D4E99FB-1FC5-448F-90F7-C345A97F29A1}.BZ|Any CPU.Build.0 = BZ|Any CPU
 		{8D4E99FB-1FC5-448F-90F7-C345A97F29A1}.SN1|Any CPU.ActiveCfg = BZ|Any CPU
 		{8D4E99FB-1FC5-448F-90F7-C345A97F29A1}.SN1|Any CPU.Build.0 = BZ|Any CPU
+		{8DEABCF3-A2E4-435B-806A-49766785ED5E}.BZ|Any CPU.ActiveCfg = Debug|Any CPU
+		{8DEABCF3-A2E4-435B-806A-49766785ED5E}.BZ|Any CPU.Build.0 = Debug|Any CPU
+		{8DEABCF3-A2E4-435B-806A-49766785ED5E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8DEABCF3-A2E4-435B-806A-49766785ED5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8DEABCF3-A2E4-435B-806A-49766785ED5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8DEABCF3-A2E4-435B-806A-49766785ED5E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8DEABCF3-A2E4-435B-806A-49766785ED5E}.SN1|Any CPU.ActiveCfg = Debug|Any CPU
+		{8DEABCF3-A2E4-435B-806A-49766785ED5E}.SN1|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

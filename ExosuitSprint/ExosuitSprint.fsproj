@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+    <Import Project="..\packages\FSharp.Compiler.Tools.10.0.2\build\FSharp.Compiler.Tools.props" Condition="Exists('..\packages\FSharp.Compiler.Tools.10.0.2\build\FSharp.Compiler.Tools.props')" />
+    <Import Project="..\GameDir.targets" />
+    <PropertyGroup>
+        <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+        <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+        <ProjectGuid>{8DEABCF3-A2E4-435B-806A-49766785ED5E}</ProjectGuid>
+        <OutputType>Library</OutputType>
+        <RootNamespace>ExosuitSprint</RootNamespace>
+        <AssemblyName>ExosuitSprint</AssemblyName>
+        <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+        <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+        <DebugSymbols>true</DebugSymbols>
+        <DebugType>portable</DebugType>
+        <Optimize>false</Optimize>
+        <Tailcalls>false</Tailcalls>
+        <GameDir>$(CommonDir)Subnautica</GameDir>
+        <DataFolder>Subnautica_Data</DataFolder>
+        <OutputPath>bin\$(Configuration)\</OutputPath>
+        <DefineConstants>DEBUG;TRACE</DefineConstants>
+        <WarningLevel>3</WarningLevel>
+        <OtherFlags>--warnon:1182</OtherFlags>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+        <DebugType>pdbonly</DebugType>
+        <Optimize>true</Optimize>
+        <GameDir>$(CommonDir)Subnautica</GameDir>
+        <DataFolder>Subnautica_Data</DataFolder>
+        <Tailcalls>true</Tailcalls>
+        <OutputPath>bin\$(Configuration)\</OutputPath>
+        <DefineConstants>TRACE</DefineConstants>
+        <WarningLevel>3</WarningLevel>
+        <OtherFlags>--warnon:1182</OtherFlags>
+    </PropertyGroup>
+    <ItemGroup>
+        <Reference Include="0Harmony">
+            <HintPath>$(GameDir)\BepInEx\core\0Harmony.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="Assembly-CSharp-firstpass">
+            <HintPath>$(GameDir)\$(DataFolder)\Managed\publicized_assemblies\Assembly-CSharp-firstpass_publicized.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="Assembly-CSharp">
+            <HintPath>$(GameDir)\$(DataFolder)\Managed\publicized_assemblies\Assembly-CSharp_publicized.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.CoreModule">
+            <HintPath>$(GameDir)\$(DataFolder)\Managed\UnityEngine.CoreModule.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.PhysicsModule">
+            <HintPath>$(GameDir)\$(DataFolder)\Managed\UnityEngine.PhysicsModule.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.AudioModule">
+            <HintPath>$(GameDir)\$(DataFolder)\Managed\UnityEngine.AudioModule.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.AssetBundleModule">
+            <HintPath>$(GameDir)\$(DataFolder)\Managed\UnityEngine.AssetBundleModule.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="QModInstaller">
+            <HintPath>$(GameDir)\BepInEx\plugins\QModManager\QModInstaller.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="Newtonsoft.Json">
+            <HintPath>$(GameDir)\$(DataFolder)\Managed\Newtonsoft.Json.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="SMLHelper">
+            <HintPath>SMLHelper.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="mscorlib" />
+        <Reference Include="System" />
+        <Reference Include="System.Core" />
+        <Reference Include="System.Numerics" />
+        <Reference Include="FSharp.Core">
+            <HintPath>..\packages\FSharp.Core.4.5.2\lib\net45\FSharp.Core.dll</HintPath>
+        </Reference>
+    </ItemGroup>
+    <ItemGroup>
+        <Compile Include="AssemblyInfo.fs" />
+        <Compile Include="Extensions.fs" />
+        <Content Include="mod.json" />
+        <Content Include="packages.config" />
+        <Compile Include="HorizontalJet.fs" />
+        <Compile Include="BoostModule.fs" />
+        <Compile Include="Main.fs" />
+        <Compile Include="config.fs" />
+        <Compile Include="QPatch.fs" />
+        <Compile Include="ExosuitPatches.fs" />
+    </ItemGroup>
+    <Import Project="$(FSharpTargetsPath)" Condition="Exists('$(FSharpTargetsPath)')" />
+    <PropertyGroup>
+        <PostBuildEvent>
+            mkdir "$(GameDir)QMods\$(TargetName)"
+            copy /Y "$(TargetPath)" "$(GameDir)\QMods\$(TargetName)"
+            copy /Y "$(ProjectDir)mod.json" "$(GameDir)\QMods\$(TargetName)\mod.json"
+        </PostBuildEvent>
+    </PropertyGroup>
+</Project>
