@@ -86,16 +86,16 @@
         </Reference>
     </ItemGroup>
     <ItemGroup>
-        <Compile Include="AssemblyInfo.fs" />
         <Compile Include="Extensions.fs" />
-        <Content Include="mod.json" />
         <Content Include="packages.config" />
-        <Compile Include="HorizontalJet.fs" />
-        <Compile Include="BoostModule.fs" />
+        <Compile Include="Properties\AssemblyInfo.fs" />
+        <Compile Include="Modules\BoostModule.fs" />
+        <Compile Include="MonoBehaviours\HorizontalJet.fs" />
         <Compile Include="Main.fs" />
         <Compile Include="config.fs" />
         <Compile Include="QPatch.fs" />
         <Compile Include="ExosuitPatches.fs" />
+        <Content Include="mod.json" />
     </ItemGroup>
     <Import Project="$(FSharpTargetsPath)" Condition="Exists('$(FSharpTargetsPath)')" />
     <PropertyGroup>
