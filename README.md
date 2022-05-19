@@ -6,7 +6,7 @@
 | Abyss Batteries| my and probably the most complex [CustomBatteries](https://www.nexusmods.com/subnautica/mods/382) mod that add multiple Batteries & PowerCells with different Functional Behaviour. (WIP)| -
 |  Enzyme-Charged Battery| another very simple [CustomBatteries](https://www.nexusmods.com/subnautica/mods/382) Mod| [EnzymeChargedBatteries.zip](https://github.com/Metious/MetiousSubnauticaMods/files/6932939/EnzymeChargedBatteries.zip)
 | Coffee Sound Fix| a fix for a bug in Subnautica where when you consume a Coffee, it gives a Crunchy sound| [CoffeeSoundFix.zip](https://github.com/Metious/MetiousSubnauticaMods/files/6932845/CoffeeSoundFix.zip)
-| Seamoth Brine Resistance| a mod that makes the Seamoth immune to the Lost River's Brine Damage| [SeamothBrineResist.zip](https://github.com/Metious/MetiousSubnauticaMods/files/6933174/SeamothBrineResist.zip)
+| Seamoth Brine Resistance| a mod that makes the Seamoth immune to the Lost River's Brine Damage| [SeamothBrineResist.zip](https://github.com/Metious/MetiousSubnauticaMods/files/8725131/SeamothBrineResist.zip)
 | Acid Brine Fix| a mod that fixes a bug when you pilot a Vehicle inside the Brine, you would consistently take damage| [PlayerAcidFix.zip](https://github.com/Metious/MetiousSubnauticaMods/files/6933062/PlayerAcidFix.zip)
 | Improved Rockgrub| a mod that gives a value to the Rockgrub creature. it makes them Pickupable, Eatable, Breedable and also gives them a Bioreactor fuel value| [ImprovedRockGrub.zip](https://github.com/Metious/MetiousSubnauticaMods/files/7097033/ImprovedRockGrub.zip)
 | Passive Sea Dragon| a simple mod that makes the Sea Dragon Leviathan Passive.| [PassiveSeaDragon.zip](https://github.com/Metious/MetiousSubnauticaMods/files/6933016/PassiveSeaDragon.zip)
