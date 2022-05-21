@@ -1,5 +1,7 @@
 ﻿namespace ExosuitSprint
 
+open System.IO
+open System.Reflection
 open ExosuitSprint
 open UnityEngine
 
@@ -10,19 +12,29 @@ type HorizontalJet () =
         let asset = ScriptableObject.CreateInstance<FMODAsset>()
         asset.path <- path
         asset
+        
+    static let _bundle = AssetBundle.LoadFromFile(Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "Assets", "exosuitsprint"))
+    static let mutable _speedFXPrefab: GameObject = null
+    
     
     let mutable _horizontalJetActive = false
     let mutable _verticalJetActive = false
     let mutable _lastMovementDirection: Vector3 = Vector3.zero
     let mutable _exosuit: Exosuit = null
     
+    let mutable _speedFX: GameObject = null
+    
     let mutable _boostSound: FMOD_CustomLoopingEmitter = null
     
+    static member Bundle with get() = _bundle
     member this.HorizontalJetActive with get() = _horizontalJetActive
     member this.VerticalJetActive with get() = _verticalJetActive
     member this.IsGround with get() = _exosuit.onGround
     
     member private this.Awake() =
+        if _speedFXPrefab.Null() then
+            _speedFXPrefab <- _bundle.LoadAsset<GameObject>("ScreenSpeedFX")
+        this.InitFX(_speedFXPrefab)
         _exosuit <- this.GetComponent<Exosuit>()
         _boostSound <- this.gameObject.AddComponent<FMOD_CustomLoopingEmitter>()
         _boostSound.SetAsset(FModAsset "exosuit_boost_loop")
@@ -76,3 +88,13 @@ type HorizontalJet () =
         match jetActive with
         | true -> if not _boostSound.playing then _boostSound.Play()
         | false -> if _boostSound.playing then _boostSound.Stop()
+        
+    member private this.InitFX(speedFXPrefab: GameObject) =
+        if speedFXPrefab.Null() then
+            nullArg "speedFX"
+            
+        if _speedFX.Null() then
+            _speedFX <- Object.Instantiate<GameObject>(_speedFXPrefab, this.transform)
+            _speedFX.transform.localPosition <- Vector3.zero.WithY(0.55f);
+            _speedFX.GetComponentInChildren<Renderer>().materials
+            |> Seq.iter (fun m -> m.shader <- Shader.Find("UWE/Particles/UBER"))

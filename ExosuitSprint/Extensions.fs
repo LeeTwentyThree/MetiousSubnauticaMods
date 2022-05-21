@@ -38,6 +38,11 @@ type Extensions =
                 TechTypePatcher.cacheManager.entriesFromRequests.Remove(equipable.TechType, int equipable.TechType, equipable.ClassID)
             
             equipable.IsPatched <- false
+            
+            
+    [<Extension>]
+    static member Null(obj: UnityEngine.Object) =
+        System.Object.Equals(obj, Unchecked.defaultof<_>)
         
 
 type Logging =

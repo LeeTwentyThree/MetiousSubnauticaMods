@@ -25,7 +25,7 @@ let MakeSound (bundle: AssetBundle, name, loop) =
 let Load () =
     config.Load()
     if config.makeModule then Main.boostModule.Patch()
-    let assetBundle = AssetBundle.LoadFromFile(Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "Assets", "exosuitsprint"))
+    let assetBundle = HorizontalJet.Bundle
     MakeSound(assetBundle, "exosuit_boost_start", false) |> ignore
     MakeSound(assetBundle, "exosuit_boost_stop", false) |> ignore
     MakeSound(assetBundle, "exosuit_boost_loop", true) |> ignore
