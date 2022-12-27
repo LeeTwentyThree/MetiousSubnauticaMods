@@ -1,0 +1,15 @@
+{
+  "Id": "CoffeeSoundFix",
+  "DisplayName": "Coffee Sound Fix",
+  "Author": "Metious",
+  "Version": "1.0.0",
+  "Dependencies": [
+    "SMLHelper"
+  ],
+  "Game": "Subnautica",
+  "NexusId": {
+    "Subnautica": "586"
+  },
+  "AssemblyName": "CoffeeSoundFix.dll",
+  "Enable": true
+}
